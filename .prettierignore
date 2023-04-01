@@ -1,4 +1,4 @@
 node_modules
-*.html
+# *.html
 *.scss
 *.spec.ts
