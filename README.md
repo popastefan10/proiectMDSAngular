@@ -1,27 +1,38 @@
 # ProiectMDSAngular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
+Team name: Brontosaurs
 
-## Development server
+Team members:
+- Buzaș Radu
+- Eftimie Petre
+- Moarcăș Cosmin
+- Popa Ștefan
+- Stoica Ioan
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Links
 
-## Code scaffolding
+- [Backend Project](https://github.com/lowLevelGod/proiectMDS)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- [UML Diagram](http://www.plantuml.com/plantuml/dpng/dPJFJiCm3CRlVOeS-REzm4v3I0Ya7IQcdH27a9Wk8asg91sQ4EzEEYUb2Q4Rd5RRly_vd7fTMaUDwnfPLKnIQydMWY4V5I62amNPE2DKxIDeg93ZHElXTstuFRMx8K-gpzXdRVIha51erLam3pyoYZQGz4VzMZ3N6TW-hiR577uHUWX75hHrXVEP0Ug0tpYVvFwfQ8c3PKQqJcYLk48xrlknG_xfUJJthMuQKFy-j_MUqmpJolKDo_Ejn1lUyUbMkSK9AKEYeCO5sO3P2uRgQmI8WLfO1-O2OzoO6OcHOkRGEk3hi3UN8wdKjL1_qUsru8JjgAeXveCSXq7gkCerkFxtjp872GvAHBx9oSmX5zvfY0fdHCwxE0rrBJ-h6NekS-bsf9vz8XhsZvam4jWz8N2H1W9zJX9-t8co_xz8OO-lfGzjsKd4xW1u4SltEHaMSt7U4AKTPYIt5sNn4Z8Pmp11yJREH6jmPt7zs7xa2Dla7d7ou_BEvrV3TtP1TjGIhM1KydZ8DrGTlWlODwdrR58hwU87foXCY-KJytf8Jo7L4XJl6la5)
 
-## Build
+## Epic stories
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Our social media application allows users to create accounts in order to create posts and share them with other people. Posts can have several pictures and anyone can express their thoughts by writing comments or giving likes. We also plan on adding debate and video calling features depending on how time allows us.
 
-## Running unit tests
+## User stories
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. As a user, I want to be able to post pictures on my profile and see other people's pictures as well.
+2. As a user, I want to get content recommendations based on posts I liked previously.
+3. As a user, I want to be able to make video calls to my friends.
+4. As a user, I want to be able to send text messages to other users.
+5. As a user, I want to be able to comment and leave reactions on other people's posts.
+6. As a user, I want to be able to enter a separate chat room if I want to thoroughly debate a hot topic brought by other users in a comment or post.
+7. As a user, I want to be able to allow only certain people to see my posts or send me messages.
+8. As a user, I want to be able to search other people's names and connect with them.
+9. As a user, I want to be able to follow certain profiles and see the content they post on my front page.
+10. As a business-owner, I want to be able to see how many people viewed my profile over time.
+11. As a user, I must have a signup form in order to create an account.
+12. As a user, I must have a login form in order to enter my account.
+13. As a user, I want to get notifications.
+14. As a user, I want to be able to make serveless video calls.
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
