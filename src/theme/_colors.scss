@@ -2,6 +2,7 @@
 @use "palettes" as palettes;
 
 $primary: mat.get-color-from-palette(palettes.$project-primary-palette, 500);
+$primary-800: mat.get-color-from-palette(palettes.$project-primary-palette, 800);
 
 $pure-white: #FFFFFF;
 $gray-100: mat.get-color-from-palette(mat.$gray-palette, 100);

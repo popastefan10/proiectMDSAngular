@@ -1,7 +1,8 @@
 <div class="login-form-container">
   <div class="login-form-header">
-    <p class="header-text">Login</p>
+    <h2 class="header-text">Login</h2>
   </div>
+
   <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div>
       <mat-form-field class="login-form-field">
@@ -19,5 +20,11 @@
     </div>
 
     <button mat-raised-button color="primary" type="submit" class="login-button">Login</button>
+
+    <p class="create-account">
+      New here?
+      <a routerLink="/login">Create an account</a>
+      <!-- TODO replace with link to register page -->
+    </p>
   </form>
 </div>
