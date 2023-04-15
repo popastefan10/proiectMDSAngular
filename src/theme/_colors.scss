@@ -1,0 +1,4 @@
+@use "@angular/material" as mat;
+@use "palettes" as palettes;
+
+$primary: mat.get-color-from-palette(palettes.$project-primary-palette, 500);
