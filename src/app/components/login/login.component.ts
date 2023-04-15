@@ -21,4 +21,21 @@ export class LoginComponent implements OnInit {
     console.log('email:', this.loginForm.controls.email.value);
     console.log('password:', this.loginForm.controls.password.value);
   }
+
+  public get email(): FormControl {
+    return this.loginForm.controls.email;
+  }
+
+  public get password(): FormControl {
+    return this.loginForm.controls.password;
+  }
+
+  public getErrorMessage(formControl: FormControl) { // TODO replace with pipe for better performance
+    console.log('getErrorMessage');
+    if (formControl.hasError('required')) {
+      return 'This field is required';
+    }
+
+    return formControl.hasError('email') ? 'Not a valid email' : '';
+  }
 }

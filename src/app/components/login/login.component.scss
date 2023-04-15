@@ -1,0 +1,39 @@
+@use "theme/colors" as *;
+
+:host {
+  display: block;
+  background-color: $gray-100;
+}
+
+.login-form-container {
+  display: flex;
+  flex-direction: column;
+  background-color: $pure-white;
+  width: 400px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 16px $gray-300;
+
+  .login-form-header {
+    border-bottom: 2px solid $gray-300;
+
+    .header-text {
+      text-align: center;
+    }
+  }
+
+  .login-form {
+    padding: 32px;
+  }
+
+  .login-form-field {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  .login-button {
+    height: 40px;
+    width: 100%;
+    color: $pure-white;
+    text-transform: uppercase;
+  }
+}

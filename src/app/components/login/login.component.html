@@ -1,20 +1,23 @@
-<p>login works!</p>
-
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label for="email">Email:</label>
-    <input id="email" type="text" formControlName="email" />
-    <p>Email: {{ loginForm.controls.email.valueChanges | async }}</p>
+<div class="login-form-container">
+  <div class="login-form-header">
+    <p class="header-text">Login</p>
   </div>
+  <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div>
+      <mat-form-field class="login-form-field">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="e.g. example@mail.com" type="text" formControlName="email" />
+        <mat-error *ngIf="email.invalid">{{ getErrorMessage(email) }}</mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="login-form-field">
+        <mat-label>Password</mat-label>
+        <input matInput id="password" type="text" formControlName="password" />
+        <mat-error *ngIf="password.invalid">{{ getErrorMessage(password) }}</mat-error>
+      </mat-form-field>
+    </div>
 
-  <div>
-    <label for="password">Password:</label>
-    <input id="password" type="text" formControlName="password" />
-    <p>Password: {{ loginForm.controls.password.valueChanges | async }}</p>
-  </div>
-
-  <button type="submit" [disabled]="!loginForm.valid">Login</button>
-</form>
-
-<p>Form value: {{ loginForm.value | json }}</p>
-<p>Form status: {{ loginForm.status }}</p>
+    <button mat-raised-button color="primary" type="submit" class="login-button">Login</button>
+  </form>
+</div>
