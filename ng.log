@@ -1,0 +1,1462 @@
+nohup: ignoring input
+Node.js version v19.8.1 detected.
+Odd numbered Node.js versions will not enter LTS status and should not be used for production. For more information, please see https://nodejs.org/en/about/releases/.
+Your global Angular CLI version (15.2.5) is greater than your local version (15.2.4). The local Angular CLI version is used.
+
+To disable this warning use "ng config -g cli.warnings.versionMismatch false".
+- Generating browser application bundles (phase: setup)...
+✔ Browser application bundle generation complete.
+✔ Browser application bundle generation complete.
+✔ Browser application bundle generation complete.
+
+Error: src/app/app.component.html:11:3 - error NG5002: Opening tag "a" not terminated.
+
+11   <a "></a>
+     ~~~
+
+  src/app/app.component.ts:4:16
+    4   templateUrl: './app.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component AppComponent.
+
+
+Error: src/app/app.component.html:11:8 - error NG5002: Unexpected closing tag "a". It may happen when the tag has already been closed by another tag. For more info see https://www.w3.org/TR/html5/syntax.html#closing-elements-that-have-implied-end-tags
+
+11   <a "></a>
+          ~~~~
+
+  src/app/app.component.ts:4:16
+    4   templateUrl: './app.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component AppComponent.
+
+
+
+✔ Browser application bundle generation complete.
+✔ Browser application bundle generation complete.
+✔ Browser application bundle generation complete.
+✔ Browser application bundle generation complete.
+✔ Browser application bundle generation complete.
+✔ Browser application bundle generation complete.
+✔ Browser application bundle generation complete.
+✔ Browser application bundle generation complete.
+✔ Browser application bundle generation complete.
+
+Error: src/app/app-routing.module.ts:10:3 - error TS1005: ',' expected.
+
+10   { path}
+     ~
+
+
+Error: src/app/app-routing.module.ts:10:5 - error TS18004: No value exists in scope for the shorthand property 'path'. Either declare one or provide an initializer.
+
+10   { path}
+       ~~~~
+
+
+
+✔ Browser application bundle generation complete.
+
+Error: src/app/app-routing.module.ts:10:3 - error TS1005: ',' expected.
+
+10   { path: 'register'}
+     ~
+
+
+
+✔ Browser application bundle generation complete.
+
+Error: src/app/app-routing.module.ts:10:3 - error TS1005: ',' expected.
+
+10   { path: 'register' com}
+     ~
+
+
+Error: src/app/app-routing.module.ts:10:22 - error TS1005: ',' expected.
+
+10   { path: 'register' com}
+                        ~~~
+
+
+Error: src/app/app-routing.module.ts:10:22 - error TS2322: Type '{ path: string; com: any; }' is not assignable to type 'Route'.
+  Object literal may only specify known properties, and 'com' does not exist in type 'Route'.
+
+10   { path: 'register' com}
+                        ~~~
+
+
+Error: src/app/app-routing.module.ts:10:22 - error TS18004: No value exists in scope for the shorthand property 'com'. Either declare one or provide an initializer.
+
+10   { path: 'register' com}
+                        ~~~
+
+
+
+✔ Browser application bundle generation complete.
+
+Error: src/app/app-routing.module.ts:10:3 - error TS1005: ',' expected.
+
+10   { path: 'register' comonent}
+     ~
+
+
+Error: src/app/app-routing.module.ts:10:22 - error TS1005: ',' expected.
+
+10   { path: 'register' comonent}
+                        ~~~~~~~~
+
+
+Error: src/app/app-routing.module.ts:10:22 - error TS2322: Type '{ path: string; comonent: any; }' is not assignable to type 'Route'.
+  Object literal may only specify known properties, but 'comonent' does not exist in type 'Route'. Did you mean to write 'component'?
+
+10   { path: 'register' comonent}
+                        ~~~~~~~~
+
+
+Error: src/app/app-routing.module.ts:10:22 - error TS2552: Cannot find name 'comonent'. Did you mean 'Comment'?
+
+10   { path: 'register' comonent}
+                        ~~~~~~~~
+
+  node_modules/typescript/lib/lib.dom.d.ts:3785:13
+    3785 declare var Comment: {
+                     ~~~~~~~
+    'Comment' is declared here.
+
+
+
+✔ Browser application bundle generation complete.
+
+./src/app/app-routing.module.ts - Error: Module build failed (from ./node_modules/@angular-devkit/build-angular/src/babel/webpack-loader.js):
+SyntaxError: /home/cosmin/Facultate/MDS/proiectMDS/proiectMDSAngular/src/app/app-routing.module.ts: Unexpected token (10:35)
+
+   8 |     { path: 'api-tests', component: ApiTestsComponent },
+   9 |     { path: 'login', component: LoginComponent },
+> 10 |     { path: 'register', comonent:  }
+     |                                    ^
+  11 | ];
+  12 | export class AppRoutingModule {
+  13 |     static { this.ɵfac = function AppRoutingModule_Factory(t) { return new (t || AppRoutingModule)(); }; }
+
+Error: src/app/app-routing.module.ts:10:3 - error TS1005: ',' expected.
+
+10   { path: 'register' comonent: }
+     ~
+
+
+Error: src/app/app-routing.module.ts:10:22 - error TS1005: ',' expected.
+
+10   { path: 'register' comonent: }
+                        ~~~~~~~~
+
+
+Error: src/app/app-routing.module.ts:10:22 - error TS2322: Type '{ path: string; comonent: any; }' is not assignable to type 'Route'.
+  Object literal may only specify known properties, but 'comonent' does not exist in type 'Route'. Did you mean to write 'component'?
+
+10   { path: 'register' comonent: }
+                        ~~~~~~~~~
+
+
+Error: src/app/app-routing.module.ts:10:32 - error TS1109: Expression expected.
+
+10   { path: 'register' comonent: }
+                                  ~
+
+
+
+✔ Browser application bundle generation complete.
+
+Error: src/app/app-routing.module.ts:10:3 - error TS1005: ',' expected.
+
+10   { path: 'register' compo}
+     ~
+
+
+Error: src/app/app-routing.module.ts:10:22 - error TS1005: ',' expected.
+
+10   { path: 'register' compo}
+                        ~~~~~
+
+
+Error: src/app/app-routing.module.ts:10:22 - error TS2322: Type '{ path: string; compo: any; }' is not assignable to type 'Route'.
+  Object literal may only specify known properties, and 'compo' does not exist in type 'Route'.
+
+10   { path: 'register' compo}
+                        ~~~~~
+
+
+Error: src/app/app-routing.module.ts:10:22 - error TS18004: No value exists in scope for the shorthand property 'compo'. Either declare one or provide an initializer.
+
+10   { path: 'register' compo}
+                        ~~~~~
+
+
+
+✔ Browser application bundle generation complete.
+
+Error: src/app/app-routing.module.ts:11:3 - error TS1005: ',' expected.
+
+11   { path: 'register' component: RegisterComponent }
+     ~
+
+
+Error: src/app/app-routing.module.ts:11:22 - error TS1005: ',' expected.
+
+11   { path: 'register' component: RegisterComponent }
+                        ~~~~~~~~~
+
+
+Error: src/app/components/register/register.component.html:3:7 - error NG8002: Can't bind to 'formGroup' since it isn't a known property of 'form'.
+
+3 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:7:18 - error TS2339: Property 'loginForm' does not exist on type 'RegisterComponent'.
+
+7     <p>Email: {{ loginForm.controls.email.valueChanges | async }}</p>
+                   ~~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:7:58 - error NG8004: No pipe found with name 'async'.
+
+7     <p>Email: {{ loginForm.controls.email.valueChanges | async }}</p>
+                                                           ~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:13:21 - error TS2339: Property 'loginForm' does not exist on type 'RegisterComponent'.
+
+13     <p>Password: {{ loginForm.controls.password.valueChanges | async }}</p>
+                       ~~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:13:64 - error NG8004: No pipe found with name 'async'.
+
+13     <p>Password: {{ loginForm.controls.password.valueChanges | async }}</p>
+                                                                  ~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+
+✔ Browser application bundle generation complete.
+
+Error: src/app/app-routing.module.ts:11:22 - error TS1005: ',' expected.
+
+11   { path: 'register' component: RegisterComponent }
+                        ~~~~~~~~~
+
+
+Error: src/app/components/register/register.component.html:3:7 - error NG8002: Can't bind to 'formGroup' since it isn't a known property of 'form'.
+
+3 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:7:18 - error TS2339: Property 'loginForm' does not exist on type 'RegisterComponent'.
+
+7     <p>Email: {{ loginForm.controls.email.valueChanges | async }}</p>
+                   ~~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:7:58 - error NG8004: No pipe found with name 'async'.
+
+7     <p>Email: {{ loginForm.controls.email.valueChanges | async }}</p>
+                                                           ~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:13:21 - error TS2339: Property 'loginForm' does not exist on type 'RegisterComponent'.
+
+13     <p>Password: {{ loginForm.controls.password.valueChanges | async }}</p>
+                       ~~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:13:64 - error NG8004: No pipe found with name 'async'.
+
+13     <p>Password: {{ loginForm.controls.password.valueChanges | async }}</p>
+                                                                  ~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+
+✔ Browser application bundle generation complete.
+
+Error: src/app/components/register/register.component.html:3:7 - error NG8002: Can't bind to 'formGroup' since it isn't a known property of 'form'.
+
+3 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:7:18 - error TS2339: Property 'loginForm' does not exist on type 'RegisterComponent'.
+
+7     <p>Email: {{ loginForm.controls.email.valueChanges | async }}</p>
+                   ~~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:7:58 - error NG8004: No pipe found with name 'async'.
+
+7     <p>Email: {{ loginForm.controls.email.valueChanges | async }}</p>
+                                                           ~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:13:21 - error TS2339: Property 'loginForm' does not exist on type 'RegisterComponent'.
+
+13     <p>Password: {{ loginForm.controls.password.valueChanges | async }}</p>
+                       ~~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:13:64 - error NG8004: No pipe found with name 'async'.
+
+13     <p>Password: {{ loginForm.controls.password.valueChanges | async }}</p>
+                                                                  ~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+
+✔ Browser application bundle generation complete.
+
+Error: src/app/components/register/register.component.html:3:7 - error NG8002: Can't bind to 'formGroup' since it isn't a known property of 'form'.
+
+3 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:7:18 - error TS2339: Property 'loginForm' does not exist on type 'RegisterComponent'.
+
+7     <p>Email: {{ loginForm.controls.email.valueChanges | async }}</p>
+                   ~~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:7:58 - error NG8004: No pipe found with name 'async'.
+
+7     <p>Email: {{ loginForm.controls.email.valueChanges | async }}</p>
+                                                           ~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:13:21 - error TS2339: Property 'loginForm' does not exist on type 'RegisterComponent'.
+
+13     <p>Password: {{ loginForm.controls.password.valueChanges | async }}</p>
+                       ~~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:13:64 - error NG8004: No pipe found with name 'async'.
+
+13     <p>Password: {{ loginForm.controls.password.valueChanges | async }}</p>
+                                                                  ~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+
+✔ Browser application bundle generation complete.
+
+Error: src/app/app-routing.module.ts:19:1 - error TS2552: Cannot find name 'comonent'. Did you mean 'Comment'?
+
+19 comonent
+   ~~~~~~~~
+
+  node_modules/typescript/lib/lib.dom.d.ts:3785:13
+    3785 declare var Comment: {
+                     ~~~~~~~
+    'Comment' is declared here.
+
+
+Error: src/app/components/register/register.component.html:3:7 - error NG8002: Can't bind to 'formGroup' since it isn't a known property of 'form'.
+
+3 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:7:18 - error TS2339: Property 'loginForm' does not exist on type 'RegisterComponent'.
+
+7     <p>Email: {{ loginForm.controls.email.valueChanges | async }}</p>
+                   ~~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:7:58 - error NG8004: No pipe found with name 'async'.
+
+7     <p>Email: {{ loginForm.controls.email.valueChanges | async }}</p>
+                                                           ~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:13:21 - error TS2339: Property 'loginForm' does not exist on type 'RegisterComponent'.
+
+13     <p>Password: {{ loginForm.controls.password.valueChanges | async }}</p>
+                       ~~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:13:64 - error NG8004: No pipe found with name 'async'.
+
+13     <p>Password: {{ loginForm.controls.password.valueChanges | async }}</p>
+                                                                  ~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+
+✔ Browser application bundle generation complete.
+
+Error: src/app/components/register/register.component.html:3:7 - error NG8002: Can't bind to 'formGroup' since it isn't a known property of 'form'.
+
+3 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:7:18 - error TS2339: Property 'loginForm' does not exist on type 'RegisterComponent'.
+
+7     <p>Email: {{ loginForm.controls.email.valueChanges | async }}</p>
+                   ~~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:7:58 - error NG8004: No pipe found with name 'async'.
+
+7     <p>Email: {{ loginForm.controls.email.valueChanges | async }}</p>
+                                                           ~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:13:21 - error TS2339: Property 'loginForm' does not exist on type 'RegisterComponent'.
+
+13     <p>Password: {{ loginForm.controls.password.valueChanges | async }}</p>
+                       ~~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:13:64 - error NG8004: No pipe found with name 'async'.
+
+13     <p>Password: {{ loginForm.controls.password.valueChanges | async }}</p>
+                                                                  ~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+
+✔ Browser application bundle generation complete.
+
+Error: src/app/app.module.ts:5:10 - error TS2300: Duplicate identifier 'LoginComponent'.
+
+5 import { LoginComponent } from './components/login/login.component';
+           ~~~~~~~~~~~~~~
+
+
+Error: src/app/app.module.ts:6:10 - error TS2300: Duplicate identifier 'LoginComponent'.
+
+6 import { LoginComponent } from './components/login/login.component';
+           ~~~~~~~~~~~~~~
+
+
+Error: src/app/components/register/register.component.html:3:7 - error NG8002: Can't bind to 'formGroup' since it isn't a known property of 'form'.
+
+3 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:7:18 - error TS2339: Property 'loginForm' does not exist on type 'RegisterComponent'.
+
+7     <p>Email: {{ loginForm.controls.email.valueChanges | async }}</p>
+                   ~~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:7:58 - error NG8004: No pipe found with name 'async'.
+
+7     <p>Email: {{ loginForm.controls.email.valueChanges | async }}</p>
+                                                           ~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:13:21 - error TS2339: Property 'loginForm' does not exist on type 'RegisterComponent'.
+
+13     <p>Password: {{ loginForm.controls.password.valueChanges | async }}</p>
+                       ~~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:13:64 - error NG8004: No pipe found with name 'async'.
+
+13     <p>Password: {{ loginForm.controls.password.valueChanges | async }}</p>
+                                                                  ~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+
+✔ Browser application bundle generation complete.
+
+Error: src/app/app.module.ts:6:1 - error TS6133: 'RegisterComponent' is declared but its value is never read.
+
+6 import { RegisterComponent } from './components/login/login.component';
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Error: src/app/app.module.ts:6:10 - error TS2305: Module '"./components/login/login.component"' has no exported member 'RegisterComponent'.
+
+6 import { RegisterComponent } from './components/login/login.component';
+           ~~~~~~~~~~~~~~~~~
+
+
+Error: src/app/components/register/register.component.html:3:7 - error NG8002: Can't bind to 'formGroup' since it isn't a known property of 'form'.
+
+3 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:7:18 - error TS2339: Property 'loginForm' does not exist on type 'RegisterComponent'.
+
+7     <p>Email: {{ loginForm.controls.email.valueChanges | async }}</p>
+                   ~~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:7:58 - error NG8004: No pipe found with name 'async'.
+
+7     <p>Email: {{ loginForm.controls.email.valueChanges | async }}</p>
+                                                           ~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:13:21 - error TS2339: Property 'loginForm' does not exist on type 'RegisterComponent'.
+
+13     <p>Password: {{ loginForm.controls.password.valueChanges | async }}</p>
+                       ~~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:13:64 - error NG8004: No pipe found with name 'async'.
+
+13     <p>Password: {{ loginForm.controls.password.valueChanges | async }}</p>
+                                                                  ~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+
+✔ Browser application bundle generation complete.
+
+Error: src/app/app.module.ts:6:1 - error TS6133: 'RegisterComponent' is declared but its value is never read.
+
+6 import { RegisterComponent } from './components/reguster/login.component';
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Error: src/app/app.module.ts:6:35 - error TS2307: Cannot find module './components/reguster/login.component' or its corresponding type declarations.
+
+6 import { RegisterComponent } from './components/reguster/login.component';
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Error: src/app/components/register/register.component.html:3:7 - error NG8002: Can't bind to 'formGroup' since it isn't a known property of 'form'.
+
+3 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:7:18 - error TS2339: Property 'loginForm' does not exist on type 'RegisterComponent'.
+
+7     <p>Email: {{ loginForm.controls.email.valueChanges | async }}</p>
+                   ~~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:7:58 - error NG8004: No pipe found with name 'async'.
+
+7     <p>Email: {{ loginForm.controls.email.valueChanges | async }}</p>
+                                                           ~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:13:21 - error TS2339: Property 'loginForm' does not exist on type 'RegisterComponent'.
+
+13     <p>Password: {{ loginForm.controls.password.valueChanges | async }}</p>
+                       ~~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:13:64 - error NG8004: No pipe found with name 'async'.
+
+13     <p>Password: {{ loginForm.controls.password.valueChanges | async }}</p>
+                                                                  ~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+
+✔ Browser application bundle generation complete.
+
+Error: src/app/app.module.ts:6:1 - error TS6133: 'RegisterComponent' is declared but its value is never read.
+
+6 import { RegisterComponent } from './components/reguster/register.component';
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Error: src/app/app.module.ts:6:35 - error TS2307: Cannot find module './components/reguster/register.component' or its corresponding type declarations.
+
+6 import { RegisterComponent } from './components/reguster/register.component';
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Error: src/app/components/register/register.component.html:3:7 - error NG8002: Can't bind to 'formGroup' since it isn't a known property of 'form'.
+
+3 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:7:18 - error TS2339: Property 'loginForm' does not exist on type 'RegisterComponent'.
+
+7     <p>Email: {{ loginForm.controls.email.valueChanges | async }}</p>
+                   ~~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:7:58 - error NG8004: No pipe found with name 'async'.
+
+7     <p>Email: {{ loginForm.controls.email.valueChanges | async }}</p>
+                                                           ~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:13:21 - error TS2339: Property 'loginForm' does not exist on type 'RegisterComponent'.
+
+13     <p>Password: {{ loginForm.controls.password.valueChanges | async }}</p>
+                       ~~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:13:64 - error NG8004: No pipe found with name 'async'.
+
+13     <p>Password: {{ loginForm.controls.password.valueChanges | async }}</p>
+                                                                  ~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+
+✔ Browser application bundle generation complete.
+
+./src/app/app.module.ts:7:0-77 - Error: Module not found: Error: Can't resolve './components/reguster/register.component' in '/home/cosmin/Facultate/MDS/proiectMDS/proiectMDSAngular/src/app'
+
+Error: src/app/app.component.html:13:1 - error NG8001: 'router-outlet' is not a known element:
+1. If 'router-outlet' is an Angular component, then verify that it is part of this module.
+2. If 'router-outlet' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+
+13 <router-outlet></router-outlet>
+   ~~~~~~~~~~~~~~~
+
+  src/app/app.component.ts:4:16
+    4   templateUrl: './app.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component AppComponent.
+
+
+Error: src/app/app.module.ts:6:35 - error TS2307: Cannot find module './components/reguster/register.component' or its corresponding type declarations.
+
+6 import { RegisterComponent } from './components/reguster/register.component';
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Error: src/app/app.module.ts:11:17 - error NG1010: Value
+
+Error: src/app/components/api-tests/api-tests.component.html:2:25 - error NG8002: Can't bind to 'formGroup' since it isn't a known property of 'form'.
+
+2 <form *ngIf="!userInfo" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                          ~~~~~~~~~~~~~~~~~~~~~~~
+
+  src/app/components/api-tests/api-tests.component.ts:9:16
+    9   templateUrl: './api-tests.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component ApiTestsComponent.
+
+
+Error: src/app/components/api-tests/api-tests.component.html:23:16 - error TS2532: Object is possibly 'undefined'.
+
+23     {{userInfo.id}}
+                  ~~
+
+  src/app/components/api-tests/api-tests.component.ts:9:16
+    9   templateUrl: './api-tests.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component ApiTestsComponent.
+
+
+Error: src/app/components/api-tests/api-tests.component.html:27:7 - error NG8002: Can't bind to 'formGroup' since it isn't a known property of 'form'.
+
+27 <form [formGroup]="signupForm" (ngSubmit)="onSignUp()">
+         ~~~~~~~~~~~~~~~~~~~~~~~~
+
+  src/app/components/api-tests/api-tests.component.ts:9:16
+    9   templateUrl: './api-tests.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component ApiTestsComponent.
+
+
+Error: src/app/components/api-tests/api-tests.component.html:47:7 - error NG8002: Can't bind to 'formGroup' since it isn't a known property of 'form'.
+
+47 <form [formGroup]="postForm" (ngSubmit)="onCreatePost()">
+         ~~~~~~~~~~~~~~~~~~~~~~
+
+  src/app/components/api-tests/api-tests.component.ts:9:16
+    9   templateUrl: './api-tests.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component ApiTestsComponent.
+
+
+Error: src/app/components/api-tests/api-tests.component.html:72:10 - error TS2532: Object is possibly 'undefined'.
+
+72   {{post.id}}
+            ~~
+
+  src/app/components/api-tests/api-tests.component.ts:9:16
+    9   templateUrl: './api-tests.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component ApiTestsComponent.
+
+
+Error: src/app/components/api-tests/api-tests.component.html:76:10 - error TS2532: Object is possibly 'undefined'.
+
+76   {{post.userId}}
+            ~~~~~~
+
+  src/app/components/api-tests/api-tests.component.ts:9:16
+    9   templateUrl: './api-tests.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component ApiTestsComponent.
+
+
+Error: src/app/components/api-tests/api-tests.component.html:79:7 - error NG8002: Can't bind to 'formGroup' since it isn't a known property of 'form'.
+
+79 <form [formGroup]="deletePostForm" (ngSubmit)="onDeletePost()">
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  src/app/components/api-tests/api-tests.component.ts:9:16
+    9   templateUrl: './api-tests.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component ApiTestsComponent.
+
+
+Error: src/app/components/login/login.component.html:3:7 - error NG8002: Can't bind to 'formGroup' since it isn't a known property of 'form'.
+
+3 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        ~~~~~~~~~~~~~~~~~~~~~~~
+
+  src/app/components/login/login.component.ts:6:16
+    6   templateUrl: './login.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component LoginComponent.
+
+
+Error: src/app/components/login/login.component.html:7:58 - error NG8004: No pipe found with name 'async'.
+
+7     <p>Email: {{ loginForm.controls.email.valueChanges | async }}</p>
+                                                           ~~~~~
+
+  src/app/components/login/login.component.ts:6:16
+    6   templateUrl: './login.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component LoginComponent.
+
+
+Error: src/app/components/login/login.component.html:13:64 - error NG8004: No pipe found with name 'async'.
+
+13     <p>Password: {{ loginForm.controls.password.valueChanges | async }}</p>
+                                                                  ~~~~~
+
+  src/app/components/login/login.component.ts:6:16
+    6   templateUrl: './login.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component LoginComponent.
+
+
+Error: src/app/components/register/register.component.html:3:7 - error NG8002: Can't bind to 'formGroup' since it isn't a known property of 'form'.
+
+3 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:7:18 - error TS2339: Property 'loginForm' does not exist on type 'RegisterComponent'.
+
+7     <p>Email: {{ loginForm.controls.email.valueChanges | async }}</p>
+                   ~~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:7:58 - error NG8004: No pipe found with name 'async'.
+
+7     <p>Email: {{ loginForm.controls.email.valueChanges | async }}</p>
+                                                           ~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:13:21 - error TS2339: Property 'loginForm' does not exist on type 'RegisterComponent'.
+
+13     <p>Password: {{ loginForm.controls.password.valueChanges | async }}</p>
+                       ~~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:13:64 - error NG8004: No pipe found with name 'async'.
+
+13     <p>Password: {{ loginForm.controls.password.valueChanges | async }}</p>
+                                                                  ~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+
+✔ Browser application bundle generation complete.
+
+./src/app/app.module.ts:7:0-77 - Error: Module not found: Error: Can't resolve './components/reguster/register.component' in '/home/cosmin/Facultate/MDS/proiectMDS/proiectMDSAngular/src/app'
+
+Error: src/app/app.component.html:13:1 - error NG8001: 'router-outlet' is not a known element:
+1. If 'router-outlet' is an Angular component, then verify that it is part of this module.
+2. If 'router-outlet' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+
+13 <router-outlet></router-outlet>
+   ~~~~~~~~~~~~~~~
+
+  src/app/app.component.ts:4:16
+    4   templateUrl: './app.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component AppComponent.
+
+
+Error: src/app/app.module.ts:6:35 - error TS2307: Cannot find module './components/reguster/register.component' or its corresponding type declarations.
+
+6 import { RegisterComponent } from './components/reguster/register.component';
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Error: src/app/app.module.ts:9:1 - error TS2304: Cannot find name 'proiectMDSAngular'.
+
+9 proiectMDSAngular/src/app/components/register/register.component.ts
+  ~~~~~~~~~~~~~~~~~
+
+
+Error: src/app/app.module.ts:9:19 - error TS2304: Cannot find name 'src'.
+
+9 proiectMDSAngular/src/app/components/register/register.component.ts
+                    ~~~
+
+
+Error: src/app/app.module.ts:9:23 - error TS2304: Cannot find name 'app'.
+
+9 proiectMDSAngular/src/app/components/register/register.component.ts
+                        ~~~
+
+
+Error: src/app/app.module.ts:9:27 - error TS2552: Cannot find name 'components'. Did you mean 'AppComponent'?
+
+9 proiectMDSAngular/src/app/components/register/register.component.ts
+                            ~~~~~~~~~~
+
+
+Error: src/app/app.module.ts:9:38 - error TS2304: Cannot find name 'register'.
+
+9 proiectMDSAngular/src/app/components/register/register.component.ts
+                                       ~~~~~~~~
+
+
+Error: src/app/app.module.ts:9:47 - error TS2304: Cannot find name 'register'.
+
+9 proiectMDSAngular/src/app/components/register/register.component.ts
+                                                ~~~~~~~~
+
+
+Error: src/app/app.module.ts:11:17 - error NG1010: Value
+
+Error: src/app/components/api-tests/api-tests.component.html:2:25 - error NG8002: Can't bind to 'formGroup' since it isn't a known property of 'form'.
+
+2 <form *ngIf="!userInfo" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                          ~~~~~~~~~~~~~~~~~~~~~~~
+
+  src/app/components/api-tests/api-tests.component.ts:9:16
+    9   templateUrl: './api-tests.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component ApiTestsComponent.
+
+
+Error: src/app/components/api-tests/api-tests.component.html:23:16 - error TS2532: Object is possibly 'undefined'.
+
+23     {{userInfo.id}}
+                  ~~
+
+  src/app/components/api-tests/api-tests.component.ts:9:16
+    9   templateUrl: './api-tests.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component ApiTestsComponent.
+
+
+Error: src/app/components/api-tests/api-tests.component.html:27:7 - error NG8002: Can't bind to 'formGroup' since it isn't a known property of 'form'.
+
+27 <form [formGroup]="signupForm" (ngSubmit)="onSignUp()">
+         ~~~~~~~~~~~~~~~~~~~~~~~~
+
+  src/app/components/api-tests/api-tests.component.ts:9:16
+    9   templateUrl: './api-tests.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component ApiTestsComponent.
+
+
+Error: src/app/components/api-tests/api-tests.component.html:47:7 - error NG8002: Can't bind to 'formGroup' since it isn't a known property of 'form'.
+
+47 <form [formGroup]="postForm" (ngSubmit)="onCreatePost()">
+         ~~~~~~~~~~~~~~~~~~~~~~
+
+  src/app/components/api-tests/api-tests.component.ts:9:16
+    9   templateUrl: './api-tests.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component ApiTestsComponent.
+
+
+Error: src/app/components/api-tests/api-tests.component.html:72:10 - error TS2532: Object is possibly 'undefined'.
+
+72   {{post.id}}
+            ~~
+
+  src/app/components/api-tests/api-tests.component.ts:9:16
+    9   templateUrl: './api-tests.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component ApiTestsComponent.
+
+
+Error: src/app/components/api-tests/api-tests.component.html:76:10 - error TS2532: Object is possibly 'undefined'.
+
+76   {{post.userId}}
+            ~~~~~~
+
+  src/app/components/api-tests/api-tests.component.ts:9:16
+    9   templateUrl: './api-tests.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component ApiTestsComponent.
+
+
+Error: src/app/components/api-tests/api-tests.component.html:79:7 - error NG8002: Can't bind to 'formGroup' since it isn't a known property of 'form'.
+
+79 <form [formGroup]="deletePostForm" (ngSubmit)="onDeletePost()">
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  src/app/components/api-tests/api-tests.component.ts:9:16
+    9   templateUrl: './api-tests.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component ApiTestsComponent.
+
+
+Error: src/app/components/login/login.component.html:3:7 - error NG8002: Can't bind to 'formGroup' since it isn't a known property of 'form'.
+
+3 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        ~~~~~~~~~~~~~~~~~~~~~~~
+
+  src/app/components/login/login.component.ts:6:16
+    6   templateUrl: './login.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component LoginComponent.
+
+
+Error: src/app/components/login/login.component.html:7:58 - error NG8004: No pipe found with name 'async'.
+
+7     <p>Email: {{ loginForm.controls.email.valueChanges | async }}</p>
+                                                           ~~~~~
+
+  src/app/components/login/login.component.ts:6:16
+    6   templateUrl: './login.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component LoginComponent.
+
+
+Error: src/app/components/login/login.component.html:13:64 - error NG8004: No pipe found with name 'async'.
+
+13     <p>Password: {{ loginForm.controls.password.valueChanges | async }}</p>
+                                                                  ~~~~~
+
+  src/app/components/login/login.component.ts:6:16
+    6   templateUrl: './login.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component LoginComponent.
+
+
+Error: src/app/components/register/register.component.html:3:7 - error NG8002: Can't bind to 'formGroup' since it isn't a known property of 'form'.
+
+3 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:7:18 - error TS2339: Property 'loginForm' does not exist on type 'RegisterComponent'.
+
+7     <p>Email: {{ loginForm.controls.email.valueChanges | async }}</p>
+                   ~~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:7:58 - error NG8004: No pipe found with name 'async'.
+
+7     <p>Email: {{ loginForm.controls.email.valueChanges | async }}</p>
+                                                           ~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:13:21 - error TS2339: Property 'loginForm' does not exist on type 'RegisterComponent'.
+
+13     <p>Password: {{ loginForm.controls.password.valueChanges | async }}</p>
+                       ~~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:13:64 - error NG8004: No pipe found with name 'async'.
+
+13     <p>Password: {{ loginForm.controls.password.valueChanges | async }}</p>
+                                                                  ~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+
+✔ Browser application bundle generation complete.
+
+Error: src/app/app.module.ts:9:1 - error TS2304: Cannot find name 'proiectMDSAngular'.
+
+9 proiectMDSAngular/src/app/components/register/register.component.ts
+  ~~~~~~~~~~~~~~~~~
+
+
+Error: src/app/app.module.ts:9:19 - error TS2304: Cannot find name 'src'.
+
+9 proiectMDSAngular/src/app/components/register/register.component.ts
+                    ~~~
+
+
+Error: src/app/app.module.ts:9:23 - error TS2304: Cannot find name 'app'.
+
+9 proiectMDSAngular/src/app/components/register/register.component.ts
+                        ~~~
+
+
+Error: src/app/app.module.ts:9:27 - error TS2552: Cannot find name 'components'. Did you mean 'AppComponent'?
+
+9 proiectMDSAngular/src/app/components/register/register.component.ts
+                            ~~~~~~~~~~
+
+
+Error: src/app/app.module.ts:9:38 - error TS2304: Cannot find name 'register'.
+
+9 proiectMDSAngular/src/app/components/register/register.component.ts
+                                       ~~~~~~~~
+
+
+Error: src/app/app.module.ts:9:47 - error TS2304: Cannot find name 'register'.
+
+9 proiectMDSAngular/src/app/components/register/register.component.ts
+                                                ~~~~~~~~
+
+
+Error: src/app/components/register/register.component.html:7:18 - error TS2339: Property 'loginForm' does not exist on type 'RegisterComponent'.
+
+7     <p>Email: {{ loginForm.controls.email.valueChanges | async }}</p>
+                   ~~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:13:21 - error TS2339: Property 'loginForm' does not exist on type 'RegisterComponent'.
+
+13     <p>Password: {{ loginForm.controls.password.valueChanges | async }}</p>
+                       ~~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+
+✔ Browser application bundle generation complete.
+
+Error: src/app/components/register/register.component.html:7:18 - error TS2339: Property 'loginForm' does not exist on type 'RegisterComponent'.
+
+7     <p>Email: {{ loginForm.controls.email.valueChanges | async }}</p>
+                   ~~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:13:21 - error TS2339: Property 'loginForm' does not exist on type 'RegisterComponent'.
+
+13     <p>Password: {{ loginForm.controls.password.valueChanges | async }}</p>
+                       ~~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+
+✔ Browser application bundle generation complete.
+
+Error: src/app/components/register/register.component.html:7:18 - error TS2339: Property 'loginForm' does not exist on type 'RegisterComponent'.
+
+7     <p>Email: {{ loginForm.controls.email.valueChanges | async }}</p>
+                   ~~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:13:21 - error TS2339: Property 'register' does not exist on type 'RegisterComponent'.
+
+13     <p>Password: {{ register.controls.password.valueChanges | async }}</p>
+                       ~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+
+✔ Browser application bundle generation complete.
+
+Error: src/app/components/register/register.component.html:13:21 - error TS2339: Property 'register' does not exist on type 'RegisterComponent'.
+
+13     <p>Password: {{ register.controls.password.valueChanges | async }}</p>
+                       ~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+
+✔ Browser application bundle generation complete.
+
+Error: src/app/components/register/register.component.html:7:18 - error TS2339: Property 'loginForm' does not exist on type 'RegisterComponent'.
+
+7     <p>Email: {{ loginForm.controls.email.valueChanges | async }}</p>
+                   ~~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+Error: src/app/components/register/register.component.html:13:21 - error TS2339: Property 'loginForm' does not exist on type 'RegisterComponent'.
+
+13     <p>Password: {{ loginForm.controls.password.valueChanges | async }}</p>
+                       ~~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+
+✔ Browser application bundle generation complete.
+
+Error: src/app/components/register/register.component.html:7:18 - error TS2339: Property 'loginForm' does not exist on type 'RegisterComponent'.
+
+7     <p>Email: {{ loginForm.controls.email.valueChanges | async }}</p>
+                   ~~~~~~~~~
+
+  src/app/components/register/register.component.ts:6:16
+    6   templateUrl: './register.component.html',
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component RegisterComponent.
+
+
+
+✔ Browser application bundle generation complete.
+✔ Browser application bundle generation complete.
+✔ Browser application bundle generation complete.
+✔ Browser application bundle generation complete.
+t: 2023-04-14T12:16:36.594Z - Hash: e01da0636421e1ad - Time: 560ms
+
+✔ Compiled successfully.
+
+Initial Chunk Files | Names   | Raw Size
+main.js             | main    | 36.47 kB |
+runtime.js          | runtime |  6.53 kB |
+
+3 unchanged chunks
+
+Build at: 2023-04-14T12:16:38.780Z - Hash: 60a9cd4837dcd92f - Time: 619ms
+
+✔ Compiled successfully.
+
+5 unchanged chunks
+
+Build at: 2023-04-15T14:20:56.479Z - Hash: 60a9cd4837dcd92f - Time: 1178ms
+
+✔ Compiled successfully.
+
+5 unchanged chunks
+
+Build at: 2023-04-15T14:29:09.129Z - Hash: 60a9cd4837dcd92f - Time: 578ms
+
+✔ Compiled successfully.

@@ -1,0 +1,17 @@
+<p>register works!</p>
+
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="email">Email</label>
+    <input id="email" type="text" formControlName="email" />
+    <p>Email: {{ registerForm.controls.email.valueChanges | async }}</p>
+  </div>
+  
+  <div>
+    <label for="password">Password:</label>
+    <input id="password" type="text" formControlName="password" />
+    <p>Password: {{ registerForm.controls.password.valueChanges | async }}</p>
+  </div>
+
+  <button type="submit">Register</button>
+</form>
