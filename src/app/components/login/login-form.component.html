@@ -1,0 +1,29 @@
+<div class="login-form-container">
+  <div class="login-form-header">
+    <h2 class="header-text">Login</h2>
+  </div>
+
+  <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div>
+      <mat-form-field class="login-form-field">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="e.g. example@mail.com" type="text" formControlName="email" />
+        <mat-error *ngIf="email.invalid">{{ email | formControlErrorMessage : email.errors }}</mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="login-form-field">
+        <mat-label>Password</mat-label>
+        <input matInput id="password" type="text" formControlName="password" />
+        <mat-error *ngIf="password.invalid">{{ password | formControlErrorMessage : password.errors }}</mat-error>
+      </mat-form-field>
+    </div>
+
+    <button mat-raised-button color="primary" type="submit" class="login-button">Login</button>
+
+    <p class="create-account">
+      New here?
+      <a routerLink="/register">Create an account</a>
+    </p>
+  </form>
+</div>

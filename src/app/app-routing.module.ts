@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ApiTestsComponent } from './components/api-tests/api-tests.component';
+import { LoginFormComponent } from './components/login/login-form.component';
+import { RegisterFormComponent } from './components/register/register-form.component';
 
 const routes: Routes = [
   { path: 'api-tests', component: ApiTestsComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent }
+  { path: 'login', component: LoginFormComponent },
+  { path: 'register', component: RegisterFormComponent },
+  { path: 'login', component: LoginFormComponent }
 ];
 
 @NgModule({
