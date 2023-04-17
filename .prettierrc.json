@@ -12,6 +12,12 @@
         "parser": "babel-ts",
         "trailingComma": "none"
       }
+    },
+    {
+      "files": "*.html",
+      "options": {
+        "htmlWhitespaceSensitivity": "ignore"
+      }
     }
   ]
 }
