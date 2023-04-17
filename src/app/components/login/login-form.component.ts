@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UserService } from 'app/core/services/user.service';
+import { LoginFormType, LoginType } from './login.type';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'mds-login-form',
@@ -7,19 +10,17 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit {
-  constructor() {}
+  constructor(private readonly fb: FormBuilder, private readonly userService: UserService, public router: Router) {}
 
-  public readonly loginForm = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required])
+  public readonly loginForm: FormGroup<LoginFormType> = this.fb.nonNullable.group({
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', Validators.required]
   });
 
   public ngOnInit(): void {}
 
   public onSubmit(): void {
-    console.log('Login with the following credentials:');
-    console.log('email:', this.loginForm.controls.email.value);
-    console.log('password:', this.loginForm.controls.password.value);
+    this.userService.login(this.loginForm.value as LoginType).subscribe(() => this.router.navigateByUrl('/'));
   }
 
   public get email(): FormControl {

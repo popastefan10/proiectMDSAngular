@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { Post } from './models/post.model';
-import { UserInfo } from './models/user-info.model';
+import { Post } from '../../models/post.model';
+import { SessionUser } from '../../models/session-user.model';
 
 @Component({
   selector: 'mds-api-tests',
@@ -13,7 +13,7 @@ export class ApiTestsComponent {
   title = 'proiectMDSAngular';
 
   post?: Post;
-  userInfo?: UserInfo;
+  userInfo?: SessionUser;
   loginForm = this.formBuilder.group({
     email: '',
     password: ''
@@ -52,7 +52,7 @@ export class ApiTestsComponent {
   }
 
   onSignUp(): void {
-    this.http.post<UserInfo>('/api/signup', this.signupForm.value, { withCredentials: true }).subscribe((x) => {
+    this.http.post<SessionUser>('/api/signup', this.signupForm.value, { withCredentials: true }).subscribe((x) => {
       console.log(x);
       this.ngOnInit();
     });
