@@ -11,7 +11,15 @@ import { Observable } from 'rxjs';
 export class UserService {
   constructor(private readonly httpClient: HttpClient) {}
 
+  public whoAmI(): Observable<GenericResponse<SessionUser>> {
+    return this.httpClient.get<GenericResponse<SessionUser>>('/api/whoami');
+  }
+
   public login(data: LoginType): Observable<GenericResponse<SessionUser>> {
     return this.httpClient.post<GenericResponse<SessionUser>>('/api/login', data, { withCredentials: true });
+  }
+
+  public logout(): Observable<GenericResponse<void>> {
+    return this.httpClient.get<GenericResponse<void>>('/api/logout');
   }
 }
