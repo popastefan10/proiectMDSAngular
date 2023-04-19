@@ -8,8 +8,7 @@ import { RegisterFormComponent } from './components/register/register-form.compo
 const routes: Routes = [
   { path: 'api-tests', component: ApiTestsComponent },
   { path: 'login', component: LoginFormComponent },
-  { path: 'register', component: RegisterFormComponent },
-  { path: 'login', component: LoginFormComponent }
+  { path: 'register', component: RegisterFormComponent }
 ];
 
 @NgModule({
