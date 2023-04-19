@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UserService } from 'app/core/services/user.service';
+import { RegisterFormType, RegisterType } from './register.type';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'mds-register-form',
@@ -7,19 +10,17 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./register-form.component.scss']
 })
 export class RegisterFormComponent implements OnInit {
-  constructor() {}
+  constructor(private readonly fb: FormBuilder, private readonly userService: UserService, public router: Router) {}
 
-  public readonly registerForm = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required])
-  });
+  public readonly registerForm: FormGroup<RegisterFormType> = this.fb.nonNullable.group({
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', Validators.required]
+  })
 
   public ngOnInit(): void {}
 
   public onSubmit(): void {
-    console.log('Register with the following credentials:');
-    console.log('email:', this.registerForm.controls.email.value);
-    console.log('password:', this.registerForm.controls.password.value);
+    this.userService.register(this.registerForm.value as RegisterType).subscribe(() => this.router.navigateByUrl('/'));
   }
 
   public get email(): FormControl {

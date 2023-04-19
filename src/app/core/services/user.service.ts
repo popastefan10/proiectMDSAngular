@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { LoginType } from 'app/components/login/login.type';
+import { RegisterType } from 'app/components/register/register.type';
 import { GenericResponse } from 'app/models/generic-response.model';
 import { SessionUser } from 'app/models/session-user.model';
 import { Observable } from 'rxjs';
@@ -21,5 +22,9 @@ export class UserService {
 
   public logout(): Observable<GenericResponse<void>> {
     return this.httpClient.get<GenericResponse<void>>('/api/logout');
+  }
+
+  public register(data: RegisterType): Observable<GenericResponse<SessionUser>> {
+    return this.httpClient.post<GenericResponse<SessionUser>>('api/signup', data, {withCredentials: true});
   }
 }
