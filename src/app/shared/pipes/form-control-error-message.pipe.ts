@@ -10,6 +10,10 @@ export class FormControlErrorMessagePipe implements PipeTransform {
       return 'This field is required';
     }
 
+    if (value.hasError('passwordMismatch')) {
+      return 'Passwords do not match';
+    }
+
     return value.hasError('email') ? 'Not a valid email' : '';
   }
 }
