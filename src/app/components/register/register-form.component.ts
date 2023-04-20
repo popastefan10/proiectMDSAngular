@@ -19,6 +19,17 @@ export class RegisterFormComponent implements OnInit {
     confirmPassword: ['', [Validators.required, this.passwordMatchValidator.bind(this)]]
   });
 
+  private passwordMatchValidator(control: FormControl): { [key: string]: boolean } | null {
+    const password = this.registerForm?.controls.password?.value;
+    const confirmPassword = control.value;
+
+    if (password !== confirmPassword) {
+      return { 'passwordMismatch': true };
+    }
+
+    return null;
+  }
+
   public ngOnInit(): void {}
 
   public onSubmit(): void {
@@ -36,16 +47,4 @@ export class RegisterFormComponent implements OnInit {
   public get confirmPassword(): FormControl {
     return this.registerForm.controls.confirmPassword;
   }
-
-  private passwordMatchValidator(control: FormControl): { [key: string]: boolean } | null {
-    const password = this.registerForm?.controls.password?.value;
-    const confirmPassword = control.value;
-
-    if (password !== confirmPassword) {
-      return { 'passwordMismatch': true };
-    }
-    
-    return null;
-  }
-
 }
