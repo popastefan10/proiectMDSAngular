@@ -3,6 +3,8 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { UserService } from 'app/core/services/user.service';
 import { LoginFormType, LoginType } from './login.type';
 import { Router } from '@angular/router';
+import { catchError, map, of } from 'rxjs';
+import { CustomError, ErrorResponse } from 'app/shared/utils/error';
 
 @Component({
   selector: 'mds-login-form',
@@ -17,10 +19,24 @@ export class LoginFormComponent implements OnInit {
     password: ['', Validators.required]
   });
 
+  public loginError: CustomError | undefined;
+
   public ngOnInit(): void {}
 
   public onSubmit(): void {
-    this.userService.login(this.loginForm.value as LoginType).subscribe(() => this.router.navigateByUrl('/'));
+    if (this.loginForm.valid) {
+      this.userService
+        .login(this.loginForm.value as LoginType)
+        .pipe(
+          map(() => true),
+          catchError((err: ErrorResponse) => {
+            this.loginError = err.error.error;
+
+            return of(false);
+          })
+        )
+        .subscribe((loginSuccesful) => loginSuccesful && this.router.navigateByUrl('/'));
+    }
   }
 
   public get email(): FormControl {

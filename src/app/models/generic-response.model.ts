@@ -1,4 +1,6 @@
+import { CustomError } from 'app/shared/utils/error';
+
 export interface GenericResponse<TResponse> {
-  error: any;
+  error: CustomError;
   content: TResponse;
 }

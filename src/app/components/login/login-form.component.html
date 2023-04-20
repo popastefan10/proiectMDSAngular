@@ -3,6 +3,11 @@
     <h2 class="header-text">Login</h2>
   </div>
 
+  <div *ngIf="!!loginError" class="error">
+    <mat-icon>error</mat-icon>
+    <div>{{ loginError.errorMsg }}</div>
+  </div>
+
   <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div>
       <mat-form-field class="login-form-field">

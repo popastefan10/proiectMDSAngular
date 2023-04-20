@@ -53,3 +53,20 @@
     color: $primary;
   }
 }
+
+.error {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: $warn-50;
+  border-top: 2px solid $warn;
+  margin: 32px;
+  margin-bottom: 0;
+  padding: 4px;
+
+  mat-icon {
+    flex-shrink: 0;
+    margin-right: 4px;
+    color: $warn;
+  }
+}
