@@ -5,21 +5,13 @@ import { LoginFormType, LoginType } from './login.type';
 import { Router } from '@angular/router';
 import { catchError, map, of } from 'rxjs';
 import { CustomError, ErrorResponse } from 'app/shared/utils/error';
-import { animate, style, transition, trigger } from '@angular/animations';
-
-const closedStyle = { opacity: 0, height: 0, marginBottom: 0, marginTop: 0 };
-const openStyle = { opacity: 1, height: '*', marginBottom: '*', marginTop: '*' };
+import { openClosedAnimation } from 'app/animations';
 
 @Component({
   selector: 'mds-login-form',
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.scss'],
-  animations: [
-    trigger('closedOpen', [
-      transition(':enter', [style(closedStyle), animate('250ms', style(openStyle))]),
-      transition(':leave', [style(openStyle), animate('250ms', style(closedStyle))])
-    ])
-  ]
+  animations: [openClosedAnimation]
 })
 export class LoginFormComponent implements OnInit {
   constructor(private readonly fb: FormBuilder, private readonly userService: UserService, public router: Router) {}
