@@ -3,6 +3,8 @@
     <h2 class="header-text">Register</h2>
   </div>
 
+  <mds-error-box @openClosed *ngIf="!!registerError" [errorMsg]="registerError.errorMsg"></mds-error-box>
+
   <form class="register-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <div>
       <mat-form-field class="register-form-field">

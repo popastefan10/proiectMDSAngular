@@ -37,7 +37,7 @@ export class LoginFormComponent implements OnInit {
             return of(false);
           })
         )
-        .subscribe((loginSuccesful) => loginSuccesful && this.router.navigateByUrl('/'));
+        .subscribe((loginSuccessful) => loginSuccessful && this.router.navigateByUrl('/'));
     }
   }
 
