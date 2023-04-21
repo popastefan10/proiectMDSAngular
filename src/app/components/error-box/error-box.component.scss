@@ -1,0 +1,16 @@
+@use "theme/colors" as *;
+
+.error {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: $warn-50;
+  border-top: 2px solid $warn;
+  padding: 4px;
+
+  mat-icon {
+    flex-shrink: 0;
+    margin-right: 4px;
+    color: $warn;
+  }
+}

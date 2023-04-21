@@ -7,9 +7,10 @@ import { RegisterFormComponent } from './components/register/register-form.compo
 import { ApiTestsComponent } from './components/api-tests/api-tests.component';
 import { SharedModule } from './shared/shared.module';
 import { MaterialModule } from './shared/material/material.module';
+import { ErrorBoxComponent } from './components/error-box/error-box.component';
 
 @NgModule({
-  declarations: [AppComponent, ApiTestsComponent, LoginFormComponent, RegisterFormComponent],
+  declarations: [AppComponent, ApiTestsComponent, LoginFormComponent, RegisterFormComponent, ErrorBoxComponent],
   imports: [BrowserModule, AppRoutingModule, SharedModule, MaterialModule],
   providers: [],
   bootstrap: [AppComponent]

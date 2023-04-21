@@ -3,6 +3,8 @@
     <h2 class="header-text">Login</h2>
   </div>
 
+  <mds-error-box @openClosed *ngIf="!!loginError" [errorMsg]="loginError.errorMsg"></mds-error-box>
+
   <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div>
       <mat-form-field class="login-form-field">

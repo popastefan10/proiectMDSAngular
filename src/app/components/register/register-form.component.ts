@@ -3,13 +3,16 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { UserService } from 'app/core/services/user.service';
 import { RegisterFormType, RegisterType } from './register.type';
 import { Router } from '@angular/router';
+import { catchError, map, of } from 'rxjs';
+import { CustomError, ErrorResponse } from 'app/shared/utils/error';
+import { openClosedAnimation } from 'app/animations';
 
 @Component({
   selector: 'mds-register-form',
   templateUrl: './register-form.component.html',
-  styleUrls: ['./register-form.component.scss']
+  styleUrls: ['./register-form.component.scss'],
+  animations: [openClosedAnimation]
 })
-
 export class RegisterFormComponent implements OnInit {
   constructor(private readonly fb: FormBuilder, private readonly userService: UserService, public router: Router) {}
 
@@ -19,12 +22,14 @@ export class RegisterFormComponent implements OnInit {
     confirmPassword: ['', [Validators.required, this.passwordMatchValidator.bind(this)]]
   });
 
+  public registerError: CustomError | undefined;
+
   private passwordMatchValidator(control: FormControl): { [key: string]: boolean } | null {
     const password = this.registerForm?.controls.password?.value;
     const confirmPassword = control.value;
 
     if (password !== confirmPassword) {
-      return { 'passwordMismatch': true };
+      return { passwordMismatch: true };
     }
 
     return null;
@@ -33,7 +38,19 @@ export class RegisterFormComponent implements OnInit {
   public ngOnInit(): void {}
 
   public onSubmit(): void {
-    this.userService.register(this.registerForm.value as RegisterType).subscribe(() => this.router.navigateByUrl('/'));
+    if (this.registerForm.valid) {
+      this.userService
+        .register(this.registerForm.value as RegisterType)
+        .pipe(
+          map(() => true),
+          catchError((err: ErrorResponse) => {
+            this.registerError = err.error.error;
+
+            return of(false);
+          })
+        )
+        .subscribe((registerSuccessful) => registerSuccessful && this.router.navigateByUrl('/'));
+    }
   }
 
   public get email(): FormControl {
