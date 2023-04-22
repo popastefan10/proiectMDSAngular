@@ -5,6 +5,8 @@ import { Post } from '../../models/post.model';
 import { SessionUser } from '../../models/session-user.model';
 import { UserService } from 'app/core/services/user.service';
 import { tap } from 'rxjs';
+import { PostCreate } from '../post/post.create';
+import { PostService } from 'app/core/services/post.service';
 
 @Component({
   selector: 'mds-api-tests',
@@ -27,15 +29,16 @@ export class ApiTestsComponent {
   });
 
   postForm = this.formBuilder.group({
-    description: undefined,
-    picturesURLs: ''
+    description: '',
   });
+
+  postMedia?: File[] = undefined;
 
   deletePostForm = this.formBuilder.group({
     id: ''
   });
 
-  constructor(private http: HttpClient, private formBuilder: FormBuilder, private userService: UserService) {}
+  constructor(private http: HttpClient, private formBuilder: FormBuilder, private userService: UserService, private postService: PostService) { }
 
   ngOnInit() {
     // this.http.get<UserInfo>('/api/whoami', { withCredentials: true }).subscribe((x) => {
@@ -67,11 +70,22 @@ export class ApiTestsComponent {
   }
 
   onCreatePost(): void {
-    this.http.post<Post>('/api/posts', this.postForm.value, { withCredentials: true }).subscribe((x) => {
-      console.log(x);
-      this.post = x;
-      this.ngOnInit();
-    });
+
+    let postCreate: PostCreate = {
+      description: this.postForm.value.description,
+      media: this.postMedia
+    };
+    
+    this.postService.create(postCreate)
+      .pipe(
+        tap(x => console.log(x))
+      )
+      .subscribe();
+  }
+
+  onFileSelected(event: any) {
+
+    this.postMedia = event?.target?.files;
   }
 
   onDeletePost(): void {

@@ -44,9 +44,24 @@
     <input id="description" type="text" formControlName="description" />
   </div>
 
-  <div>
-    <label for="picturesURLs">Pictures</label>
-    <input id="picturesURLs" type="text" formControlName="picturesURLs" />
+
+  <input type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload>
+
+  <div class="file-upload">
+    <ul *ngIf="postMedia">
+
+      <li *ngFor="let file of postMedia">
+        {{file.name}}
+      </li>
+    </ul>
+
+    <p *ngIf="!postMedia">
+      "No file uploaded yet."
+    </p>
+
+    <button mat-mini-fab color="primary" class="upload-btn" (click)="fileUpload.click()">
+      <mat-icon>attach_file</mat-icon>
+    </button>
   </div>
 
   <button class="button" type="submit">Create post</button>
