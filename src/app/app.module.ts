@@ -8,9 +8,10 @@ import { ApiTestsComponent } from './components/api-tests/api-tests.component';
 import { SharedModule } from './shared/shared.module';
 import { MaterialModule } from './shared/material/material.module';
 import { ErrorBoxComponent } from './components/error-box/error-box.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
-  declarations: [AppComponent, ApiTestsComponent, LoginFormComponent, RegisterFormComponent, ErrorBoxComponent],
+  declarations: [AppComponent, ApiTestsComponent, LoginFormComponent, RegisterFormComponent, ErrorBoxComponent, NavbarComponent],
   imports: [BrowserModule, AppRoutingModule, SharedModule, MaterialModule],
   providers: [],
   bootstrap: [AppComponent]

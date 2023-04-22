@@ -3,7 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { UserService } from 'app/core/services/user.service';
 import { LoginFormType, LoginType } from './login.type';
 import { Router } from '@angular/router';
-import { catchError, map, of } from 'rxjs';
+import { catchError, map, of, tap } from 'rxjs';
 import { CustomError, ErrorResponse } from 'app/shared/utils/error';
 import { openClosedAnimation } from 'app/animations';
 
@@ -26,10 +26,13 @@ export class LoginFormComponent implements OnInit {
   public ngOnInit(): void {}
 
   public onSubmit(): void {
+    console.log('a');
     if (this.loginForm.valid) {
+      console.log('b')
       this.userService
         .login(this.loginForm.value as LoginType)
         .pipe(
+          tap((x) => console.log('x', x)),
           map(() => true),
           catchError((err: ErrorResponse) => {
             this.loginError = err.error.error;

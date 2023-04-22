@@ -1,0 +1,63 @@
+@use "colors" as *;
+@use "typography-levels" as *;
+@use "sass:math" as math;
+
+$navbar-height: 80px;
+$btn-height: 32px;
+
+:host {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: $navbar-height;
+  background-color: $navbar-bkg-color;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  height: $btn-height;
+}
+
+.left {
+  padding-left: 24px;
+}
+
+.right {
+  padding-right: 24px;
+}
+
+.btn {
+  height: $btn-height;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  a {
+    color: $very-light-text-color;
+    transition: color 250ms linear;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  ~.btn {
+    padding-left: 24px;
+  }
+}
+
+.rounded {
+  button {
+    height: $btn-height;
+    border-radius: math.div($btn-height, 2);
+    color: $gray-100;
+  }
+}
+
+.home {
+  a {
+    @include h5;
+  }
+}

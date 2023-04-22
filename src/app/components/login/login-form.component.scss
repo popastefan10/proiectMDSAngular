@@ -1,4 +1,4 @@
-@use "theme/colors" as *;
+@use "colors" as *;
 
 :host {
   display: flex;
@@ -39,7 +39,7 @@
   .login-button {
     height: 40px;
     width: 100%;
-    color: $pure-white;
+    color: $very-light-text-color;
     text-transform: uppercase;
   }
 }

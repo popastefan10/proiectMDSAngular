@@ -1,0 +1,26 @@
+<div class="left container">
+  <div class="btn home">
+    <a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page">Home</a>
+  </div>
+  <div class="btn">
+    <a routerLink="/api-tests" routerLinkActive="active" ariaCurrentWhenActive="page">Tests</a>
+  </div>
+</div>
+
+<div class="right container" *ngIf="{ isLoggedIn: isLoggedIn$ | async } as data">
+  <div class="btn" *ngIf="!data.isLoggedIn">
+    <a routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Login</a>
+  </div>
+  <div class="btn rounded" *ngIf="!data.isLoggedIn">
+    <button mat-flat-button color="primary">
+      <a routerLink="/register" routerLinkActive="active" ariaCurrentWhenActive="page">Register</a>
+    </button>
+  </div>
+
+  <div class="btn" *ngIf="data.isLoggedIn">
+      <a>Edit profile</a> <!-- TODO: replace with link to edit profile page -->
+  </div>
+  <div class="btn rounded" *ngIf="data.isLoggedIn">
+    <button mat-flat-button color="warn" (click)="logout()"><a>Logout</a></button>
+  </div>
+</div>
