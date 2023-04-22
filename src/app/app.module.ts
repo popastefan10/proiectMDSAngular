@@ -9,9 +9,10 @@ import { SharedModule } from './shared/shared.module';
 import { MaterialModule } from './shared/material/material.module';
 import { ErrorBoxComponent } from './components/error-box/error-box.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { ProfilePicComponent } from './components/profile-pic/profile-pic.component';
 
 @NgModule({
-  declarations: [AppComponent, ApiTestsComponent, LoginFormComponent, RegisterFormComponent, ErrorBoxComponent, NavbarComponent],
+  declarations: [AppComponent, ApiTestsComponent, LoginFormComponent, RegisterFormComponent, ErrorBoxComponent, NavbarComponent, ProfilePicComponent],
   imports: [BrowserModule, AppRoutingModule, SharedModule, MaterialModule],
   providers: [],
   bootstrap: [AppComponent]

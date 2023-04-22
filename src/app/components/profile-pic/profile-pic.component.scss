@@ -1,0 +1,29 @@
+@use "colors" as *;
+@use "sass:math" as math;
+
+$profile-pic-size: 32px;
+
+:host {
+  display: block;
+}
+
+.picture-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: $profile-pic-size;
+  height: $profile-pic-size;
+  border: 2px solid $primary;
+  border-radius: math.div($profile-pic-size, 2);
+  overflow: hidden;
+
+  mat-icon {
+    color: $primary;
+  }
+
+  img {
+    aspect-ratio: auto;
+    width: $profile-pic-size;
+    height: auto;
+  }
+}
