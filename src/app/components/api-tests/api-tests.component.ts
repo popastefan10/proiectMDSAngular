@@ -7,6 +7,8 @@ import { UserService } from 'app/core/services/user.service';
 import { tap } from 'rxjs';
 import { PostCreate } from '../post/post.create';
 import { PostService } from 'app/core/services/post.service';
+import { CommentService } from 'app/core/services/comment.service';
+import { Comment } from '../../models/comment.model';
 
 @Component({
   selector: 'mds-api-tests',
@@ -17,7 +19,7 @@ export class ApiTestsComponent {
   title = 'proiectMDSAngular';
 
   picturesURLs?: string[] = undefined;
-  
+
   post?: Post;
   userInfo?: SessionUser;
   loginForm = this.formBuilder.group({
@@ -40,7 +42,8 @@ export class ApiTestsComponent {
     id: ''
   });
 
-  constructor(private http: HttpClient, private formBuilder: FormBuilder, private userService: UserService, private postService: PostService) { }
+  constructor(private http: HttpClient, private formBuilder: FormBuilder, private userService: UserService, private postService: PostService,
+    private commentService: CommentService) { }
 
   ngOnInit() {
     // this.http.get<UserInfo>('/api/whoami', { withCredentials: true }).subscribe((x) => {
@@ -138,6 +141,59 @@ export class ApiTestsComponent {
 
     this.postService.getPostMedia("57b24347-6c9f-4fa7-ac7c-556b4c649579")
       .subscribe(x => this.picturesURLs = x.content.picturesURLs);
+  }
+
+  public createComment(): void {
+
+    let data: Partial<Comment> = {
+      postId : "57b24347-6c9f-4fa7-ac7c-556b4c649579",
+      content: "Comment nou!",
+      parentId: "9b4aa363-5ffe-4da0-8c35-5396efe86d70",
+    };
+    this.commentService.create(data)
+    .pipe(
+      tap(x => console.log(x))
+    )
+    .subscribe();
+  }
+
+  public getComment(): void {
+
+    this.commentService.get("9b4aa363-5ffe-4da0-8c35-5396efe86d70")
+    .pipe(
+      tap(x => console.log(x))
+    )
+    .subscribe();
+  }
+
+  public patchComment(): void {
+    let data: Partial<Comment> = {
+      id : "9b4aa363-5ffe-4da0-8c35-5396efe86d70",
+      content: "Comment modificat!",
+    };
+
+    this.commentService.patch(data)
+    .pipe(
+      tap(x => console.log(x))
+    )
+    .subscribe();
+  }
+
+  public getCommentReplies(): void {
+
+    this.commentService.getCommentReplies("9b4aa363-5ffe-4da0-8c35-5396efe86d70")
+    .pipe(
+      tap(x => console.log(x))
+    )
+    .subscribe();
+  }
+
+  public getPostReplies(): void {
+    this.commentService.getPostReplies("57b24347-6c9f-4fa7-ac7c-556b4c649579")
+    .pipe(
+      tap(x => console.log(x))
+    )
+    .subscribe();
   }
 
   public logout(): void {
