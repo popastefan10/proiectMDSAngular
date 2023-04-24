@@ -16,6 +16,8 @@ import { PostService } from 'app/core/services/post.service';
 export class ApiTestsComponent {
   title = 'proiectMDSAngular';
 
+  picturesURLs?: string[] = undefined;
+  
   post?: Post;
   userInfo?: SessionUser;
   loginForm = this.formBuilder.group({
@@ -75,7 +77,7 @@ export class ApiTestsComponent {
       description: this.postForm.value.description,
       media: this.postMedia
     };
-    
+
     this.postService.create(postCreate)
       .pipe(
         tap(x => console.log(x))
@@ -89,8 +91,7 @@ export class ApiTestsComponent {
   }
 
   onDeletePost(): void {
-    let url: string = '/api/posts/' + this.deletePostForm.value.id;
-    this.http.delete(url, { withCredentials: true }).subscribe((x) => {
+    this.postService.delete(this.deletePostForm.value.id!).subscribe((x) => {
       console.log(x);
       this.post = undefined;
       this.ngOnInit();
@@ -104,7 +105,43 @@ export class ApiTestsComponent {
       .subscribe();
   }
 
+  public getSinglePost(): void {
+    this.postService.getSinglePost("519fc696-e288-4211-a58b-548ac1307948")
+      .pipe(
+        tap(x => console.log(x))
+      )
+      .subscribe();
+  }
+
+  public getPostsByUser(): void {
+    this.postService.getPostsByUser("89604f4c-d376-449c-91b3-8fb5b8624504")
+      .pipe(
+        tap(x => console.log(x))
+      )
+      .subscribe();
+  }
+
+  public onPatchPost(): void {
+    let data: Partial<Post> = {
+      id: "c1a4d89c-8725-4c98-bcdc-497e1499f139",
+      description: "changed description!",
+    };
+
+    this.postService.patch(data)
+      .pipe(
+        tap(x => console.log(x))
+      )
+      .subscribe();
+  }
+
+  public getPostMedia(): void {
+
+    this.postService.getPostMedia("57b24347-6c9f-4fa7-ac7c-556b4c649579")
+      .subscribe(x => this.picturesURLs = x.content.picturesURLs);
+  }
+
   public logout(): void {
     this.userService.logout().subscribe();
   }
+
 }

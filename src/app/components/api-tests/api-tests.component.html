@@ -85,3 +85,25 @@
 
   <button class="button" type="submit">Delete post</button>
 </form>
+
+<div>
+  <button (click)="getSinglePost()">Get post metadata</button>
+</div>
+
+<div>
+  <button (click)="getPostsByUser()">Get posts by user</button>
+</div>
+
+<div>
+  <button (click)="onPatchPost()">Edit post</button>
+</div>
+
+<div>
+  <button (click)="getPostMedia()">Get post media</button>
+</div>
+
+<ul *ngIf="picturesURLs">
+  <li *ngFor="let path of picturesURLs">
+    <img src="/api/{{ path }}">
+  </li>
+</ul>
