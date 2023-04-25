@@ -42,5 +42,3 @@ ng.log
 # System files
 .DS_Store
 Thumbs.db
-
-patch.js
