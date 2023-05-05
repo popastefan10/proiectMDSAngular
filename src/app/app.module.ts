@@ -12,10 +12,11 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProfilePicComponent } from './components/profile-pic/profile-pic.component';
 import { PostComponent } from './components/post/post.component';
 import {MatButtonModule} from '@angular/material/button'; 
-import {MatCardModule} from '@angular/material/card'; 
+import {MatCardModule} from '@angular/material/card';
+import { CommentSectionComponent } from './components/comment-section/comment-section.component';
 
 @NgModule({
-  declarations: [AppComponent, ApiTestsComponent, LoginFormComponent, RegisterFormComponent, ErrorBoxComponent, NavbarComponent, ProfilePicComponent, PostComponent],
+  declarations: [AppComponent, ApiTestsComponent, LoginFormComponent, RegisterFormComponent, ErrorBoxComponent, NavbarComponent, ProfilePicComponent, PostComponent, CommentSectionComponent],
   imports: [BrowserModule, AppRoutingModule, SharedModule, MaterialModule, MatButtonModule, MatCardModule],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,20 @@
+<div *ngIf="rootComments" class="comment-section-container">
+    <div *ngFor="let root of rootComments" class="root-section-container">
+        <div class="root-comment">
+            {{root.author?.username}} {{root.metadata?.content}}
+            <button (click)="onShowRepliesClick(root.metadata?.id!)" mat-button class="arrow-back">
+                <mat-icon>expand_more</mat-icon>
+                View replies
+            </button>
+            <div *ngFor="let child of childComments[root.metadata?.id!]" class="child-section-container">
+                <div class="child-comment">
+                    {{child.author?.username}} {{child.metadata?.content}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!rootComments" class="comment-section-container">
+    Failed to load post replies!
+</div>
