@@ -10,10 +10,13 @@ import { MaterialModule } from './shared/material/material.module';
 import { ErrorBoxComponent } from './components/error-box/error-box.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProfilePicComponent } from './components/profile-pic/profile-pic.component';
+import { PostComponent } from './components/post/post.component';
+import {MatButtonModule} from '@angular/material/button'; 
+import {MatCardModule} from '@angular/material/card'; 
 
 @NgModule({
-  declarations: [AppComponent, ApiTestsComponent, LoginFormComponent, RegisterFormComponent, ErrorBoxComponent, NavbarComponent, ProfilePicComponent],
-  imports: [BrowserModule, AppRoutingModule, SharedModule, MaterialModule],
+  declarations: [AppComponent, ApiTestsComponent, LoginFormComponent, RegisterFormComponent, ErrorBoxComponent, NavbarComponent, ProfilePicComponent, PostComponent],
+  imports: [BrowserModule, AppRoutingModule, SharedModule, MaterialModule, MatButtonModule, MatCardModule],
   providers: [],
   bootstrap: [AppComponent]
 })
