@@ -19,7 +19,7 @@
 
 <div *ngIf="postMetaData" class="metadata-container">
     <p>on {{postMetaData.createdAt}}</p>
-    <p>[user name here] {{postMetaData.description}}</p>
+    <p>{{author?.username}} {{postMetaData.description}}</p>
 </div>
 
 <div *ngIf="!postMetaData" class="metadata-container">

@@ -3,6 +3,8 @@ import { PostService } from 'app/core/services/post.service';
 import { GenericResponse } from 'app/models/generic-response.model';
 import { Post } from 'app/models/post.model';
 import { ActivatedRoute } from '@angular/router';
+import { ProfileService } from 'app/core/services/profile.service';
+import { Profile } from 'app/models/profile.model';
 
 @Component({
   selector: 'mds-post',
@@ -11,10 +13,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PostComponent {
 
+  author: Partial<Profile> | undefined;
   media: String[] | undefined;
   idxMedia: number = 0;
   postMetaData: Partial<Post> | undefined;
-  constructor(private postService: PostService, private route: ActivatedRoute) {
+  constructor(private postService: PostService, private profileService: ProfileService, private route: ActivatedRoute) {
 
   }
 
@@ -29,6 +32,14 @@ export class PostComponent {
             console.log(x.error);
           } else {
             this.postMetaData = x.content;
+            this.profileService.getProfile(x.content.userId!)
+              .subscribe((y: GenericResponse<Partial<Profile>>) => {
+                if (y.error) {
+                  console.log(y.error);
+                } else {
+                  this.author = y.content;
+                }
+              });
           }
         });
 
@@ -40,6 +51,7 @@ export class PostComponent {
             this.media = x.content.picturesURLs;
           }
         });
+
     });
   }
 
