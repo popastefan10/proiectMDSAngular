@@ -13,6 +13,7 @@ import { Profile } from 'app/models/profile.model';
 })
 export class PostComponent {
 
+  formattedDate: string | undefined;
   author: Partial<Profile> | undefined;
   media: String[] | undefined;
   idxMedia: number = 0;
@@ -26,12 +27,19 @@ export class PostComponent {
     this.route.params.subscribe(params => {
       const postId = params['id'];
 
+      // loading metadata
       this.postService.getSinglePost(postId)
         .subscribe((x: GenericResponse<Partial<Post>>) => {
           if (x.error) {
             console.log(x.error);
           } else {
             this.postMetaData = x.content;
+
+            // format date
+            const dateOptions: Intl.DateTimeFormatOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            this.formattedDate = new Date(this.postMetaData.createdAt!).toLocaleDateString(undefined, dateOptions);
+
+            // need this to display author's user name
             this.profileService.getProfile(x.content.userId!)
               .subscribe((y: GenericResponse<Partial<Profile>>) => {
                 if (y.error) {
@@ -42,7 +50,7 @@ export class PostComponent {
               });
           }
         });
-
+      
       this.postService.getPostMedia(postId)
         .subscribe((x: GenericResponse<Partial<Post>>) => {
           if (x.error) {
