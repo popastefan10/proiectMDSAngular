@@ -19,6 +19,14 @@
                 <div *ngFor="let child of childComments[root.metadata?.id!]" class="child-section-container">
                     <div class="child-comment">
                         {{child.author?.username}} {{child.metadata?.content}}
+
+                        <button (click)="onToggleReplyComponent(child.metadata?.id!)" mat-button>
+                            <mat-icon>reply</mat-icon>
+                            Reply
+                        </button>
+
+                        <mds-comment-create *ngIf="isCommentReply(child.metadata?.id!)" [parentId]="child.metadata?.id"
+                            [postId]="postId"></mds-comment-create>
                     </div>
                 </div>
             </div>
