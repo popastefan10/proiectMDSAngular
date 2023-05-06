@@ -13,6 +13,7 @@ import { Profile } from 'app/models/profile.model';
 })
 export class PostComponent {
 
+  showComments: boolean = false;
   formattedDate: string | undefined;
   author: Partial<Profile> | undefined;
   media: String[] | undefined;
@@ -50,7 +51,7 @@ export class PostComponent {
               });
           }
         });
-      
+
       this.postService.getPostMedia(postId)
         .subscribe((x: GenericResponse<Partial<Post>>) => {
           if (x.error) {
@@ -73,5 +74,21 @@ export class PostComponent {
     if (this.media && this.idxMedia < this.media.length - 1) {
       this.idxMedia += 1;
     }
+  }
+
+  onToggleShowComments() {
+    this.showComments = !this.showComments;
+  }
+
+  isShowComments() {
+    return this.postMetaData && this.showComments;
+  }
+
+  isShowArrowBack() {
+    return this.idxMedia > 0;
+  }
+
+  isShowArrowForward() {
+    return this.idxMedia < this.media?.length! - 1;
   }
 }

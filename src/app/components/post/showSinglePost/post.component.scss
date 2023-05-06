@@ -1,11 +1,10 @@
-
-.arrows-container{
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    text-align: center;
-    width: 100%;
+.arrows-container {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  width: 100%;
 }
 
 .arrow-back,
@@ -27,13 +26,24 @@
   right: 0;
 }
 
-.media-container{
-    position: relative;
-    width: 30vw;
+.media-container {
+  position: relative;
+  width: 30vw;
 }
 
 // temporary size
-.media-container img{
-    width: 100%;
-    height: 60vh;
+.media-container img {
+  width: 100%;
+  height: 60vh;
+}
+
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.metadata-container{
+  text-align: left;
 }

@@ -1,13 +1,12 @@
-
 <div *ngIf="media" class="media-container">
     <img src="/api/{{media[idxMedia]}}">
 
     <div class="arrows-container">
-        <button (click)="onBackArrowClick()" mat-button class="arrow-back">
+        <button *ngIf="isShowArrowBack()" (click)="onBackArrowClick()" mat-button class="arrow-back">
             <mat-icon>arrow_back_ios</mat-icon>
         </button>
-    
-        <button (click)="onForwardArrowClick()" mat-button class="arrow-forward">
+
+        <button *ngIf="isShowArrowForward()" (click)="onForwardArrowClick()" mat-button class="arrow-forward">
             <mat-icon>arrow_forward_ios</mat-icon>
         </button>
     </div>
@@ -24,4 +23,14 @@
 
 <div *ngIf="!postMetaData" class="metadata-container">
     Metadata failed to download!
+</div>
+
+
+<button (click)="onToggleShowComments()" mat-button>
+    <mat-icon>expand_more</mat-icon>
+    View comments
+</button>
+
+<div *ngIf="isShowComments()">
+    <mds-comment-section [postId]="postMetaData?.id"></mds-comment-section>
 </div>

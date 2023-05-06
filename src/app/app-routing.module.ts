@@ -6,7 +6,6 @@ import { LoginFormComponent } from './components/login/login-form.component';
 import { RegisterFormComponent } from './components/register/register-form.component';
 import { PostComponent } from './components/post/showSinglePost/post.component';
 import { CreatePostComponent } from './components/post/createPost/create-post/create-post.component';
-import { CommentSectionComponent } from './components/comment/comment-section/comment-section.component';
 
 const routes: Routes = [
   { path: 'api-tests', component: ApiTestsComponent },
@@ -14,7 +13,6 @@ const routes: Routes = [
   { path: 'register', component: RegisterFormComponent },
   { path: 'posts/:id', component: PostComponent},
   { path: 'postsCreate', component: CreatePostComponent},
-  { path: 'posts/:id/comments', component: CommentSectionComponent},
 ];
 
 @NgModule({

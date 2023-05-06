@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Comment, CommentShow } from '../../../models/comment.model';
 import { CommentService } from 'app/core/services/comment.service';
 import { ProfileService } from 'app/core/services/profile.service';
-import { ActivatedRoute } from '@angular/router';
 import { GenericResponse } from 'app/models/generic-response.model';
 import { Profile } from 'app/models/profile.model';
 
@@ -16,7 +15,7 @@ export class CommentSectionComponent {
   // used to remember which comment we reply to
   // to know where to display reply component
   repliedParent: string | undefined;
-  postId: string | undefined;
+  @Input() postId: string | undefined;
   rootComments: Partial<CommentShow>[] | undefined;
   childComments: {
     [key: string]: Partial<CommentShow>[]
@@ -25,44 +24,41 @@ export class CommentSectionComponent {
     [key: string]: boolean
   } = {};
 
-  constructor(private commentService: CommentService, private profileService: ProfileService, private route: ActivatedRoute) {
+  constructor(private commentService: CommentService, private profileService: ProfileService) {
 
   }
 
   ngOnInit() {
+    console.log(this.postId);
+    // loading metadata
+    this.commentService.getPostReplies(this.postId!)
+      .subscribe((res: GenericResponse<Partial<Comment>[]>) => {
+        if (res.error) {
+          console.log(res.error);
+        } else {
+          this.rootComments = [];
+          res.content.forEach(x => {
+            this.rootComments?.push({
+              metadata: x,
+            });
+            this.showReplies[x.id!] = false;
+          });
 
-    this.route.params.subscribe(params => {
-      const postId = params['id'];
-      this.postId = postId;
-      // loading metadata
-      this.commentService.getPostReplies(postId)
-        .subscribe((res: GenericResponse<Partial<Comment>[]>) => {
-          if (res.error) {
-            console.log(res.error);
-          } else {
-            this.rootComments = [];
-            res.content.forEach(x => {
-              this.rootComments?.push({
-                metadata: x,
+          this.rootComments.forEach(comm => {
+            // need this to display author's user name
+            this.profileService.getProfile(comm.metadata!.userId!)
+              .subscribe((y: GenericResponse<Partial<Profile>>) => {
+                if (y.error) {
+                  console.log(y.error);
+                } else {
+                  comm.author = y.content;
+                }
               });
-              this.showReplies[x.id!] = false;
-            });
+          });
+        }
+      });
 
-            this.rootComments.forEach(comm => {
-              // need this to display author's user name
-              this.profileService.getProfile(comm.metadata!.userId!)
-                .subscribe((y: GenericResponse<Partial<Profile>>) => {
-                  if (y.error) {
-                    console.log(y.error);
-                  } else {
-                    comm.author = y.content;
-                  }
-                });
-            });
-          }
-        });
 
-    });
   }
 
   onShowRepliesClick(id: string) {
