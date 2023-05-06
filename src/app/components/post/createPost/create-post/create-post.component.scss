@@ -1,0 +1,12 @@
+$maxNrFiles: 10;
+
+.media-file{
+    width: 20vw;
+    height: 30vh;
+}
+@for $i from 0 through ($maxNrFiles - 1) {
+    #preview#{$i}{
+        width: 100%;
+        height: 100%;
+    }
+}
