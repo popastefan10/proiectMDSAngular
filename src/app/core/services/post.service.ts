@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { PostCreate } from 'app/components/post/post-create.model';
+import { PostCreate } from 'app/models/post-create.model';
 import { GenericResponse } from 'app/models/generic-response.model';
 import { Post } from 'app/models/post.model';
 import { Observable } from 'rxjs';

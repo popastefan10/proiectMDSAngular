@@ -10,11 +10,12 @@ import { MaterialModule } from './shared/material/material.module';
 import { ErrorBoxComponent } from './components/error-box/error-box.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProfilePicComponent } from './components/profile-pic/profile-pic.component';
+import { PostComponent } from './components/post/post.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 // import { CreateProfileComponent } from './components/create-profile/create-profile.component';
 
 @NgModule({
-  declarations: [AppComponent, ApiTestsComponent, LoginFormComponent, RegisterFormComponent, ErrorBoxComponent, NavbarComponent, ProfilePicComponent , EditProfileComponent],
+  declarations: [AppComponent, ApiTestsComponent, LoginFormComponent, RegisterFormComponent, ErrorBoxComponent, NavbarComponent, ProfilePicComponent, PostComponent , EditProfileComponent],
   imports: [BrowserModule, AppRoutingModule, SharedModule, MaterialModule],
   providers: [],
   bootstrap: [AppComponent]
