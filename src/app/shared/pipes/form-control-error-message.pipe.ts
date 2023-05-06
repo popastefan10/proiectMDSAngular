@@ -14,6 +14,14 @@ export class FormControlErrorMessagePipe implements PipeTransform {
       return 'Passwords do not match';
     }
 
+    if (value.hasError('min')) {
+      return 'Too short'
+    }
+
+    if (value.hasError('max')) {
+      return 'Too long'
+    }
+
     return value.hasError('email') ? 'Not a valid email' : '';
   }
 }
