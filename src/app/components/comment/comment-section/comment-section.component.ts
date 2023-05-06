@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Comment, CommentShow } from '../../models/comment.model';
+import { Comment, CommentShow } from '../../../models/comment.model';
 import { CommentService } from 'app/core/services/comment.service';
 import { ProfileService } from 'app/core/services/profile.service';
 import { ActivatedRoute } from '@angular/router';

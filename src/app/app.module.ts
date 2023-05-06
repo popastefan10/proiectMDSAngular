@@ -13,7 +13,7 @@ import { ProfilePicComponent } from './components/profile-pic/profile-pic.compon
 import { PostComponent } from './components/post/showSinglePost/post.component';
 import {MatButtonModule} from '@angular/material/button'; 
 import {MatCardModule} from '@angular/material/card';
-import { CommentSectionComponent } from './components/comment-section/comment-section.component';
+import { CommentSectionComponent } from './components/comment/comment-section/comment-section.component';
 import { CreatePostComponent } from './components/post/createPost/create-post/create-post.component';
 
 @NgModule({
