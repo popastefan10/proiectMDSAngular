@@ -1,0 +1,9 @@
+<form [formGroup]="createCommentForm">
+    <div>
+        <label for="content">Content</label>
+        <input id="content" type="text" formControlName="content" />
+    </div>
+    <button (click)="onSubmit()" type="submit" mat-button>
+        <mat-icon>done_outline</mat-icon>
+    </button>
+</form>

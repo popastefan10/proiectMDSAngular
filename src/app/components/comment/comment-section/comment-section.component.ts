@@ -12,9 +12,17 @@ import { Profile } from 'app/models/profile.model';
   styleUrls: ['./comment-section.component.scss']
 })
 export class CommentSectionComponent {
+
+  // used to remember which comment we reply to
+  // to know where to display reply component
+  repliedParent: string | undefined;
+  postId: string | undefined;
   rootComments: Partial<CommentShow>[] | undefined;
   childComments: {
     [key: string]: Partial<CommentShow>[]
+  } = {};
+  showReplies: {
+    [key: string]: boolean
   } = {};
 
   constructor(private commentService: CommentService, private profileService: ProfileService, private route: ActivatedRoute) {
@@ -25,7 +33,7 @@ export class CommentSectionComponent {
 
     this.route.params.subscribe(params => {
       const postId = params['id'];
-
+      this.postId = postId;
       // loading metadata
       this.commentService.getPostReplies(postId)
         .subscribe((res: GenericResponse<Partial<Comment>[]>) => {
@@ -37,6 +45,7 @@ export class CommentSectionComponent {
               this.rootComments?.push({
                 metadata: x,
               });
+              this.showReplies[x.id!] = false;
             });
 
             this.rootComments.forEach(comm => {
@@ -57,30 +66,49 @@ export class CommentSectionComponent {
   }
 
   onShowRepliesClick(id: string) {
-    this.commentService.getCommentReplies(id)
-      .subscribe((res: GenericResponse<Partial<Comment>[]>) => {
-        if (res.error) {
-          console.log(res.error);
-        } else {
-          this.childComments[id] = [];
-          res.content.forEach(x => {
-            this.childComments[id]?.push({
-              metadata: x,
-            });
-          });
 
-          this.childComments[id].forEach(comm => {
-            // need this to display author's user name
-            this.profileService.getProfile(comm.metadata!.userId!)
-              .subscribe((y: GenericResponse<Partial<Profile>>) => {
-                if (y.error) {
-                  console.log(y.error);
-                } else {
-                  comm.author = y.content;
-                }
+    if (!this.showReplies[id]) {
+
+      this.commentService.getCommentReplies(id)
+        .subscribe((res: GenericResponse<Partial<Comment>[]>) => {
+          if (res.error) {
+            console.log(res.error);
+          } else {
+            this.childComments[id] = [];
+            res.content.forEach(x => {
+              this.childComments[id]?.push({
+                metadata: x,
               });
-          });
-        }
-      });
+            });
+
+            this.childComments[id].forEach(comm => {
+              // need this to display author's user name
+              this.profileService.getProfile(comm.metadata!.userId!)
+                .subscribe((y: GenericResponse<Partial<Profile>>) => {
+                  if (y.error) {
+                    console.log(y.error);
+                  } else {
+                    comm.author = y.content;
+                  }
+                });
+            });
+          }
+        });
+    }
+
+    this.showReplies[id] = !this.showReplies[id];
   }
+
+  onToggleReplyComponent(id: string) {
+    this.repliedParent = this.repliedParent === id ? undefined : id;
+  }
+
+  isPostReply() {
+    return this.repliedParent === "";
+  }
+
+  isCommentReply(id: string) {
+    return this.repliedParent === id;
+  }
+
 }
