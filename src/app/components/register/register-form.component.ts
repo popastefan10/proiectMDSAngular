@@ -49,7 +49,7 @@ export class RegisterFormComponent implements OnInit {
             return of(false);
           })
         )
-        .subscribe((registerSuccessful) => registerSuccessful && this.router.navigateByUrl('/'));
+        .subscribe((registerSuccessful) => registerSuccessful && this.router.navigateByUrl('/edit-profile'));
     }
   }
 
