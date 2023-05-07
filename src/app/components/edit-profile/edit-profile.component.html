@@ -3,7 +3,7 @@
     <h2 class="header-text">Edit profile</h2>
   </div>
 
-  <mds-error-box @openClosed *ngIf="!!editProfileError" [errorMsg]="editProfileError.errorMsg"></mds-error-box>
+  <mds-error-box @openClosed *ngIf="editProfileError" [errorMsg]="editProfileError.errorMsg"></mds-error-box>
 
   <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
     <div>

@@ -3,7 +3,7 @@
     <h2 class="header-text">Create a profile</h2>
   </div>
 
-  <mds-error-box @openClosed *ngIf="!!createProfileError" [errorMsg]="createProfileError.errorMsg"></mds-error-box>
+  <mds-error-box @openClosed *ngIf="createProfileError" [errorMsg]="createProfileError.errorMsg"></mds-error-box>
 
   <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
     <mat-stepper #stepper>

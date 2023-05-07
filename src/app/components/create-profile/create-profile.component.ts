@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormBuilder, Validators, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProfileService } from 'app/core/services/profile.service';
-import { CustomError, ErrorResponse } from 'app/shared/utils/error';
+import { CustomError } from 'app/shared/utils/error';
 import { ProfileCreate } from 'app/models/profile-create.model';
-import { catchError, map, of } from 'rxjs';
+import { GenericResponse } from 'app/models/generic-response.model';
+import { Profile } from 'app/models/profile.model';
+import { CreateProfileFormType } from './create-profile.type';
 
 @Component({
   selector: 'app-create-profile-profile',
@@ -18,12 +20,11 @@ export class CreateProfileComponent implements OnInit {
 
   public profilePicture?: File = undefined;
 
-  // Cum folosesc interfata createProfileFormType?
-  public readonly profileForm = this.fb.group({
+  public readonly profileForm: FormGroup<Partial<CreateProfileFormType>> = this.fb.group({
     username: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(15)]],
     name: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(15)]],
     bio: ['', Validators.maxLength(50)]
-  });
+  }) as FormGroup<Partial<CreateProfileFormType>>;
 
 
   onSubmit(): void {
@@ -37,19 +38,17 @@ export class CreateProfileComponent implements OnInit {
         media: this.profilePicture
       }
 
-      this.profileService
-        .create(data)
-        .pipe(
-          map(() => true),
-          catchError((err: ErrorResponse) => {
-            this.createProfileError = err.error.error;
-            return of(false);
-          })
-        )
-        .subscribe((createProfileSuccessful) => createProfileSuccessful && this.router.navigateByUrl('/'));
+      this.profileService.create(data)
+        .subscribe((res: GenericResponse<Partial<Profile>>) => {
+          if (res.error) {
+            console.log(res.error);
+          } else {
+            console.log(res.content);
+            this.router.navigateByUrl('/');
+          }
+        });
     }
   }
-
 
   onFileSelected(event: Event): void {
     const target = event.target as HTMLInputElement;

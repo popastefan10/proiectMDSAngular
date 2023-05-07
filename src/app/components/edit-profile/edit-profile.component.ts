@@ -1,11 +1,13 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormControl, Validators } from "@angular/forms";
+import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 import { openClosedAnimation } from "app/animations";
-import { CustomError, ErrorResponse } from "app/shared/utils/error";
+import { CustomError } from "app/shared/utils/error";
 import { Router } from '@angular/router';
 import { ProfileService } from "app/core/services/profile.service";
-import { catchError, map, of } from "rxjs";
 import { ProfileCreate } from "app/models/profile-create.model";
+import { EditProfileFormType } from "./edit-profile.type";
+import { Profile } from "app/models/profile.model";
+import { GenericResponse } from "app/models/generic-response.model";
 
 @Component({
   selector: 'mds-edit-profile',
@@ -20,11 +22,11 @@ export class EditProfileComponent implements OnInit {
 
   public profilePicture?: File = undefined;
 
-  public readonly profileForm = this.fb.group({
+  public readonly profileForm: FormGroup<Partial<EditProfileFormType>> = this.fb.group({
     username: ['', [Validators.minLength(5), Validators.maxLength(15)]],
     name: ['', [Validators.minLength(5), Validators.maxLength(15)]],
     bio: ['', Validators.maxLength(50)]
-  });
+  }) as FormGroup<Partial<EditProfileFormType>>;
 
   onSubmit(): void {
     if (this.profileForm.valid) {
@@ -37,16 +39,15 @@ export class EditProfileComponent implements OnInit {
         media: this.profilePicture
       }
 
-      this.profileService
-        .patch(data)
-        .pipe(
-          map(() => true),
-          catchError((err: ErrorResponse) => {
-            this.editProfileError = err.error ? err.error.error : undefined
-            return of(false);
-          })
-        )
-        .subscribe((editProfileSuccessful) => editProfileSuccessful && this.router.navigateByUrl('/'));
+      this.profileService.patch(data)
+        .subscribe((res: GenericResponse<Partial<Profile>>) => {
+          if (res.error) {
+            console.log(res.error);
+          } else {
+            console.log(res.content);
+            this.profileForm.reset();
+          }
+        });
     }
   }
 
