@@ -5,7 +5,7 @@ import { Post } from '../../models/post.model';
 import { SessionUser } from '../../models/session-user.model';
 import { UserService } from 'app/core/services/user.service';
 import { tap } from 'rxjs';
-import { PostCreate } from '../post/post-create.model';
+import { PostCreate } from '../../models/post-create.model';
 import { PostService } from 'app/core/services/post.service';
 import { CommentService } from 'app/core/services/comment.service';
 import { Comment } from '../../models/comment.model';

@@ -1,0 +1,62 @@
+<div class="create-profile-form-container">
+  <div class="create-profile-form-header">
+    <h2 class="header-text">Create a profile</h2>
+  </div>
+
+  <mds-error-box @openClosed *ngIf="createProfileError" [errorMsg]="createProfileError.errorMsg"></mds-error-box>
+
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <mat-stepper #stepper>
+      <mat-step label="Fill out your username">
+          <mat-form-field class="create-profile-form-field">
+            <mat-label>Username</mat-label>
+            <input matInput formControlName="username" type="text">
+            <mat-error *ngIf="username.invalid">{{ username | formControlErrorMessage : username.errors }}</mat-error>
+          </mat-form-field>
+          <div>
+            <button mat-raised-button matStepperNext type="button">Next</button>
+          </div>
+      </mat-step>
+      <mat-step label="Fill out your name">
+          <mat-form-field field class="create-profile-form-field">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name" type="text">
+            <mat-error *ngIf="name.invalid">{{ name | formControlErrorMessage : name.errors}}</mat-error>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-raised-button matStepperNext type="button">Next</button>
+          </div>
+      </mat-step>
+      <mat-step label="Fill out your bio">
+          <mat-form-field field class="create-profile-form-field">
+            <mat-label>Bio</mat-label>
+            <textarea matInput formControlName="bio"></textarea>
+            <mat-error *ngIf="bio.invalid">{{ bio | formControlErrorMessage : bio.errors}}</mat-error>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-raised-button matStepperNext type="button">Next</button>
+          </div>
+      </mat-step>
+      <mat-step label="Choose a profile picture">
+          <input type="file" accept="image/*" (change)="onFileSelected($event)">
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-raised-button matStepperNext type="button">Next</button>
+          </div>
+      </mat-step>
+      <mat-step label="Done">
+        <ng-template matStepLabel>Done</ng-template>
+        <p>You are now done.</p>
+        <div>
+          <button mat-raised-button color="primary" type="submit" class="create-profile-button">Submit</button>
+          <button mat-button matStepperPrevious >Back</button>
+          <button mat-button (click)="stepper.reset()">Reset</button>
+        </div>
+      </mat-step>
+    </mat-stepper>
+  </form>
+</div>
+
+
