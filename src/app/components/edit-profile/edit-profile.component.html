@@ -5,39 +5,33 @@
 
   <mds-error-box @openClosed *ngIf="!!editProfileError" [errorMsg]="editProfileError.errorMsg"></mds-error-box>
 
-  <form class="edit-profile-form" [formGroup]="editProfileForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
     <div>
       <mat-form-field class="edit-profile-form-field">
         <mat-label>Username</mat-label>
         <input matInput type="text" formControlName="username"/>
-        <mat-error *ngIf="username.invalid">{{ username | formControlErrorMessage : username.errors }}</mat-error>
+        <mat-error *ngIf="username && username.invalid">{{ username | formControlErrorMessage : username.errors }}</mat-error>
       </mat-form-field>
     </div>
     <div>
       <mat-form-field class="edit-profile-form-field">
         <mat-label>Name</mat-label>
-        <input matInput type="text" formControlName="name"/>
-        <mat-error *ngIf="name.invalid">{{ name | formControlErrorMessage : name.errors }}</mat-error>
+        <input matInput type="text" formControlName="name">
+        <mat-error *ngIf="name && name.invalid">{{ name | formControlErrorMessage : name.errors }}</mat-error>
       </mat-form-field>
     </div>
     <div>
       <mat-form-field class="edit-profile-form-field">
         <mat-label>Bio</mat-label>
-        <textarea matInput type="text" formControlName="bio"></textarea>
-        <mat-error *ngIf="bio.invalid">{{ bio | formControlErrorMessage : bio.errors }}</mat-error>
+        <input matInput type="text" formControlName="bio">
+        <mat-error *ngIf="bio && bio.invalid">{{ bio | formControlErrorMessage : bio.errors }}</mat-error>
       </mat-form-field>
     </div>
-
-    <div class="edit-profile-form-field">
-      <button mat-raised-button class="choose-photo-btn" (click)="fileInput.click()">Choose a profile photo</button>
-      <div class="photo-preview">
-        <img [src]="selectedPhotoUrl" alt="Profile photo preview">
-        <p *ngIf="selectedPhotoName" class="photo-name">{{selectedPhotoName}}</p>
-      </div>
-      <input #fileInput type="file" accept="image/*" (change)="onFileSelected($event)">
+    <div>
+      <input type="file" id="profilePicture" (change)="onFileSelected($event)" accept=".jpg,.jpeg,.png"/>
     </div>
-
-    <button mat-raised-button color="primary" type="submit" class="edit-profile-button">Confirm</button>
+    <button mat-raised-button color="primary" type="submit">Save Changes</button>
   </form>
+
 </div>
 

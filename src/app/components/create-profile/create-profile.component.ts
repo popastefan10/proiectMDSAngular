@@ -1,30 +1,30 @@
-import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormControl, Validators } from "@angular/forms";
-import { openClosedAnimation } from "app/animations";
-import { CustomError, ErrorResponse } from "app/shared/utils/error";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ProfileService } from "app/core/services/profile.service";
-import { catchError, map, of } from "rxjs";
-import { ProfileCreate } from "app/models/profile-create.model";
+import { ProfileService } from 'app/core/services/profile.service';
+import { CustomError, ErrorResponse } from 'app/shared/utils/error';
+import { ProfileCreate } from 'app/models/profile-create.model';
+import { catchError, map, of } from 'rxjs';
 
 @Component({
-  selector: 'mds-edit-profile',
-  templateUrl: './edit-profile.component.html',
-  styleUrls: ['./edit-profile.component.scss'],
-  animations: [openClosedAnimation]
+  selector: 'app-create-profile-profile',
+  templateUrl: './create-profile.component.html',
+  styleUrls: ['./create-profile.component.scss']
 })
-export class EditProfileComponent implements OnInit {
+export class CreateProfileComponent implements OnInit {
   constructor(private readonly fb: FormBuilder, private readonly profileService: ProfileService, public router: Router) {}
 
-  public editProfileError: CustomError | undefined;
+  public createProfileError: CustomError | undefined;
 
   public profilePicture?: File = undefined;
 
+  // Cum folosesc interfata createProfileFormType?
   public readonly profileForm = this.fb.group({
-    username: ['', [Validators.minLength(5), Validators.maxLength(15)]],
-    name: ['', [Validators.minLength(5), Validators.maxLength(15)]],
+    username: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(15)]],
+    name: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(15)]],
     bio: ['', Validators.maxLength(50)]
   });
+
 
   onSubmit(): void {
     if (this.profileForm.valid) {
@@ -38,25 +38,25 @@ export class EditProfileComponent implements OnInit {
       }
 
       this.profileService
-        .patch(data)
+        .create(data)
         .pipe(
           map(() => true),
           catchError((err: ErrorResponse) => {
-            this.editProfileError = err.error ? err.error.error : undefined
+            this.createProfileError = err.error.error;
             return of(false);
           })
         )
-        .subscribe((editProfileSuccessful) => editProfileSuccessful && this.router.navigateByUrl('/'));
+        .subscribe((createProfileSuccessful) => createProfileSuccessful && this.router.navigateByUrl('/'));
     }
   }
+
 
   onFileSelected(event: Event): void {
     const target = event.target as HTMLInputElement;
-    if (target.files && target.files.length) {
+    if (target.files) {
       this.profilePicture = target.files[0];
     }
   }
-
 
   get username(): FormControl {
     return this .profileForm.get('username') as FormControl;

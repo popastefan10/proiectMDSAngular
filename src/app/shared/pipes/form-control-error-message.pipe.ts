@@ -14,11 +14,11 @@ export class FormControlErrorMessagePipe implements PipeTransform {
       return 'Passwords do not match';
     }
 
-    if (value.hasError('min')) {
+    if (value.hasError('minLength')) {
       return 'Too short'
     }
 
-    if (value.hasError('max')) {
+    if (value.hasError('maxLength')) {
       return 'Too long'
     }
 
