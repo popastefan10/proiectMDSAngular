@@ -1,0 +1,49 @@
+.arrows-container {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  width: 100%;
+}
+
+.arrow-back,
+.arrow-forward {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+
+.arrow-back {
+  left: 0;
+}
+
+.arrow-forward {
+  right: 0;
+}
+
+.media-container {
+  position: relative;
+  width: 30vw;
+}
+
+// temporary size
+.media-container img {
+  width: 100%;
+  height: 60vh;
+}
+
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.metadata-container{
+  text-align: left;
+}
