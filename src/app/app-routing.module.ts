@@ -4,8 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { ApiTestsComponent } from './components/api-tests/api-tests.component';
 import { LoginFormComponent } from './components/login/login-form.component';
 import { RegisterFormComponent } from './components/register/register-form.component';
-import { PostComponent } from './components/post/showSinglePost/post.component';
-import { CreatePostComponent } from './components/post/createPost/create-post/create-post.component';
+import { PostComponent } from './components/post/show-post/post.component';
+import { CreatePostComponent } from './components/post/create-post/create-post.component';
 import { CreateProfileComponent } from './components/create-profile/create-profile.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 
