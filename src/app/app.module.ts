@@ -11,16 +11,19 @@ import { ErrorBoxComponent } from './components/error-box/error-box.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProfilePicComponent } from './components/profile-pic/profile-pic.component';
 import { PostComponent } from './components/post/showSinglePost/post.component';
-import {MatButtonModule} from '@angular/material/button'; 
-import {MatCardModule} from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { CommentSectionComponent } from './components/comment/comment-section/comment-section.component';
 import { CreatePostComponent } from './components/post/createPost/create-post/create-post.component';
 import { CommentCreateComponent } from './components/comment/comment-create/comment-create.component';
+import { CreateProfileComponent } from './components/create-profile/create-profile.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+
 
 @NgModule({
-  declarations: [AppComponent, ApiTestsComponent, LoginFormComponent, RegisterFormComponent, ErrorBoxComponent, NavbarComponent, ProfilePicComponent, PostComponent, CommentSectionComponent, CreatePostComponent, CommentCreateComponent],
+  declarations: [AppComponent, ApiTestsComponent, LoginFormComponent, RegisterFormComponent, ErrorBoxComponent, NavbarComponent, ProfilePicComponent, PostComponent, CommentSectionComponent, CreatePostComponent, CommentCreateComponent, CreateProfileComponent, EditProfileComponent],
   imports: [BrowserModule, AppRoutingModule, SharedModule, MaterialModule, MatButtonModule, MatCardModule],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

@@ -6,6 +6,8 @@ import { LoginFormComponent } from './components/login/login-form.component';
 import { RegisterFormComponent } from './components/register/register-form.component';
 import { PostComponent } from './components/post/showSinglePost/post.component';
 import { CreatePostComponent } from './components/post/createPost/create-post/create-post.component';
+import { CreateProfileComponent } from './components/create-profile/create-profile.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 
 const routes: Routes = [
   { path: 'api-tests', component: ApiTestsComponent },
@@ -13,6 +15,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterFormComponent },
   { path: 'posts/:id', component: PostComponent},
   { path: 'postsCreate', component: CreatePostComponent},
+  { path: 'create-profile', component: CreateProfileComponent },
+  { path: 'edit-profile', component: EditProfileComponent },
 ];
 
 @NgModule({
