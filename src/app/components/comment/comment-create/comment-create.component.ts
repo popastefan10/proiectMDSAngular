@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { CommentService } from 'app/core/services/comment.service';
 import { Comment } from '../../../models/comment.model';
 import { GenericResponse } from 'app/models/generic-response.model';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'mds-comment-create',
@@ -29,13 +30,14 @@ export class CommentCreateComponent {
     };
 
     this.commentService.create(reply)
-      .subscribe((res: GenericResponse<Partial<Comment>>) => {
+      .pipe(tap((res: GenericResponse<Partial<Comment>>) => {
         if (res.error) {
           console.log(res.error);
         } else {
           console.log(res.content);
           this.createCommentForm.reset();
         }
-      });
+      }))
+      .subscribe();
   }
 }
