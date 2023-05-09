@@ -13,8 +13,8 @@ const routes: Routes = [
   { path: 'api-tests', component: ApiTestsComponent },
   { path: 'login', component: LoginFormComponent },
   { path: 'register', component: RegisterFormComponent },
+  { path: 'posts/create', component: CreatePostComponent},
   { path: 'posts/:id', component: PostComponent},
-  { path: 'postsCreate', component: CreatePostComponent},
   { path: 'create-profile', component: CreateProfileComponent },
   { path: 'edit-profile', component: EditProfileComponent },
 ];
