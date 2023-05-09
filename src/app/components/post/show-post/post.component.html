@@ -2,11 +2,11 @@
     <img src="/api/{{media[idxMedia]}}">
 
     <div class="arrows-container">
-        <button *ngIf="isShowArrowBack()" (click)="onBackArrowClick()" mat-button class="arrow-back">
+        <button *ngIf="idxMedia > 0" (click)="onBackArrowClick()" mat-button class="arrow-back">
             <mat-icon>arrow_back_ios</mat-icon>
         </button>
 
-        <button *ngIf="isShowArrowForward()" (click)="onForwardArrowClick()" mat-button class="arrow-forward">
+        <button *ngIf="idxMedia < media?.length! - 1" (click)="onForwardArrowClick()" mat-button class="arrow-forward">
             <mat-icon>arrow_forward_ios</mat-icon>
         </button>
     </div>
@@ -31,6 +31,6 @@
     View comments
 </button>
 
-<div *ngIf="isShowComments()">
-    <mds-comment-section [postId]="postMetaData?.id"></mds-comment-section>
+<div *ngIf="postMetaData && showComments">
+    <mds-comment-section [postId]="postMetaData.id"></mds-comment-section>
 </div>

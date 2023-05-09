@@ -12,7 +12,7 @@
                 Reply
             </button>
 
-            <mds-comment-create *ngIf="isCommentReply(root.metadata?.id!)" [parentId]="root.metadata?.id"
+            <mds-comment-create *ngIf="repliedParent === root.metadata?.id" [parentId]="root.metadata?.id"
                 [postId]="postId"></mds-comment-create>
 
             <div *ngIf="showReplies[root.metadata?.id!]">
@@ -25,7 +25,7 @@
                             Reply
                         </button>
 
-                        <mds-comment-create *ngIf="isCommentReply(child.metadata?.id!)" [parentId]="child.metadata?.id"
+                        <mds-comment-create *ngIf="repliedParent === child.metadata?.id" [parentId]="child.metadata?.id"
                             [postId]="postId"></mds-comment-create>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
         Reply
     </button>
 
-    <mds-comment-create *ngIf="isPostReply()" [postId]="postId"></mds-comment-create>
+    <mds-comment-create *ngIf='repliedParent === ""' [postId]="postId"></mds-comment-create>
 </div>
 
 <div *ngIf="!rootComments" class="comment-section-container">

@@ -5,6 +5,7 @@ import { CreatePostFormType } from './create-post.type';
 import { PostCreate } from 'app/models/post-create.model';
 import { GenericResponse } from 'app/models/generic-response.model';
 import { PostService } from 'app/core/services/post.service';
+import { tap } from 'rxjs';
 // import { PostService } from 'app/core/services/post.service';
 
 @Component({
@@ -60,17 +61,20 @@ export class CreatePostComponent {
     };
 
     this.postService.create(data)
-    .subscribe((res: GenericResponse<Partial<Post>>) => {
-        if (res.error){
-          console.log(res.error);
-        }else{
-          console.log(res.content);
-          this.createPostForm.reset();
-          for (let i = 0; i < this.maxNrFiles; ++i){
-            this.onFileRemove(i);
+      .pipe(
+        tap((res: GenericResponse<Partial<Post>>) => {
+          if (res.error) {
+            console.log(res.error);
+          } else {
+            console.log(res.content);
+            this.createPostForm.reset();
+            for (let i = 0; i < this.maxNrFiles; ++i) {
+              this.onFileRemove(i);
+            }
           }
-        }
-    });
+        })
+      )
+      .subscribe();
 
   }
 }

@@ -111,12 +111,4 @@ export class CommentSectionComponent {
     this.repliedParent = this.repliedParent === id ? undefined : id;
   }
 
-  isPostReply() {
-    return this.repliedParent === "";
-  }
-
-  isCommentReply(id: string) {
-    return this.repliedParent === id;
-  }
-
 }
