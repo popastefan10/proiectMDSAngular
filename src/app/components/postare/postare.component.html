@@ -1,0 +1,12 @@
+<div class="postare">
+   <div class="description">{{ postare.description }}</div>
+   <div class="image-carousel">
+      <div class="postare">
+         <img [src]="postare.urls[urlIndex]">
+      </div>
+      <div class="controls" *ngIf="postare.urls.length >= 2">
+         <button (click)="prevImage()">&lt;</button>
+         <button (click)="nextImage()">&gt;</button>
+      </div>
+   </div>
+</div>

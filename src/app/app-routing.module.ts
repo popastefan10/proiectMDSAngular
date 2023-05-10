@@ -8,6 +8,7 @@ import { PostComponent } from './components/post/show-post/post.component';
 import { CreatePostComponent } from './components/post/create-post/create-post.component';
 import { CreateProfileComponent } from './components/create-profile/create-profile.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+import { FeedComponent} from './components/feed/feed.component';
 
 const routes: Routes = [
   { path: 'api-tests', component: ApiTestsComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'posts/:id', component: PostComponent},
   { path: 'create-profile', component: CreateProfileComponent },
   { path: 'edit-profile', component: EditProfileComponent },
+  { path: 'feed', component: FeedComponent },
 ];
 
 @NgModule({

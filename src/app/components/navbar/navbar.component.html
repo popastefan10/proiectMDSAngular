@@ -11,6 +11,9 @@
   <div class="btn">
     <a routerLink="/posts/create" routerLinkActive="active" ariaCurrentWhenActive="page">Create post</a>
   </div>
+  <div class="btn">
+    <a routerLink="/feed" routerLinkActive="active" ariaCurrentWhenActive="page">Feed</a>
+  </div>
 </div>
 
 <div class="right container" *ngIf="{ isLoggedIn: isLoggedIn$ | async } as data">
