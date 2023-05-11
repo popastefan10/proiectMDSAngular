@@ -5,7 +5,7 @@
 
   <mds-error-box @openClosed *ngIf="editProfileError" [errorMsg]="editProfileError.errorMsg"></mds-error-box>
 
-  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <form class="edit-profile-form" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
     <div>
       <mat-form-field class="edit-profile-form-field">
         <mat-label>Username</mat-label>
@@ -23,14 +23,19 @@
     <div>
       <mat-form-field class="edit-profile-form-field">
         <mat-label>Bio</mat-label>
-        <input matInput type="text" formControlName="bio">
+        <textarea matInput type="text" formControlName="bio"></textarea>
         <mat-error *ngIf="bio && bio.invalid">{{ bio | formControlErrorMessage : bio.errors }}</mat-error>
       </mat-form-field>
     </div>
-    <div>
-      <input type="file" id="profilePicture" (change)="onFileSelected($event)" accept=".jpg,.jpeg,.png"/>
+    <div class="edit-profile-form-field">
+      <button mat-raised-button class="choose-photo-btn" (click)="fileInput.click()">Choose a profile photo</button>
+      <div class="photo-preview" *ngIf="selectedPhotoUrl">
+        <img [src]="selectedPhotoUrl" alt="Profile photo preview">
+        <p *ngIf="selectedPhotoName" class="photo-name">{{selectedPhotoName}}</p>
+      </div>
+      <input #fileInput type="file" accept=".jpg,.jpeg,.png" (change)="onFileSelected($event)">
     </div>
-    <button mat-raised-button color="primary" type="submit">Save Changes</button>
+    <button mat-raised-button color="primary" type="submit" class="confirm-button">Save Changes</button>
   </form>
 
 </div>

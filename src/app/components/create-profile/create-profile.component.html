@@ -40,19 +40,27 @@
           </div>
       </mat-step>
       <mat-step label="Choose a profile picture">
-          <input type="file" accept="image/*" (change)="onFileSelected($event)">
-          <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-raised-button matStepperNext type="button">Next</button>
+        <div class="create-profile-form-field">
+          <button mat-raised-button class="choose-photo-btn" (click)="fileInput.click()">Choose a profile photo</button>
+          <div class="photo-preview" *ngIf="selectedPhotoUrl">
+            <img [src]="selectedPhotoUrl" alt="Profile photo preview">
+            <p *ngIf="selectedPhotoName" class="photo-name">{{selectedPhotoName}}</p>
           </div>
+          <input #fileInput type="file" accept=".jpg,.jpeg,.png" (change)="onFileSelected($event)">
+        </div>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-raised-button matStepperNext type="button">Next</button>
+        </div>
       </mat-step>
+
       <mat-step label="Done">
         <ng-template matStepLabel>Done</ng-template>
         <p>You are now done.</p>
         <div>
           <button mat-raised-button color="primary" type="submit" class="create-profile-button">Submit</button>
           <button mat-button matStepperPrevious >Back</button>
-          <button mat-button (click)="stepper.reset()">Reset</button>
+          <button mat-button (click)="resetForm()">Reset</button>
         </div>
       </mat-step>
     </mat-stepper>
