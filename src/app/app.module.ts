@@ -19,11 +19,12 @@ import { CommentCreateComponent } from './components/comment/comment-create/comm
 import { CreateProfileComponent } from './components/create-profile/create-profile.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { FeedComponent } from './components/feed/feed.component';
-import { PostareComponent } from './components/postare/postare.component';
+import { ShowPostFeedComponent } from './components/post/show-post-feed/show-post-feed.component';
+import { PostPageComponent } from './components/post-page/post-page.component';
 
 
 @NgModule({
-  declarations: [AppComponent, ApiTestsComponent, LoginFormComponent, RegisterFormComponent, ErrorBoxComponent, NavbarComponent, ProfilePicComponent, PostComponent, CommentSectionComponent, CreatePostComponent, CommentCreateComponent, CreateProfileComponent, EditProfileComponent, FeedComponent, PostareComponent],
+  declarations: [AppComponent, ApiTestsComponent, LoginFormComponent, RegisterFormComponent, ErrorBoxComponent, NavbarComponent, ProfilePicComponent, PostComponent, CommentSectionComponent, CreatePostComponent, CommentCreateComponent, CreateProfileComponent, EditProfileComponent, FeedComponent, ShowPostFeedComponent, PostPageComponent],
   imports: [BrowserModule, AppRoutingModule, SharedModule, MaterialModule, MatButtonModule, MatCardModule],
   providers: [],
   bootstrap: [AppComponent]
