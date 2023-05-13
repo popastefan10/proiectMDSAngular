@@ -54,7 +54,7 @@ export class PostPageComponent {
                       picturesURLs: this.media,
                     };
 
-                    console.log(this.post);
+                    
 
                   }
                 })
