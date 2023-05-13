@@ -27,7 +27,7 @@ export class PostComponent {
     const dateOptions: Intl.DateTimeFormatOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     this.formattedDate = new Date(this.post?.createdAt!).toLocaleDateString(undefined, dateOptions);
 
-    console.log(this.post);
+    
 
     // need this to display author's user name
     this.profileService.getProfile(this.post?.userId!)
