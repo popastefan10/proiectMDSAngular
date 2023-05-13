@@ -20,20 +20,12 @@
     Media failed to download!
 </div>
 
-<div *ngIf="post && author" class="metadata-container">
+<div *ngIf="post" class="metadata-container">
+    <a href="posts/{{post.id}}">See full post</a>
     <p>on {{formattedDate}}</p>
-    <p>{{author.username}} {{post.description}}</p>
+    <p>{{author?.username}} {{post.description}}</p>
 </div>
 
 <div *ngIf="!post" class="metadata-container">
     Metadata failed to download!
-</div>
-
-<button (click)="onToggleShowComments()" mat-button>
-    <mat-icon>expand_more</mat-icon>
-    View comments
-</button>
-
-<div *ngIf="post && showComments">
-    <mds-comment-section [postId]="post.id"></mds-comment-section>
 </div>

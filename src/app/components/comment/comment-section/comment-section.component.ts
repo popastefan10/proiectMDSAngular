@@ -30,7 +30,6 @@ export class CommentSectionComponent {
   }
 
   ngOnInit() {
-    console.log(this.postId);
     // loading metadata
     this.commentService.getPostReplies(this.postId!)
       .pipe(
