@@ -9,7 +9,6 @@ export class FollowersComponent implements OnInit {
   @Input() followers: Followers = { followers: '100', following: '50', isFollowing: "" };
 
   ngOnInit() {
-    // Trebuiesc cerute datele din BD
   }
 
   follow() {
