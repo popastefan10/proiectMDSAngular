@@ -21,7 +21,7 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
 import { FeedComponent } from './components/feed/feed.component';
 import { ShowPostFeedComponent } from './components/post/show-post-feed/show-post-feed.component';
 import { PostPageComponent } from './components/post-page/post-page.component';
-import { FollowersComponent } from './followers/followers.component';
+import { FollowersComponent } from './components/followers/followers.component';
 
 
 @NgModule({

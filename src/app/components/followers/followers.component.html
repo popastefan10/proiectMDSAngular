@@ -1,0 +1,11 @@
+<div class="followers">
+   <div class="info">
+      <p> {{ followers.followers }}</p>
+      <p>Followers</p>
+   </div>
+   <div class="info">
+      <p>{{ followers.following }}</p>
+      <p>Following </p>
+   </div>
+   <button (click)="follow()" [disabled]="followers.isFollowing">Follow</button>
+</div>
