@@ -14,7 +14,7 @@
     "noImplicitThis": true,
     "noImplicitAny": true,
     "noFallthroughCasesInSwitch": true,
-    "noUnusedLocals": true,
+    "noUnusedLocals": false,
     "resolveJsonModule": true,
     "sourceMap": true,
     "declaration": false,

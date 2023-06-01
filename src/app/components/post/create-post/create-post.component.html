@@ -1,18 +1,47 @@
-<form [formGroup]="createPostForm">
+<div class="create-post-container">
+  <form>
     <div>
-        <label for="description">Description</label>
-        <input id="description" type="text" formControlName="description" />
+      <mat-form-field class="description">
+        <mat-label>Description</mat-label>
+        <textarea matInput type="text" placeholder="Enter description here..." rows="6"></textarea>
+      </mat-form-field>
+    </div>
+  </form>
+
+  <div *ngIf="{ images: images$ | async } as data">
+    <div class="images-preview" *ngIf="data.images && data.images.length > 0">
+      <div *ngFor="let image of data.images; index as idx" class="image-preview">
+        <div class="overlay"></div>
+        <button mat-icon-button class="remove-btn" (click)="onImageRemove(idx)">
+          <mat-icon>close</mat-icon>
+        </button>
+        <img [src]="image.src" />
+      </div>
+    </div>
+  </div>
+
+  <mds-file-upload
+    [message]="(uploadMessage$ | async) || 'Upload an image'"
+    [disabled]="!(canUpload$ | async)"
+    (file)="onImageUpload($event)"
+  ></mds-file-upload>
+
+  <!-- <form [formGroup]="createPostForm">
+    <div>
+      <label for="description">Description</label>
+      <input id="description" type="text" formControlName="description" />
     </div>
     <div *ngFor="let i of idxList" class="media-upload-container">
-        <div class="media-file">
-            <input id="{{'media' + i}}" type="file" (change)="onFileUpload($event, i)">
-            <img id="{{'preview' + i}}">
-            <button (click)="onFileRemove(i)" mat-button>
-                <mat-icon>close</mat-icon>
-            </button>
-        </div>
+      <div class="media-file">
+        <input id="{{ 'media' + i }}" type="file" (change)="onFileUpload($event, i)" />
+        <img id="{{ 'preview' + i }}" />
+        <button (click)="onFileRemove(i)" mat-button>
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
     </div>
     <button (click)="onSubmit()" type="submit" mat-button>
-        <mat-icon>done_outline</mat-icon>
+      <mat-icon>done_outline</mat-icon>
     </button>
-</form>
+  </form> -->
+</div>

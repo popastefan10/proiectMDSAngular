@@ -1,21 +1,17 @@
 @use "colors" as *;
+@use "mixins" as mixins;
 
 :host {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: $gray-100;
+  background-color: $body-bkg-color;
   height: 100%;
 }
 
 .login-form-container {
-  display: flex;
-  flex-direction: column;
-  background-color: $pure-white;
-  width: 400px;
-  border-radius: 8px;
-  box-shadow: 0px 0px 16px $gray-300;
+  @include mixins.content-container(400px, 0);
 
   .login-form-header {
     border-bottom: 2px solid $gray-300;
