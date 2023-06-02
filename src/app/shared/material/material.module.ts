@@ -6,8 +6,18 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatCardModule } from '@angular/material/card';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
-const MATERIAL_MODULES = [MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule, MatStepperModule, MatButtonModule, MatCardModule];
+const MATERIAL_MODULES = [
+  MatButtonModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule,
+  MatStepperModule,
+  MatButtonModule,
+  MatCardModule,
+  MatProgressBarModule
+];
 
 @NgModule({
   declarations: [],

@@ -26,13 +26,10 @@ export class LoginFormComponent implements OnInit {
   public ngOnInit(): void {}
 
   public onSubmit(): void {
-    console.log('a');
     if (this.loginForm.valid) {
-      console.log('b')
       this.userService
         .login(this.loginForm.value as LoginType)
         .pipe(
-          tap((x) => console.log('x', x)),
           map(() => true),
           catchError((err: ErrorResponse) => {
             this.loginError = err.error.error;

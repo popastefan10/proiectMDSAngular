@@ -1,0 +1,18 @@
+@use "colors" as *;
+
+.file-input {
+  display: none;
+}
+
+.file-upload {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .upload-btn {
+    margin-left: 8px;
+    text-align: center;
+    color: $pure-white;
+    cursor: pointer;
+  }
+}

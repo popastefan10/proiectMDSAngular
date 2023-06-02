@@ -21,12 +21,30 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
 import { FeedComponent } from './components/feed/feed.component';
 import { ShowPostFeedComponent } from './components/post/show-post-feed/show-post-feed.component';
 import { PostPageComponent } from './components/post-page/post-page.component';
-
+import { FileUploadComponent } from './components/shared/file-upload/file-upload.component';
 
 @NgModule({
-  declarations: [AppComponent, ApiTestsComponent, LoginFormComponent, RegisterFormComponent, ErrorBoxComponent, NavbarComponent, ProfilePicComponent, PostComponent, CommentSectionComponent, CreatePostComponent, CommentCreateComponent, CreateProfileComponent, EditProfileComponent, FeedComponent, ShowPostFeedComponent, PostPageComponent],
+  declarations: [
+    AppComponent,
+    ApiTestsComponent,
+    LoginFormComponent,
+    RegisterFormComponent,
+    ErrorBoxComponent,
+    NavbarComponent,
+    ProfilePicComponent,
+    PostComponent,
+    CommentSectionComponent,
+    CreatePostComponent,
+    CommentCreateComponent,
+    CreateProfileComponent,
+    EditProfileComponent,
+    FeedComponent,
+    ShowPostFeedComponent,
+    PostPageComponent,
+    FileUploadComponent
+  ],
   imports: [BrowserModule, AppRoutingModule, SharedModule, MaterialModule, MatButtonModule, MatCardModule],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

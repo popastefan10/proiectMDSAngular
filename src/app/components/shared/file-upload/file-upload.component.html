@@ -1,0 +1,15 @@
+<input
+  type="file"
+  class="file-input"
+  [disabled]="disabled"
+  [accept]="accept"
+  (change)="onFileSelect($event)"
+  #fileInput
+/>
+
+<div class="file-upload">
+  {{ message }}
+  <button mat-mini-fab color="accent" class="upload-btn" [disabled]="disabled" (click)="fileInput.click()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
