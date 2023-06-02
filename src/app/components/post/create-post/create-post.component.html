@@ -1,9 +1,20 @@
 <div class="create-post-container">
-  <form>
+  <mds-error-box @openClosed *ngIf="!!createPostError" [errorMsg]="createPostError.errorMsg"></mds-error-box>
+
+  <form id="create-post-form" class="form" [formGroup]="createPostForm">
     <div>
       <mat-form-field class="description">
         <mat-label>Description</mat-label>
-        <textarea matInput type="text" placeholder="Enter description here..." rows="6"></textarea>
+        <textarea
+          matInput
+          type="text"
+          formControlName="description"
+          placeholder="Enter description here..."
+          rows="6"
+        ></textarea>
+        <mat-error *ngIf="description.invalid">
+          {{ description | formControlErrorMessage : description.errors }}
+        </mat-error>
       </mat-form-field>
     </div>
   </form>
@@ -29,7 +40,7 @@
 
     <div class="post-btn-container">
       Post this to your feed
-      <button mat-mini-fab class="post-btn" color="primary">
+      <button mat-mini-fab type="submit" form="create-post-form" class="post-btn" color="primary" (click)="onSubmit()">
         <mat-icon>arrow_forward</mat-icon>
       </button>
     </div>

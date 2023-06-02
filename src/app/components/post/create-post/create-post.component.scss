@@ -20,8 +20,16 @@ $description-width: calc(#{$image-size * $images-on-row} + #{($images-on-row - 1
   @include mixins.content-container();
 }
 
-.description {
-  width: $description-width;
+mds-error-box {
+  margin-bottom: 32px;
+}
+
+.form {
+  margin-bottom: 8px;
+
+  .description {
+    width: $description-width;
+  }
 }
 
 textarea {
