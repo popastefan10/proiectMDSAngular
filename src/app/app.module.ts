@@ -23,11 +23,28 @@ import { ShowPostFeedComponent } from './components/post/show-post-feed/show-pos
 import { PostPageComponent } from './components/post-page/post-page.component';
 import { FileUploadComponent } from './components/shared/file-upload/file-upload.component';
 
-
 @NgModule({
-  declarations: [AppComponent, ApiTestsComponent, LoginFormComponent, RegisterFormComponent, ErrorBoxComponent, NavbarComponent, ProfilePicComponent, PostComponent, CommentSectionComponent, CreatePostComponent, CommentCreateComponent, CreateProfileComponent, EditProfileComponent, FeedComponent, ShowPostFeedComponent, PostPageComponent, FileUploadComponent],
+  declarations: [
+    AppComponent,
+    ApiTestsComponent,
+    LoginFormComponent,
+    RegisterFormComponent,
+    ErrorBoxComponent,
+    NavbarComponent,
+    ProfilePicComponent,
+    PostComponent,
+    CommentSectionComponent,
+    CreatePostComponent,
+    CommentCreateComponent,
+    CreateProfileComponent,
+    EditProfileComponent,
+    FeedComponent,
+    ShowPostFeedComponent,
+    PostPageComponent,
+    FileUploadComponent
+  ],
   imports: [BrowserModule, AppRoutingModule, SharedModule, MaterialModule, MatButtonModule, MatCardModule],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

@@ -20,11 +20,20 @@
     </div>
   </div>
 
-  <mds-file-upload
-    [message]="(uploadMessage$ | async) || 'Upload an image'"
-    [disabled]="!(canUpload$ | async)"
-    (file)="onImageUpload($event)"
-  ></mds-file-upload>
+  <div class="bottom-buttons">
+    <mds-file-upload
+      [message]="(uploadMessage$ | async) || 'Upload an image'"
+      [disabled]="!(canUpload$ | async)"
+      (file)="onImageUpload($event)"
+    ></mds-file-upload>
+
+    <div class="post-btn-container">
+      Post this to your feed
+      <button mat-mini-fab class="post-btn" color="primary">
+        <mat-icon>arrow_forward</mat-icon>
+      </button>
+    </div>
+  </div>
 
   <!-- <form [formGroup]="createPostForm">
     <div>
