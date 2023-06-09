@@ -13,6 +13,7 @@ $warn: mat.get-color-from-palette(palettes.$project-warn-palette);
 $warn-50: mat.get-color-from-palette(palettes.$project-warn-palette, 50);
 
 $pure-white: #FFFFFF;
+$gray-50: mat.get-color-from-palette(mat.$gray-palette, 50);
 $gray-100: mat.get-color-from-palette(mat.$gray-palette, 100);
 $gray-300: mat.get-color-from-palette(mat.$gray-palette, 300);
 $gray-600: mat.get-color-from-palette(mat.$gray-palette, 600);

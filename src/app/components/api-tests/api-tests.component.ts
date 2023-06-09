@@ -9,6 +9,7 @@ import { PostCreate } from '../../models/post-create.model';
 import { PostService } from 'app/core/services/post.service';
 import { CommentService } from 'app/core/services/comment.service';
 import { Comment } from '../../models/comment.model';
+import { PostMetadata } from 'app/models/post-metadata.model';
 
 @Component({
   selector: 'mds-api-tests',
@@ -33,7 +34,7 @@ export class ApiTestsComponent {
   });
 
   postForm = this.formBuilder.group({
-    description: '',
+    description: ''
   });
 
   postMedia?: File[] = undefined;
@@ -42,8 +43,13 @@ export class ApiTestsComponent {
     id: ''
   });
 
-  constructor(private http: HttpClient, private formBuilder: FormBuilder, private userService: UserService, private postService: PostService,
-    private commentService: CommentService) { }
+  constructor(
+    private http: HttpClient,
+    private formBuilder: FormBuilder,
+    private userService: UserService,
+    private postService: PostService,
+    private commentService: CommentService
+  ) {}
 
   ngOnInit() {
     // this.http.get<UserInfo>('/api/whoami', { withCredentials: true }).subscribe((x) => {
@@ -75,21 +81,18 @@ export class ApiTestsComponent {
   }
 
   onCreatePost(): void {
-
     let postCreate: PostCreate = {
       description: this.postForm.value.description,
       media: this.postMedia
     };
 
-    this.postService.create(postCreate)
-      .pipe(
-        tap(x => console.log(x))
-      )
+    this.postService
+      .create(postCreate)
+      .pipe(tap((x) => console.log(x)))
       .subscribe();
   }
 
   onFileSelected(event: any) {
-
     this.postMedia = event?.target?.files;
   }
 
@@ -109,95 +112,83 @@ export class ApiTestsComponent {
   }
 
   public getSinglePost(): void {
-    this.postService.getSinglePost("519fc696-e288-4211-a58b-548ac1307948")
-      .pipe(
-        tap(x => console.log(x))
-      )
+    this.postService
+      .getSinglePost('519fc696-e288-4211-a58b-548ac1307948')
+      .pipe(tap((x) => console.log(x)))
       .subscribe();
   }
 
   public getPostsByUser(): void {
-    this.postService.getPostsByUser("89604f4c-d376-449c-91b3-8fb5b8624504")
-      .pipe(
-        tap(x => console.log(x))
-      )
+    this.postService
+      .getPostsByUser('89604f4c-d376-449c-91b3-8fb5b8624504')
+      .pipe(tap((x) => console.log(x)))
       .subscribe();
   }
 
   public onPatchPost(): void {
-    let data: Partial<Post> = {
-      id: "c1a4d89c-8725-4c98-bcdc-497e1499f139",
-      description: "changed description!",
+    let data: Partial<PostMetadata> = {
+      id: 'c1a4d89c-8725-4c98-bcdc-497e1499f139',
+      description: 'changed description!'
     };
 
-    this.postService.patch(data)
-      .pipe(
-        tap(x => console.log(x))
-      )
+    this.postService
+      .patch(data)
+      .pipe(tap((x) => console.log(x)))
       .subscribe();
   }
 
   public getPostMedia(): void {
-
-    this.postService.getPostMedia("57b24347-6c9f-4fa7-ac7c-556b4c649579")
-      .subscribe(x => this.picturesURLs = x.content.picturesURLs);
+    this.postService
+      .getPostMedia('57b24347-6c9f-4fa7-ac7c-556b4c649579')
+      .subscribe((x) => (this.picturesURLs = x.content.picturesURLs));
   }
 
   public createComment(): void {
-
     let data: Partial<Comment> = {
-      postId : "57b24347-6c9f-4fa7-ac7c-556b4c649579",
-      content: "Comment nou!",
-      parentId: "9b4aa363-5ffe-4da0-8c35-5396efe86d70",
+      postId: '57b24347-6c9f-4fa7-ac7c-556b4c649579',
+      content: 'Comment nou!',
+      parentId: '9b4aa363-5ffe-4da0-8c35-5396efe86d70'
     };
-    this.commentService.create(data)
-    .pipe(
-      tap(x => console.log(x))
-    )
-    .subscribe();
+    this.commentService
+      .create(data)
+      .pipe(tap((x) => console.log(x)))
+      .subscribe();
   }
 
   public getComment(): void {
-
-    this.commentService.get("9b4aa363-5ffe-4da0-8c35-5396efe86d70")
-    .pipe(
-      tap(x => console.log(x))
-    )
-    .subscribe();
+    this.commentService
+      .get('9b4aa363-5ffe-4da0-8c35-5396efe86d70')
+      .pipe(tap((x) => console.log(x)))
+      .subscribe();
   }
 
   public patchComment(): void {
     let data: Partial<Comment> = {
-      id : "9b4aa363-5ffe-4da0-8c35-5396efe86d70",
-      content: "Comment modificat!",
+      id: '9b4aa363-5ffe-4da0-8c35-5396efe86d70',
+      content: 'Comment modificat!'
     };
 
-    this.commentService.patch(data)
-    .pipe(
-      tap(x => console.log(x))
-    )
-    .subscribe();
+    this.commentService
+      .patch(data)
+      .pipe(tap((x) => console.log(x)))
+      .subscribe();
   }
 
   public getCommentReplies(): void {
-
-    this.commentService.getCommentReplies("9b4aa363-5ffe-4da0-8c35-5396efe86d70")
-    .pipe(
-      tap(x => console.log(x))
-    )
-    .subscribe();
+    this.commentService
+      .getCommentReplies('9b4aa363-5ffe-4da0-8c35-5396efe86d70')
+      .pipe(tap((x) => console.log(x)))
+      .subscribe();
   }
 
   public getPostReplies(): void {
-    this.commentService.getPostReplies("57b24347-6c9f-4fa7-ac7c-556b4c649579")
-    .pipe(
-      tap(x => console.log(x))
-    )
-    .subscribe();
+    this.commentService
+      .getPostReplies('57b24347-6c9f-4fa7-ac7c-556b4c649579')
+      .pipe(tap((x) => console.log(x)))
+      .subscribe();
   }
 
   public logout(): void {
     this.userService.logout().subscribe();
   }
-
 }
