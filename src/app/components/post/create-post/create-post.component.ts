@@ -35,9 +35,13 @@ export class CreatePostComponent implements OnInit {
   public readonly uploadMessage$: Observable<string> = this.canUpload$.pipe(
     map((canUpload) => {
       if (!canUpload) return 'You have reached the maximum number of images.';
-      return 'Upload an image';
+      if (this.imagesSubject.value.length === 0) return ' Upload an image ';
+      return '';
     })
   );
+
+  public readonly uploaded$: Observable<boolean> = this.images$.pipe(map((images) => images.length > 0));
+
 
   public readonly createPostForm: FormGroup<CreatePostFormType> = this.formBuilder.nonNullable.group({
     description: ['', Validators.required]
@@ -70,6 +74,7 @@ export class CreatePostComponent implements OnInit {
 
         const images = [...this.imagesSubject.value];
         images.push(newImage);
+
         this.imagesSubject.next(images);
       }
     };
