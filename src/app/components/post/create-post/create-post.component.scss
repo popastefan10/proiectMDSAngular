@@ -45,6 +45,7 @@ textarea {
   margin-bottom: 16px;
 }
 
+
 .image-preview {
   position: relative;
   height: $image-size;
@@ -92,6 +93,36 @@ textarea {
     width: 100%;
     object-fit: contain;
   }
+
+}
+
+.inline-upload{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: $image-size;
+  width: $image-size;
+  background-color: $gray-100;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 250ms linear;
+
+
+  &:hover {
+    background-color: $gray-300;
+  }
+
+
+  mat-icon {
+    font-size: 48px;
+    line-height: 80px;
+    height: 80px;
+    width: 80px;
+  }
+
+  mds-file-upload {
+    transform: translateX(-4px);
+  }
 }
 
 .image-preview:hover {
@@ -113,9 +144,6 @@ mds-file-upload {
   align-self: center;
 }
 
-.inline-upload-btn{
-  padding-left: 13px;
-}
 
 .post-btn-container {
   display: flex;

@@ -42,8 +42,6 @@ export class CreatePostComponent implements OnInit {
 
   public readonly uploaded$: Observable<boolean> = this.images$.pipe(map((images) => images.length > 0));
 
-  public readonly fiveUploaded$: Observable<boolean> = this.images$.pipe(map((images) => images.length === 5));
-
 
   public readonly createPostForm: FormGroup<CreatePostFormType> = this.formBuilder.nonNullable.group({
     description: ['', Validators.required]

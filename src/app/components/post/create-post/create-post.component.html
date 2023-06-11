@@ -28,10 +28,12 @@
         </button>
         <img [src]="image.src" />
       </div>
-      <mds-file-upload class="inline-upload-btn"
-        *ngIf="(canUpload$ | async)"
-        [message]="''"
-        (file)="onImageUpload($event)"></mds-file-upload>
+      <div class="inline-upload">
+        <mds-file-upload
+          *ngIf="(canUpload$ | async)"
+          [message]="''"
+          (file)="onImageUpload($event)"></mds-file-upload>
+      </div>
     </div>
   </div>
 
