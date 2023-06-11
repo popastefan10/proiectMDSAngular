@@ -15,4 +15,4 @@ jobs:
 
     - name: Send Webhook
       run: |
-        curl -X POST -H "Content-Type: application/json" -d '{"commit_id": "${{ github.sha }}"}' www.promeret.social
+        curl -X POST -H "Content-Type: application/json" -d '{"commit_id": "${{ github.sha }}"}' https://www.promeret.social
