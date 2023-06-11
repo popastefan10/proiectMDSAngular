@@ -36,7 +36,7 @@ export class CreatePostComponent implements OnInit {
     map((canUpload) => {
       if (!canUpload) return 'You have reached the maximum number of images.';
       if (this.imagesSubject.value.length === 0) return ' Upload an image ';
-      return 'test';
+      return '';
     })
   );
 
