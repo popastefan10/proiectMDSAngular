@@ -28,9 +28,8 @@
         </button>
         <img [src]="image.src" />
       </div>
-      <mds-file-upload
+      <mds-file-upload class="inline-upload-btn"
         *ngIf="(canUpload$ | async)"
-        style="padding-left: 13px;"
         [message]="''"
         (file)="onImageUpload($event)"></mds-file-upload>
     </div>
