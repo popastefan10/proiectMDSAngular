@@ -10,7 +10,7 @@ export class FileUploadComponent {
   @Input() disabled: boolean = false;
   @Input() accept: string = 'image/*';
   @Output() file = new EventEmitter<File>();
-  @Input() displayMessage: boolean = true;
+  // @Input() displayMessage: boolean = true;
 
   public onFileSelect(event: Event) {
     const target = event.target as HTMLInputElement;
