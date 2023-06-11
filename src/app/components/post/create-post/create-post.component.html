@@ -28,11 +28,17 @@
         </button>
         <img [src]="image.src" />
       </div>
+      <mds-file-upload
+        *ngIf="(canUpload$ | async)"
+        style="padding-left: 13px;"
+        [message]="''"
+        (file)="onImageUpload($event)"></mds-file-upload>
     </div>
   </div>
 
   <div class="bottom-buttons">
     <mds-file-upload
+      *ngIf="!(uploaded$ | async)"
       [message]="(uploadMessage$ | async) || 'Upload an image'"
       [disabled]="!(canUpload$ | async)"
       (file)="onImageUpload($event)"
