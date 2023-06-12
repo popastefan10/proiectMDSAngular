@@ -45,7 +45,7 @@ jobs:
 
 
           # will put all file under this path
-          local_path: dist/* # default is ./*
+          local_path: dist/proiect-mdsangular/*
           # files will copy to under remote_path
           remote_path: /var/www/html
 
