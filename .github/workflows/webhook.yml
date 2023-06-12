@@ -36,7 +36,7 @@ jobs:
           name: dist
           path: dist/FrontEnd
       - name: SFTP Deploy
-        uses: wlixcc/SFTP-Deploy-Action@1.2.1
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
           username: root
           server: promeret.social
