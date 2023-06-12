@@ -21,7 +21,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: dist
-          path: dist/proiectMDSAngular
+          path: dist/FrontEnd
 
   deploy:
     name: Deploy
@@ -34,7 +34,7 @@ jobs:
         uses: actions/download-artifact@production
         with:
           name: dist
-          path: dist/proiectMDSAngular
+          path: dist/FrontEnd
       - name: Deploy to Firebase
         uses: wlixcc/SFTP-Deploy-Action@1.2.1
         with:
