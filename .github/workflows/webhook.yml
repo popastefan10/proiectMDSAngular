@@ -41,7 +41,7 @@ jobs:
           username: root
           server: promeret.social
           port: 22 # default is 22
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          password: ${{ secrets.SSH_PRIVATE_KEY }}
 
 
           # will put all file under this path
