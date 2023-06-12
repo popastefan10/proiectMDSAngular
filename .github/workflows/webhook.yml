@@ -29,13 +29,13 @@ jobs:
     needs: build
     steps:
       - name: Checkout repository
-        uses: actions/checkout@production
+        uses: actions/checkout@v2
       - name: Download production artifacts
-        uses: actions/download-artifact@production
+        uses: actions/download-artifact@v2
         with:
           name: dist
           path: dist/FrontEnd
-      - name: Deploy to Firebase
+      - name: SFTP Deploy
         uses: wlixcc/SFTP-Deploy-Action@1.2.1
         with:
           username: root
