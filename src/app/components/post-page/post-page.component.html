@@ -7,7 +7,8 @@
     nextIndex: nextIndex$ | async
   } as data"
 >
-  <div class="image-carousel" *ngIf="data.post">
+  <mds-post-media *ngIf="data.post" [picturesURLs]="data.post.picturesURLs"></mds-post-media>
+  <!-- <div class="image-carousel" *ngIf="data.post">
     <div class="image-container" *ngFor="let url of data.post.picturesURLs; let i = index">
       <img
         [src]="url"
@@ -33,5 +34,5 @@
     >
       <mat-icon>chevron_right</mat-icon>
     </button>
-  </div>
+  </div> -->
 </div>
