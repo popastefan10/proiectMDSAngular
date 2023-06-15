@@ -12,15 +12,21 @@ import { take } from "rxjs/operators";
 export class FollowersComponent {
   @Input() userId!: string;
 
-  public followers: Profile[] = [];
+  public followersList: Profile[] = [];
   public numFollowers: number = 0;
   public showFollowers: boolean = false;
+
+  public followsList: Profile[] = [];
+  public numFollows: number = 0;
+  public showFollows: boolean = false;
+
   public profilePictures: { [key: string]: string } = {};
 
   constructor(private readonly followerService: FollowerService, private readonly profileService: ProfileService) {}
 
   ngOnInit(): void {
     this.getFollowers(this.userId);
+    this.getFollowing(this.userId);
   }
 
   private getFollowers(userId: string): void {
@@ -34,9 +40,28 @@ export class FollowersComponent {
           if (response.error) {
             console.log(response.error);
           } else {
-            console.log(response.content);
-            this.followers = response.content;
-            this.numFollowers = this.followers.length;
+            this.followersList = response.content;
+            this.numFollowers = this.followersList.length;
+            this.loadProfilePictures();
+          }
+        });
+      }
+    });
+  }
+
+  private getFollowing(userId: string): void {
+    this.followerService.getFollows(userId).subscribe(response => {
+      if (response.error) {
+        console.log(response.error);
+      } else {
+        const filteredFollowing = response.content.filter(follower => follower.accepted);
+        const followingIds = filteredFollowing.map(follower => follower.follows);
+        this.profileService.getProfileRange(followingIds).subscribe(response => {
+          if (response.error) {
+            console.log(response.error);
+          } else {
+            this.followsList = response.content;
+            this.numFollows = this.followsList.length;
             this.loadProfilePictures();
           }
         });
@@ -45,8 +70,18 @@ export class FollowersComponent {
   }
 
   private loadProfilePictures(): void {
-    this.followers.forEach(follower => {
+    this.followersList.forEach(follower => {
       const profileId = follower.id;
+      this.profileService.getProfilePicture(profileId)
+        .pipe(take(1))
+        .subscribe(response => {
+          if (!response.error && response.content && response.content.profilePictureURL) {
+            this.profilePictures[profileId] = response.content.profilePictureURL;
+          }
+        });
+    });
+    this.followsList.forEach(following => {
+      const profileId = following.id;
       this.profileService.getProfilePicture(profileId)
         .pipe(take(1))
         .subscribe(response => {
@@ -64,5 +99,9 @@ export class FollowersComponent {
 
   toggleFollowers(): void {
     this.showFollowers = !this.showFollowers;
+  }
+
+  toggleFollows(): void {
+    this.showFollows = !this.showFollows;
   }
 }

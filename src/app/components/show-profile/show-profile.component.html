@@ -3,7 +3,7 @@
     <mat-card-content>
       <div class="profile-section">
         <div class="profile-image">
-          <img src="api/{{profilePictureUrl}}" class="rounded-image">
+          <img *ngIf="profilePictureUrl" src="api/{{profilePictureUrl}}" class="rounded-image">
         </div>
 
         <div class="profile-info">
@@ -13,7 +13,6 @@
           <div class="follow-info">
             <mds-followers [userId]="profile.userId"></mds-followers>
           </div>
-
         </div>
 
       </div>

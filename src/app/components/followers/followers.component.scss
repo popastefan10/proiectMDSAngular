@@ -1,47 +1,36 @@
 .followers-container {
-  height: 200px;
-  overflow: auto;
-  /* Alte stiluri personalizate pentru caseta de derulare */
+  display: flex;
+  flex-direction: column;
 }
 
-.followers-link {
-  text-decoration: none;
-  color: black;
-  cursor: pointer;
+.followers-link, .follows-link {
+  display: flex;
+  align-items: center;
 }
 
-.followers-count {
+.followers-count, .follows-count {
+  margin-right: 5px;
   font-weight: bold;
 }
 
-.followers-list {
-  /* Stiluri pentru lista de urmăritori */
+.followers-list, .following-list {
+  margin-top: 10px;
 }
 
-.follower-item {
+.follower-item, .following-item {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
 }
 
-.follower-avatar {
+.follower-avatar, .following-avatar {
   width: 40px;
   height: 40px;
   border-radius: 50%;
   overflow: hidden;
+  margin-right: 10px;
 }
 
-.follower-avatar img {
+.follower-avatar img, .following-avatar img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.follower-info {
-  margin-left: 10px;
-}
-
-.follower-username {
-  font-weight: bold;
-  /* Alte stiluri pentru numele de utilizator */
 }

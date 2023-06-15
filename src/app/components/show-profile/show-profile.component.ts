@@ -55,8 +55,6 @@ export class ShowProfileComponent implements OnInit, OnDestroy {
           console.log(response.error);
         } else {
           this.profilePictureUrl = response.content?.profilePictureURL;
-          console.log("profilePictureUrl");
-          console.log(this.profilePictureUrl);
         }
       })
     );
