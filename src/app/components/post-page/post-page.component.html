@@ -1,38 +1,6 @@
-<div
-  *ngIf="{
-    post: post$ | async,
-    numberOfPictures: numberOfPictures$ | async,
-    currentIndex: currentIndex$ | async,
-    prevIndex: prevIndex$ | async,
-    nextIndex: nextIndex$ | async
-  } as data"
->
-  <mds-post-media *ngIf="data.post" [picturesURLs]="data.post.picturesURLs"></mds-post-media>
-  <!-- <div class="image-carousel" *ngIf="data.post">
-    <div class="image-container" *ngFor="let url of data.post.picturesURLs; let i = index">
-      <img
-        [src]="url"
-        class="carousel-image"
-        [class.active]="i === data.currentIndex"
-        [class.next]="i === data.nextIndex"
-        [class.prev]="i === data.prevIndex"
-      />
-    </div>
-    <button
-      *ngIf="data.currentIndex !== null && data.currentIndex > 0"
-      mat-icon-button
-      class="carousel-button prev-button"
-      (click)="showPreviousImage()"
-    >
-      <mat-icon>chevron_left</mat-icon>
-    </button>
-    <button
-      *ngIf="data.currentIndex !== null && data.currentIndex < data.numberOfPictures! - 1"
-      mat-icon-button
-      class="carousel-button next-button"
-      (click)="showNextImage()"
-    >
-      <mat-icon>chevron_right</mat-icon>
-    </button>
-  </div> -->
+<div *ngIf="{ post: post$ | async } as data" class="post">
+  <div class="post-media">
+    <mds-post-media *ngIf="data.post" [picturesURLs]="data.post.picturesURLs"></mds-post-media>
+  </div>
+  <div class="post-comments"></div>
 </div>

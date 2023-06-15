@@ -1,67 +1,29 @@
 @use "colors" as *;
 @use "mixins" as mixins;
 
+$border: 1px solid $gray-300;
+$comments-width: 400px;
+
 :host {
-  display: block;
-  height: 100%;
-}
-
-.image-carousel {
-  position: relative;
-  height: 400px;
-  width: 400px;
-}
-
-.image-container {
-  position: absolute;
   display: flex;
-  overflow: hidden;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   height: 100%;
-  width: 100%;
 }
 
-.carousel-image {
-  object-fit: contain;
-  flex-shrink: 0;
-  width: 100%;
-  height: auto;
-  opacity: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+.post {
+  @include mixins.content-container(fit-content, 0);
+  display: flex;
+  flex-direction: row;
+  border-radius: 0;
+  border: $border;
 }
 
-.carousel-image.active {
-  opacity: 1;
-  transform: translateX(0);
+.post-media {
+  border-right: $border;
 }
 
-.carousel-image.next {
-  transform: translateX(400px);
-}
-
-.carousel-image.prev {
-  transform: translateX(-400px);
-}
-
-.carousel-button {
-  $button-size: 24px;
-  @include mixins.icon-button($button-size);
-  position: absolute;
-  top: calc(50% - calc($button-size / 2));
-  background-color: rgba($gray-50, 0.5);
-  cursor: pointer;
-
-  mat-icon {
-    font-size: calc($button-size * 3 / 4);
-    line-height: $button-size;
-    height: $button-size;
-    width: $button-size;
-  }
-}
-
-.prev-button {
-  left: 12px;
-}
-
-.next-button {
-  right: 12px;
+.post-comments {
+  width: $comments-width;
 }

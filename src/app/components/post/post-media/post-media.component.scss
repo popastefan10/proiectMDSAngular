@@ -1,6 +1,9 @@
 @use "colors" as *;
 @use "mixins" as mixins;
 
+$image-height: 500px;
+$image-aspect-ratio: 2 / 3;
+
 :host {
   display: block;
   height: 100%;
@@ -8,8 +11,8 @@
 
 .image-carousel {
   position: relative;
-  height: 400px;
-  width: 400px;
+  height: $image-height;
+  aspect-ratio: $image-aspect-ratio;
 }
 
 .image-container {
