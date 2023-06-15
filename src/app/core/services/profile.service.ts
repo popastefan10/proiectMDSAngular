@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { GenericResponse } from 'app/models/generic-response.model';
 import { ProfileCreate } from 'app/models/profile-create.model';
 import { Profile } from 'app/models/profile.model';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -73,11 +73,20 @@ export class ProfileService {
     if (data.metadata.bio){
       formData.append('bio', data.metadata.bio);
     }
+    formData.append('bio', "test");
 
     if (data.media){
       formData.append('media', data.media);
     }
 
-    return this.httpClient.patch<GenericResponse<Partial<Profile>>>('/api/profiles', formData, { withCredentials: true });
+    if (formData.has('username') || formData.has('name') || formData.has('bio') || formData.has('media')) {
+      return this.httpClient.patch<GenericResponse<Partial<Profile>>>('/api/profiles', formData, { withCredentials: true });
+    } else {
+      return of({
+        error: undefined,
+        content: {}
+      });
+    }
+
   }
 }
