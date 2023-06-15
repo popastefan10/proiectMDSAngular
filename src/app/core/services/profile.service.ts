@@ -34,9 +34,9 @@ export class ProfileService {
     return this.httpClient.post<GenericResponse<Partial<Profile>>>('/api/profiles', formData, { withCredentials: true });
   }
 
-  public getProfile(id: string): Observable<GenericResponse<Partial<Profile>>> {
+  public getProfile(id: string): Observable<GenericResponse<Profile>> {
     const url: string = '/api/profiles' + '/' + id;
-    return this.httpClient.get<GenericResponse<Partial<Profile>>>(url);
+    return this.httpClient.get<GenericResponse<Profile>>(url);
   }
 
   public deleteProfile(): Observable<GenericResponse<Partial<Profile>>> {

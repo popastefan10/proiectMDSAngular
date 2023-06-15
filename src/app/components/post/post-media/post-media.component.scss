@@ -1,0 +1,65 @@
+@use "colors" as *;
+@use "variables" as *;
+@use "mixins" as mixins;
+
+:host {
+  display: block;
+  height: 100%;
+}
+
+.image-carousel {
+  position: relative;
+  height: $post-image-height;
+  aspect-ratio: $post-image-aspect-ratio;
+}
+
+.image-container {
+  position: absolute;
+  display: flex;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+.carousel-image {
+  object-fit: contain;
+  flex-shrink: 0;
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.carousel-image.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.carousel-image.next {
+  transform: translateX(400px);
+}
+
+.carousel-image.prev {
+  transform: translateX(-400px);
+}
+
+.carousel-button {
+  $button-size: 24px;
+  @include mixins.icon-button($button-size);
+  position: absolute;
+  top: calc(50% - calc($button-size / 2));
+  background-color: rgba($gray-50, 0.5);
+  cursor: pointer;
+
+  mat-icon {
+    @include mixins.mat-icon($button-size);
+  }
+}
+
+.prev-button {
+  left: 12px;
+}
+
+.next-button {
+  right: 12px;
+}

@@ -31,7 +31,7 @@ export class CommentSectionComponent {
 
   ngOnInit() {
     // loading metadata
-    this.commentService.getPostReplies(this.postId!)
+    this.commentService.getPostComments(this.postId!)
       .pipe(
         tap((res: GenericResponse<Partial<Comment>[]>) => {
           if (res.error)
