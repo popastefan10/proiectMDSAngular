@@ -14,9 +14,10 @@ import { PostComponent } from './components/post/post.component';
 import { CreateProfileComponent } from './components/create-profile/create-profile.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { ShowProfileComponent } from './components/show-profile/show-profile.component';
+import { FollowersComponent } from './components/followers/followers.component';
 
 @NgModule({
-  declarations: [AppComponent, ApiTestsComponent, LoginFormComponent, RegisterFormComponent, ErrorBoxComponent, NavbarComponent, ProfilePicComponent, PostComponent, CreateProfileComponent, EditProfileComponent, ShowProfileComponent],
+  declarations: [AppComponent, ApiTestsComponent, LoginFormComponent, RegisterFormComponent, ErrorBoxComponent, NavbarComponent, ProfilePicComponent, PostComponent, CreateProfileComponent, EditProfileComponent, ShowProfileComponent, FollowersComponent ],
   imports: [BrowserModule, AppRoutingModule, SharedModule, MaterialModule],
   providers: [],
   bootstrap: [AppComponent]

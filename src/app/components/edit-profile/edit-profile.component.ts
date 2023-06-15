@@ -46,6 +46,7 @@ export class EditProfileComponent implements OnInit {
           } else {
             console.log(res.content);
             this.profileForm.reset();
+            this.router.navigate(['/profile/', res.content?.userId]);
           }
         });
     }

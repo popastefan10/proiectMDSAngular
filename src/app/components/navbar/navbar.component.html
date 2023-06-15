@@ -20,7 +20,7 @@
     </button>
   </div>
   <div class="btn" *ngIf="data.isLoggedIn">
-    <a routerLink="'/" routerLinkActive="active" ariaCurrentWhenActive="page">My profile</a>
+    <a [routerLink]="'/profile/' + (currentUser$ | async)?.id" routerLinkActive="active" ariaCurrentWhenActive="page">My profile</a>
   </div>
   <div class="btn" *ngIf="data.isLoggedIn">
       <a routerLink="/edit-profile" routerLinkActive="active" ariaCurrentWhenActive="page">Edit profile</a>

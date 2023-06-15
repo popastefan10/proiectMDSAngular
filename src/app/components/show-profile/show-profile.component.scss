@@ -1,0 +1,69 @@
+@use "colors" as *;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2f2f2;
+  height: 100vh;
+}
+
+.main-div {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+  width: 80%;
+}
+
+.card {
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+}
+
+.profile-section {
+  display: flex;
+  align-items: flex-start;
+}
+
+.profile-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 30%;
+}
+
+.rounded-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #000000;
+  box-shadow: 0px 2px 50px 2px rgba(121, 121, 121, 0.75);
+  transition: all 0.3s ease;
+}
+
+.rounded-image:hover {
+  transform: scale(1.1);
+}
+
+.username {
+  margin-top: 10px;
+  margin-left: 40px;
+  color: #333333;
+  text-align: center;
+}
+
+
+.edit-profile-button {
+  background-color: #a2a2a2;
+  border: none;
+  margin-left: 20px;
+}
+

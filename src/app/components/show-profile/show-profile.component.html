@@ -1,1 +1,22 @@
-<p>show-profile works!</p>
+<div *ngIf="profile" class="main-div">
+  <mat-card class="card">
+    <mat-card-content>
+      <div class="profile-section">
+        <div class="profile-image">
+          <img src="api/{{profilePictureUrl}}" class="rounded-image">
+        </div>
+
+        <div class="profile-info">
+          <h2 class="username">{{profile.username}}</h2>
+          <button mat-stroked-button class="edit-profile-button">Edit profile</button>
+
+          <div class="follow-info">
+            <mds-followers [userId]="profile.userId"></mds-followers>
+          </div>
+
+        </div>
+
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

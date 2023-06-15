@@ -1,0 +1,47 @@
+.followers-container {
+  height: 200px;
+  overflow: auto;
+  /* Alte stiluri personalizate pentru caseta de derulare */
+}
+
+.followers-link {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+.followers-count {
+  font-weight: bold;
+}
+
+.followers-list {
+  /* Stiluri pentru lista de urmăritori */
+}
+
+.follower-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.follower-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.follower-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.follower-info {
+  margin-left: 10px;
+}
+
+.follower-username {
+  font-weight: bold;
+  /* Alte stiluri pentru numele de utilizator */
+}

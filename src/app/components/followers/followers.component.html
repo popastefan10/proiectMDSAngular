@@ -1,0 +1,16 @@
+<div class="followers-container">
+  <a (click)="toggleFollowers()" class="followers-link">
+    <span class="followers-count">{{ numFollowers }}</span> followers
+  </a>
+  <div *ngIf="showFollowers" class="followers-list">
+    <div *ngFor="let follower of followers" class="follower-item">
+      <div class="follower-avatar">
+        <img src="api/{{profilePictures[follower.id]}}" alt="Profile Picture">
+      </div>
+      <div class="follower-info">
+        <span class="follower-username">{{ follower.username }}</span>
+
+      </div>
+    </div>
+  </div>
+</div>
