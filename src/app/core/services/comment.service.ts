@@ -26,9 +26,9 @@ export class CommentService {
     return this.httpClient.patch<GenericResponse<Partial<Comment>>>(url, data, { withCredentials: true });
   }
 
-  public getCommentReplies(id: string): Observable<GenericResponse<Partial<Comment>[]>> {
+  public getCommentReplies(id: string): Observable<GenericResponse<Comment[]>> {
     const url: string = '/api/comments' + '/' + id + '/' + 'replies';
-    return this.httpClient.get<GenericResponse<Partial<Comment>[]>>(url, { withCredentials: true });
+    return this.httpClient.get<GenericResponse<Comment[]>>(url, { withCredentials: true });
   }
 
   public getPostComments(id: string): Observable<GenericResponse<Comment[]>> {

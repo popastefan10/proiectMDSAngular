@@ -3,8 +3,40 @@
     <mds-profile-pic [imgSize]="'40px'" [pictureSrc]="'api/' + userProfile?.profilePictureURL"></mds-profile-pic>
   </div>
   <div class="content">
-    <a class="profile-link">{{ userProfile?.username }}</a>
-    <span> {{ comment.content }}</span>
+    <div class="comment">
+      <a class="profile-link">{{ userProfile?.username }}</a>
+      <span>&nbsp;{{ comment.content }}</span>
+    </div>
+    <div class="actions">
+      <span class="date">{{ dateFormatted }}</span>
+      <button *ngIf="!isDescription" class="action-btn reply" (click)="onReplyClick()"><span>Reply</span></button>
+      <button
+        *ngIf="!isDescription && replies.length > 0"
+        class="action-btn show-replies-btn"
+        (click)="toggleReplies()"
+      >
+        <span>{{ showReplies ? "Hide replies" : "Show replies (" + replies.length + ")" }}</span>
+      </button>
+    </div>
+
+    <div @openClosed *ngIf="isReplying" class="add-comment">
+      <textarea
+        class="add-comment-input"
+        type="text"
+        placeholder="Add a reply..."
+        rows="1"
+        [(ngModel)]="replyContent"
+      ></textarea>
+      <button class="add-comment-btn" mat-icon-button title="Add reply" (click)="addReply()">
+        <mat-icon>send</mat-icon>
+      </button>
+      <button class="cancel-reply-btn" mat-icon-button title="Cancel" (click)="cancelReply()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+
+    <div @openClosed *ngIf="showReplies">
+      <mds-post-comment *ngFor="let reply of replies" [comment]="reply"></mds-post-comment>
+    </div>
   </div>
-  <div class="actions"></div>
 </div>

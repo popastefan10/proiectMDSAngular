@@ -7,7 +7,18 @@ import { Comment } from 'app/models/comment.model';
 import { Post } from 'app/models/post.model';
 import { Profile } from 'app/models/profile.model';
 import { SubscriptionCleanup } from 'app/shared/utils/subscription-cleanup';
-import { BehaviorSubject, Observable, catchError, filter, map, of, switchMap, takeUntil, tap } from 'rxjs';
+import {
+  BehaviorSubject,
+  Observable,
+  catchError,
+  filter,
+  map,
+  of,
+  switchMap,
+  takeUntil,
+  tap,
+  withLatestFrom
+} from 'rxjs';
 
 @Component({
   selector: 'mds-post-page',
@@ -23,6 +34,7 @@ export class PostPageComponent extends SubscriptionCleanup {
     switchMap((postId) => this.postService.getSinglePost(postId)),
     map((res) => res.content),
     tap((post) => (post.picturesURLs = post.picturesURLs.map((url) => '/api/' + url))),
+    tap((post) => console.log(post)),
     catchError((err) => {
       console.error(err);
 
@@ -30,10 +42,26 @@ export class PostPageComponent extends SubscriptionCleanup {
     })
   );
 
-  public readonly postComments$: Observable<Comment[]> = this.postId$.pipe(
-    filter((postId) => postId !== ''),
-    switchMap((postId) => this.commentService.getPostComments(postId)),
-    map((res) => res.content)
+  public readonly postComments$: Observable<Comment[]> = this.post$.pipe(
+    filter((post) => !!post),
+    switchMap((post) => this.commentService.getPostComments(post!.id)),
+    map((res) => res.content),
+    withLatestFrom(this.post$),
+    map(([comments, post]) => {
+      // add description as the first comment
+      if (post !== undefined && post.description !== undefined) {
+        comments.unshift({
+          id: 'description',
+          createdAt: post.createdAt,
+          userId: post.userId,
+          postId: post.id,
+          content: post.description,
+          parentId: null
+        });
+      }
+
+      return comments;
+    })
   );
 
   public readonly userProfile$: Observable<Profile | undefined> = this.post$.pipe(

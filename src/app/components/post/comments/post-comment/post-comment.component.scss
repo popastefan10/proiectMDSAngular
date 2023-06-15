@@ -1,3 +1,8 @@
+@use "colors" as *;
+@use "variables" as *;
+@use "mixins" as mixins;
+@use "typography-levels" as typography-levels;
+
 .comment-container {
   display: flex;
   flex-direction: row;
@@ -8,7 +13,56 @@
   margin-right: 8px;
 }
 
-.profile-link {
-  cursor: pointer;
-  font-weight: 500;
+.content {
+  flex-grow: 1;
+
+  .profile-link {
+    cursor: pointer;
+    font-weight: 500;
+  }
+}
+
+.actions {
+  @include typography-levels.small();
+  color: $gray-600;
+
+  .action-btn {
+    @include typography-levels.small();
+    color: $gray-600;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .date, .reply {
+    margin-right: 8px;
+  }
+}
+
+.add-comment {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 4px 8px;
+
+  .add-comment-input {
+    flex-grow: 1;
+    resize: none;
+    border: none;
+    font-family: inherit;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .add-comment-btn, .cancel-reply-btn {
+    @include mixins.icon-button(32px);
+    margin-left: 8px;
+
+    mat-icon {
+      @include mixins.mat-icon(32px, 20px);
+    }
+  }
 }
