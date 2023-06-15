@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { GenericResponse } from 'app/models/generic-response.model';
 import { Observable } from 'rxjs';
 import { Comment } from '../../models/comment.model';
+import { CommentCreate } from 'app/models/comment-create.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,13 +11,14 @@ import { Comment } from '../../models/comment.model';
 export class CommentService {
   constructor(private readonly httpClient: HttpClient) {}
 
-  public create(data: Partial<Comment>): Observable<GenericResponse<Partial<Comment>>> {
-    return this.httpClient.post<GenericResponse<Partial<Comment>>>('/api/comments', data, { withCredentials: true });
+  public create(data: CommentCreate): Observable<GenericResponse<Comment>> {
+    return this.httpClient.post<GenericResponse<Comment>>('/api/comments', data, { withCredentials: true });
   }
 
-  public get(id: string): Observable<GenericResponse<Partial<Comment>>> {
+  public get(id: string): Observable<GenericResponse<Comment>> {
     const url: string = '/api/comments' + '/' + id;
-    return this.httpClient.get<GenericResponse<Partial<Comment>>>(url, { withCredentials: true });
+
+    return this.httpClient.get<GenericResponse<Comment>>(url, { withCredentials: true });
   }
 
   public patch(data: Partial<Comment>): Observable<GenericResponse<Partial<Comment>>> {
@@ -29,8 +31,9 @@ export class CommentService {
     return this.httpClient.get<GenericResponse<Partial<Comment>[]>>(url, { withCredentials: true });
   }
 
-  public getPostReplies(id: string): Observable<GenericResponse<Partial<Comment>[]>> {
+  public getPostComments(id: string): Observable<GenericResponse<Comment[]>> {
     const url: string = '/api/posts' + '/' + id + '/' + 'comments';
-    return this.httpClient.get<GenericResponse<Partial<Comment>[]>>(url, { withCredentials: true });
+
+    return this.httpClient.get<GenericResponse<Comment[]>>(url, { withCredentials: true });
   }
 }

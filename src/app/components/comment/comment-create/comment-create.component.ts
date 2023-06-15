@@ -5,6 +5,7 @@ import { CommentService } from 'app/core/services/comment.service';
 import { Comment } from '../../../models/comment.model';
 import { GenericResponse } from 'app/models/generic-response.model';
 import { tap } from 'rxjs';
+import { CommentCreate } from 'app/models/comment-create.model';
 
 @Component({
   selector: 'mds-comment-create',
@@ -12,7 +13,7 @@ import { tap } from 'rxjs';
   styleUrls: ['./comment-create.component.scss']
 })
 export class CommentCreateComponent {
-  @Input() parentId: string | undefined;
+  @Input() parentId: string | null = null;
   @Input() postId: string | undefined;
 
   createCommentForm: FormGroup<CreateCommentFormType> = this.formBuilder.nonNullable.group({
@@ -23,10 +24,10 @@ export class CommentCreateComponent {
   }
 
   onSubmit() {
-    const reply: Partial<Comment> = {
+    const reply: CommentCreate = {
       parentId: this.parentId,
-      postId: this.postId,
-      content: this.createCommentForm.value.content,
+      postId: this.postId || '',
+      content: this.createCommentForm.value.content || '',
     };
 
     this.commentService.create(reply)

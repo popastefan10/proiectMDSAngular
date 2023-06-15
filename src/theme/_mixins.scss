@@ -17,3 +17,10 @@
   margin: 0;
   padding: 0;
 }
+
+@mixin mat-icon($size, $font-size: calc($size * 0.75)) {
+  font-size: $font-size;
+  line-height: $size;
+  height: $size;
+  width: $size;
+}

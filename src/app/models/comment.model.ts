@@ -6,7 +6,7 @@ export interface Comment {
   userId: string;
   postId: string;
   content: string;
-  parentId?: string;
+  parentId: string | null;
 }
 
 export interface CommentShow {

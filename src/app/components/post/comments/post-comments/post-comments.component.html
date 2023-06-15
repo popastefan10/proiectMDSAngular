@@ -1,0 +1,21 @@
+<p>post-comments works!</p>
+
+<div class="comments">
+  <div *ngFor="let comment of comments; index as idx">
+    {{ idx }}
+    {{ comment.content }}
+  </div>
+</div>
+
+<div class="add-comment">
+  <textarea
+    class="add-comment-input"
+    type="text"
+    placeholder="Add a comment..."
+    rows="1"
+    [(ngModel)]="newComment"
+  ></textarea>
+  <button class="add-comment-btn" mat-icon-button (click)="addComment()">
+    <mat-icon>send</mat-icon>
+  </button>
+</div>

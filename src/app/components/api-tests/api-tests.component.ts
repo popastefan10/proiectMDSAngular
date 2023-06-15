@@ -10,6 +10,7 @@ import { PostService } from 'app/core/services/post.service';
 import { CommentService } from 'app/core/services/comment.service';
 import { Comment } from '../../models/comment.model';
 import { PostMetadata } from 'app/models/post-metadata.model';
+import { CommentCreate } from 'app/models/comment-create.model';
 
 @Component({
   selector: 'mds-api-tests',
@@ -144,7 +145,7 @@ export class ApiTestsComponent {
   }
 
   public createComment(): void {
-    let data: Partial<Comment> = {
+    let data: CommentCreate = {
       postId: '57b24347-6c9f-4fa7-ac7c-556b4c649579',
       content: 'Comment nou!',
       parentId: '9b4aa363-5ffe-4da0-8c35-5396efe86d70'
@@ -183,7 +184,7 @@ export class ApiTestsComponent {
 
   public getPostReplies(): void {
     this.commentService
-      .getPostReplies('57b24347-6c9f-4fa7-ac7c-556b4c649579')
+      .getPostComments('57b24347-6c9f-4fa7-ac7c-556b4c649579')
       .pipe(tap((x) => console.log(x)))
       .subscribe();
   }

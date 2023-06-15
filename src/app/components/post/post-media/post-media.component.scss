@@ -1,8 +1,6 @@
 @use "colors" as *;
+@use "variables" as *;
 @use "mixins" as mixins;
-
-$image-height: 500px;
-$image-aspect-ratio: 2 / 3;
 
 :host {
   display: block;
@@ -54,10 +52,7 @@ $image-aspect-ratio: 2 / 3;
   cursor: pointer;
 
   mat-icon {
-    font-size: calc($button-size * 3 / 4);
-    line-height: $button-size;
-    height: $button-size;
-    width: $button-size;
+    @include mixins.mat-icon($button-size);
   }
 }
 

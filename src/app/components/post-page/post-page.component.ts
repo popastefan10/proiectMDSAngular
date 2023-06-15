@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CommentService } from 'app/core/services/comment.service';
 import { PostService } from 'app/core/services/post.service';
 import { ProfileService } from 'app/core/services/profile.service';
+import { Comment } from 'app/models/comment.model';
 import { Post } from 'app/models/post.model';
 import { Profile } from 'app/models/profile.model';
 import { SubscriptionCleanup } from 'app/shared/utils/subscription-cleanup';
@@ -28,6 +30,12 @@ export class PostPageComponent extends SubscriptionCleanup {
     })
   );
 
+  public readonly postComments$: Observable<Comment[]> = this.postId$.pipe(
+    filter((postId) => postId !== ''),
+    switchMap((postId) => this.commentService.getPostComments(postId)),
+    map((res) => res.content)
+  );
+
   public readonly userProfile$: Observable<Profile | undefined> = this.post$.pipe(
     filter((post) => post !== undefined),
     switchMap((post) => {
@@ -42,7 +50,8 @@ export class PostPageComponent extends SubscriptionCleanup {
   constructor(
     private readonly postService: PostService,
     private readonly route: ActivatedRoute,
-    private readonly profileService: ProfileService
+    private readonly profileService: ProfileService,
+    private readonly commentService: CommentService
   ) {
     super();
   }

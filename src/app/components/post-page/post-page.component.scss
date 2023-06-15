@@ -1,7 +1,7 @@
 @use "colors" as *;
+@use "variables" as *;
 @use "mixins" as mixins;
 
-$border: 1px solid $gray-300;
 $comments-width: 400px;
 
 :host {
@@ -17,11 +17,18 @@ $comments-width: 400px;
   display: flex;
   flex-direction: row;
   border-radius: 0;
-  border: $border;
+  border: $separator-300;
 }
 
 .post-media {
-  border-right: $border;
+  height: $image-height;
+  width: $image-width;
+  border-right: $separator-300;
+}
+
+.right-panel {
+  display: flex;
+  flex-direction: column;
 }
 
 .profile {
@@ -29,7 +36,7 @@ $comments-width: 400px;
   flex-direction: row;
   align-items: center;
   padding: 8px;
-  border-bottom: $border;
+  border-bottom: $separator-300;
 
   .profile-pic {
     margin-right: 8px;
@@ -45,5 +52,6 @@ $comments-width: 400px;
 }
 
 .post-comments {
+  flex-grow: 1;
   width: $comments-width;
 }

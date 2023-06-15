@@ -22,6 +22,8 @@ import { FeedComponent } from './components/feed/feed.component';
 import { ShowPostFeedComponent } from './components/post/show-post-feed/show-post-feed.component';
 import { PostPageComponent } from './components/post-page/post-page.component';
 import { FileUploadComponent } from './components/shared/file-upload/file-upload.component';
+import { PostCommentComponent } from './components/post/comments/post-comment/post-comment.component';
+import { PostCommentsComponent } from './components/post/comments/post-comments/post-comments.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { FileUploadComponent } from './components/shared/file-upload/file-upload
     FeedComponent,
     ShowPostFeedComponent,
     PostPageComponent,
-    FileUploadComponent
+    FileUploadComponent,
+    PostCommentComponent,
+    PostCommentsComponent
   ],
   imports: [BrowserModule, AppRoutingModule, SharedModule, MaterialModule, MatButtonModule, MatCardModule],
   providers: [],

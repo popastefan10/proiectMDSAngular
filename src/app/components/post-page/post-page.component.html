@@ -1,4 +1,7 @@
-<div *ngIf="{ post: post$ | async, userProfile: userProfile$ | async } as data" class="post">
+<div
+  *ngIf="{ post: post$ | async, userProfile: userProfile$ | async, postComments: postComments$ | async } as data"
+  class="post"
+>
   <div class="post-media">
     <mds-post-media *ngIf="data.post" [picturesURLs]="data.post.picturesURLs"></mds-post-media>
   </div>
@@ -12,6 +15,8 @@
         <span class="username">{{ data.userProfile?.username || "Guest" }}</span>
       </a>
     </div>
-    <div class="post-comments"></div>
+    <div class="post-comments">
+      <mds-post-comments [comments]="data.postComments || []" [postId]="data.post?.id || ''"></mds-post-comments>
+    </div>
   </div>
 </div>
