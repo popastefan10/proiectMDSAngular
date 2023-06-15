@@ -1,0 +1,14 @@
+.comment-container {
+  display: flex;
+  flex-direction: row;
+  padding: 8px;
+}
+
+.profile-pic {
+  margin-right: 8px;
+}
+
+.profile-link {
+  cursor: pointer;
+  font-weight: 500;
+}

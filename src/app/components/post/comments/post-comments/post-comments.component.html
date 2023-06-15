@@ -1,10 +1,5 @@
-<p>post-comments works!</p>
-
 <div class="comments">
-  <div *ngFor="let comment of comments; index as idx">
-    {{ idx }}
-    {{ comment.content }}
-  </div>
+  <mds-post-comment *ngFor="let comment of comments" [comment]="comment"></mds-post-comment>
 </div>
 
 <div class="add-comment">

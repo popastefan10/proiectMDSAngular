@@ -1,1 +1,10 @@
-<p>post-comment works!</p>
+<div class="comment-container">
+  <div class="profile-pic">
+    <mds-profile-pic [imgSize]="'40px'" [pictureSrc]="'api/' + userProfile?.profilePictureURL"></mds-profile-pic>
+  </div>
+  <div class="content">
+    <a class="profile-link">{{ userProfile?.username }}</a>
+    <span> {{ comment.content }}</span>
+  </div>
+  <div class="actions"></div>
+</div>

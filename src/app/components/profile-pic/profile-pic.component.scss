@@ -5,6 +5,10 @@
   display: block;
 }
 
+.profile-link {
+  cursor: pointer;
+}
+
 .picture-container {
   display: flex;
   justify-content: center;
@@ -20,8 +24,8 @@
   }
 
   img {
-    aspect-ratio: auto;
-    width: var(--img-size);
-    height: auto;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
   }
 }

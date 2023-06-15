@@ -8,9 +8,7 @@
   <div class="right-panel">
     <!-- TODO: Link to user profile -->
     <div class="profile">
-      <a class="profile-link">
-        <mds-profile-pic class="profile-pic" [imgSize]="'40px'" />
-      </a>
+      <mds-profile-pic class="profile-pic" [pictureSrc]="'api/' + data.userProfile?.profilePictureURL" [imgSize]="'40px'" />
       <a class="profile-link">
         <span class="username">{{ data.userProfile?.username || "Guest" }}</span>
       </a>
