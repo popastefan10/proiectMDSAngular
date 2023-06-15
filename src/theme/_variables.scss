@@ -1,0 +1,7 @@
+@use "colors" as *;
+
+$post-image-height: 500px;
+$post-image-aspect-ratio: 2 / 3;
+$post-image-width: $post-image-height * $post-image-aspect-ratio;
+
+$separator-300: 1px solid $gray-300;

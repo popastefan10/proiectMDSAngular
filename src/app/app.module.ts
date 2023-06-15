@@ -10,7 +10,7 @@ import { MaterialModule } from './shared/material/material.module';
 import { ErrorBoxComponent } from './components/error-box/error-box.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProfilePicComponent } from './components/profile-pic/profile-pic.component';
-import { PostComponent } from './components/post/show-post/post.component';
+import { PostMediaComponent } from './components/post/post-media/post-media.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { CommentSectionComponent } from './components/comment/comment-section/comment-section.component';
@@ -22,6 +22,8 @@ import { FeedComponent } from './components/feed/feed.component';
 import { ShowPostFeedComponent } from './components/post/show-post-feed/show-post-feed.component';
 import { PostPageComponent } from './components/post-page/post-page.component';
 import { FileUploadComponent } from './components/shared/file-upload/file-upload.component';
+import { PostCommentComponent } from './components/post/comments/post-comment/post-comment.component';
+import { PostCommentsComponent } from './components/post/comments/post-comments/post-comments.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,7 @@ import { FileUploadComponent } from './components/shared/file-upload/file-upload
     ErrorBoxComponent,
     NavbarComponent,
     ProfilePicComponent,
-    PostComponent,
+    PostMediaComponent,
     CommentSectionComponent,
     CreatePostComponent,
     CommentCreateComponent,
@@ -41,7 +43,9 @@ import { FileUploadComponent } from './components/shared/file-upload/file-upload
     FeedComponent,
     ShowPostFeedComponent,
     PostPageComponent,
-    FileUploadComponent
+    FileUploadComponent,
+    PostCommentComponent,
+    PostCommentsComponent
   ],
   imports: [BrowserModule, AppRoutingModule, SharedModule, MaterialModule, MatButtonModule, MatCardModule],
   providers: [],
