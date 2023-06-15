@@ -1,6 +1,4 @@
-<p>profile-pic works!</p>
-
-<div class="picture-container">
+<div class="picture-container" [style.--img-size]="imgSize">
   <mat-icon *ngIf="!pictureSrc">person</mat-icon>
   <img *ngIf="!!pictureSrc" [src]="pictureSrc">
 </div>

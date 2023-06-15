@@ -7,6 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class ProfilePicComponent {
   @Input() pictureSrc?: string;
+  @Input() imgSize: string = '32px';
 
   constructor() {}
 }

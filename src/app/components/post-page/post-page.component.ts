@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PostService } from 'app/core/services/post.service';
+import { ProfileService } from 'app/core/services/profile.service';
 import { Post } from 'app/models/post.model';
+import { Profile } from 'app/models/profile.model';
 import { SubscriptionCleanup } from 'app/shared/utils/subscription-cleanup';
 import { BehaviorSubject, Observable, catchError, filter, map, of, switchMap, takeUntil, tap } from 'rxjs';
 
@@ -26,7 +28,22 @@ export class PostPageComponent extends SubscriptionCleanup {
     })
   );
 
-  constructor(private postService: PostService, private route: ActivatedRoute) {
+  public readonly userProfile$: Observable<Profile | undefined> = this.post$.pipe(
+    filter((post) => post !== undefined),
+    switchMap((post) => {
+      const userId = post?.userId;
+
+      return userId === undefined
+        ? of(undefined)
+        : this.profileService.getProfile(userId).pipe(map((res) => res.content));
+    })
+  );
+
+  constructor(
+    private readonly postService: PostService,
+    private readonly route: ActivatedRoute,
+    private readonly profileService: ProfileService
+  ) {
     super();
   }
 

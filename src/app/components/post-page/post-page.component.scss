@@ -24,6 +24,26 @@ $comments-width: 400px;
   border-right: $border;
 }
 
+.profile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px;
+  border-bottom: $border;
+
+  .profile-pic {
+    margin-right: 8px;
+  }
+
+  .username {
+    font-weight: 400;
+  }
+}
+
+.profile-link {
+  cursor: pointer;
+}
+
 .post-comments {
   width: $comments-width;
 }

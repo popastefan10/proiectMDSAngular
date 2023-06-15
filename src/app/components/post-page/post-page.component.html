@@ -1,6 +1,17 @@
-<div *ngIf="{ post: post$ | async } as data" class="post">
+<div *ngIf="{ post: post$ | async, userProfile: userProfile$ | async } as data" class="post">
   <div class="post-media">
     <mds-post-media *ngIf="data.post" [picturesURLs]="data.post.picturesURLs"></mds-post-media>
   </div>
-  <div class="post-comments"></div>
+  <div class="right-panel">
+    <!-- TODO: Link to user profile -->
+    <div class="profile">
+      <a class="profile-link">
+        <mds-profile-pic class="profile-pic" [imgSize]="'40px'" />
+      </a>
+      <a class="profile-link">
+        <span class="username">{{ data.userProfile?.username || "Guest" }}</span>
+      </a>
+    </div>
+    <div class="post-comments"></div>
+  </div>
 </div>

@@ -29,9 +29,8 @@ export class PostService {
 
   public getSinglePost(id: string): Observable<GenericResponse<Post>> {
     const url: string = '/api/posts' + '/' + id;
-    return this.httpClient
-      .get<GenericResponse<Post>>(url, { withCredentials: true })
-      .pipe(tap((res) => console.log('res', res)));
+
+    return this.httpClient.get<GenericResponse<Post>>(url, { withCredentials: true });
   }
 
   public getPostsByUser(userId: string): Observable<GenericResponse<Post[]>> {
