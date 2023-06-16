@@ -29,16 +29,14 @@ export class PostPageComponent extends SubscriptionCleanup {
   private readonly postIdSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
   public readonly postId$: Observable<string> = this.postIdSubject.asObservable();
 
-  public readonly post$: Observable<Post | undefined> = this.postId$.pipe(
+  public readonly post$: Observable<Post> = this.postId$.pipe(
     filter((postId) => postId !== ''),
     switchMap((postId) => this.postService.getSinglePost(postId)),
     map((res) => res.content),
     tap((post) => (post.picturesURLs = post.picturesURLs.map((url) => '/api/' + url))),
-    tap((post) => console.log(post)),
     catchError((err) => {
       console.error(err);
-
-      return of(undefined);
+      return [];
     })
   );
 
@@ -64,14 +62,11 @@ export class PostPageComponent extends SubscriptionCleanup {
     })
   );
 
-  public readonly userProfile$: Observable<Profile | undefined> = this.post$.pipe(
+  public readonly userProfile$: Observable<Profile> = this.post$.pipe(
     filter((post) => post !== undefined),
     switchMap((post) => {
       const userId = post?.userId;
-
-      return userId === undefined
-        ? of(undefined)
-        : this.profileService.getProfile(userId).pipe(map((res) => res.content));
+      return userId === undefined ? [] : this.profileService.getProfile(userId).pipe(map((res) => res.content));
     })
   );
 

@@ -1,6 +1,6 @@
 <a class="profile-link">
   <div class="picture-container" [style.--img-size]="imgSize">
-    <mat-icon *ngIf="!pictureSrc">person</mat-icon>
-    <img *ngIf="!!pictureSrc" [src]="pictureSrc" />
+    <mat-icon *ngIf="!displayProfilePicure">person</mat-icon>
+    <img *ngIf="displayProfilePicure" [src]="pictureSrc" (error)="onImgError($event)" />
   </div>
 </a>

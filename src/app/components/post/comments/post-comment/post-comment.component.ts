@@ -43,9 +43,17 @@ export class PostCommentComponent implements OnInit, OnChanges {
       this.dateFormatted = formatInstagramTimestamp(comment.createdAt);
 
       // fetch user profile
-      this.profileService.getProfile(comment.userId).subscribe((res) => {
-        this.userProfile = res.content;
-      });
+      this.profileService
+        .getProfile(comment.userId)
+        .pipe(
+          catchError((err) => {
+            console.error(err);
+            return [];
+          })
+        )
+        .subscribe((res) => {
+          this.userProfile = res.content;
+        });
 
       // fetch replies
       this.commentService.getCommentReplies(comment.id).subscribe((res) => {
