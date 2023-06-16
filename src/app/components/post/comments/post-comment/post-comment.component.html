@@ -1,10 +1,14 @@
 <div class="comment-container" [class.level-2]="level === 'level-2'">
   <div class="profile-pic">
-    <mds-profile-pic [imgSize]="'40px'" [pictureSrc]="'api/' + userProfile?.profilePictureURL"></mds-profile-pic>
+    <mds-profile-pic
+      [imgSize]="'40px'"
+      [pictureSrc]="'api/' + userProfile?.profilePictureURL"
+      [userId]="userProfile?.id"
+    ></mds-profile-pic>
   </div>
   <div class="content">
     <div class="comment">
-      <a class="profile-link">{{ userProfile?.username }}</a>
+      <mds-username [username]="userProfile?.username" [userId]="userProfile?.id" />
       <span>&nbsp;{{ comment.content }}</span>
     </div>
 

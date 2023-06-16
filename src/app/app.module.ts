@@ -25,6 +25,7 @@ import { FileUploadComponent } from './components/shared/file-upload/file-upload
 import { PostCommentComponent } from './components/post/comments/post-comment/post-comment.component';
 import { PostCommentsComponent } from './components/post/comments/post-comments/post-comments.component';
 import { InputSendComponent } from './components/shared/input-send/input-send.component';
+import { UsernameComponent } from './components/shared/username/username.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { InputSendComponent } from './components/shared/input-send/input-send.co
     FileUploadComponent,
     PostCommentComponent,
     PostCommentsComponent,
-    InputSendComponent
+    InputSendComponent,
+    UsernameComponent
   ],
   imports: [BrowserModule, AppRoutingModule, SharedModule, MaterialModule, MatButtonModule, MatCardModule],
   providers: [],

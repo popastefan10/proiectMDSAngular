@@ -6,8 +6,9 @@ import { Component, Input, SimpleChanges, OnChanges } from '@angular/core';
   styleUrls: ['./profile-pic.component.scss']
 })
 export class ProfilePicComponent implements OnChanges {
-  @Input() pictureSrc?: string;
-  @Input() imgSize: string = '32px';
+  @Input() public pictureSrc?: string;
+  @Input() public imgSize: string = '32px';
+  @Input() public userId?: string;
   public displayProfilePicure: boolean = true;
 
   constructor() {}
