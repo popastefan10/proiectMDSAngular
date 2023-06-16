@@ -1,6 +1,14 @@
 .followers-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.followers-section, .follows-section {
+  display: inline-block;
+  margin-right: 5px;
+  width: 200px;
 }
 
 .followers-link, .follows-link {

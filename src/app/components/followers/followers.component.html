@@ -1,28 +1,33 @@
 <div class="followers-container">
-  <a (click)="toggleFollowers()" class="followers-link">
-    <span class="followers-count">{{ numFollowers }}</span> followers
-  </a>
-  <div *ngIf="showFollowers" class="followers-list">
-    <div *ngFor="let follower of followersList" class="follower-item">
-      <div class="follower-avatar">
-        <img src="api/{{profilePictures[follower.id]}}" alt="Profile Picture">
-      </div>
-      <div class="follower-info">
-        <span class="follower-username">{{ follower.username }}</span>
+  <div class="followers-section">
+    <a (click)="toggleFollowers()" class="followers-link">
+      <span class="followers-count">{{ numFollowers }}</span> followers
+    </a>
+    <div *ngIf="showFollowers" class="followers-list">
+      <div *ngFor="let follower of followersList" class="follower-item">
+        <div class="follower-avatar">
+          <img src="api/{{profilePictures[follower.id]}}" alt="Profile Picture">
+        </div>
+        <div class="follower-info">
+          <span class="follower-username">{{ follower.username }}</span>
+        </div>
       </div>
     </div>
   </div>
 
-  <a (click)="toggleFollows()" class="follows-link">
-    <span class="follows-count">{{ numFollows }}</span> following
-  </a>
-  <div *ngIf="showFollows" class="following-list">
-    <div *ngFor="let following of followsList" class="following-item">
-      <div class="following-avatar">
-        <img src="api/{{profilePictures[following.id]}}" alt="Profile Picture">
-      </div>
-      <div class="following-info">
-        <span class="following-username">{{ following.username }}</span>
+  <div class="follows-section">
+    <a (click)="toggleFollows()" class="follows-link">
+      <span class="follows-count">{{ numFollows }}</span> following
+    </a>
+
+    <div *ngIf="showFollows" class="following-list">
+      <div *ngFor="let following of followsList" class="following-item">
+        <div class="following-avatar">
+          <img src="api/{{profilePictures[following.id]}}" alt="Profile Picture">
+        </div>
+        <div class="following-info">
+          <span class="following-username">{{ following.username }}</span>
+        </div>
       </div>
     </div>
   </div>
