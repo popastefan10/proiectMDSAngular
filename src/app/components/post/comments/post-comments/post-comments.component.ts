@@ -24,15 +24,17 @@ export class PostCommentsComponent {
       parentId: null
     };
 
-    this.commentService.create(newComment).subscribe(
-      (res) => {
+    this.commentService
+      .create(newComment)
+      .pipe(
+        catchError((err) => {
+          console.error(err);
+          return [];
+        })
+      )
+      .subscribe((res) => {
         this.comments.push(res.content);
         this.newComment = '';
-      },
-      catchError((err) => {
-        console.error(err);
-        return of(undefined);
-      })
-    );
+      });
   }
 }

@@ -1,0 +1,7 @@
+<a *ngIf="!!userId; else usernameTpl" class="profile-link" [routerLink]="userId | profileLink">
+  <ng-container *ngTemplateOutlet="usernameTpl"></ng-container>
+</a>
+
+<ng-template #usernameTpl>
+  <span class="username">{{ username || "Guest" }}</span>
+</ng-template>
