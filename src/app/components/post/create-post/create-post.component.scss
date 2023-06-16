@@ -1,0 +1,154 @@
+@use "colors" as *;
+@use "mixins" as mixins;
+
+$max-number-of-images: 10;
+$image-size: 80px;
+$images-on-row: 5;
+$gap: 8px;
+$description-width: calc(#{$image-size * $images-on-row} + #{($images-on-row - 1) * $gap});
+
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: $body-bkg-color;
+}
+
+.create-post-container {
+  @include mixins.content-container();
+}
+
+mds-error-box {
+  margin-bottom: 32px;
+}
+
+.form {
+  margin-bottom: 8px;
+
+  .description {
+    width: $description-width;
+  }
+}
+
+textarea {
+  resize: none;
+}
+
+.images-preview {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: $gap;
+  width: $description-width;
+  margin-bottom: 16px;
+}
+
+
+.image-preview {
+  position: relative;
+  height: $image-size;
+  width: $image-size;
+  background-color: $gray-100;
+  border-radius: 8px;
+
+  .overlay {
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    background-color: $gray-600;
+    border-radius: 8px;
+    transition: opacity 250ms linear;
+    opacity: 0;
+  }
+
+  .remove-btn {
+    display: flex;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    z-index: 2;
+    height: 16px;
+    width: 16px;
+    margin: 0;
+    padding: 0;
+    border-radius: 8px;
+    transition: opacity 250ms linear;
+    opacity: 0;
+    background-color: $gray-50;
+
+    mat-icon {
+      font-size: 12px;
+      line-height: 16px;
+      height: 16px;
+      width: 16px;
+    }
+  }
+
+  img {
+    z-index: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+
+    border-radius: 8px;
+  }
+
+}
+
+.inline-upload{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: $image-size;
+  width: $image-size;
+  background-color: $gray-100;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 250ms linear;
+
+
+  &:hover {
+    background-color: $gray-300;
+  }
+
+  mds-file-upload {
+    transform: translateX(-4px);
+  }
+}
+
+.image-preview:hover {
+  .overlay {
+    opacity: 0.5;
+  }
+
+  .remove-btn {
+    opacity: 1;
+  }
+}
+
+.bottom-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+mds-file-upload {
+  align-self: center;
+}
+
+
+.post-btn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 16px;
+  width: $description-width;
+
+  .post-btn {
+    margin-left: 8px;
+    color: $pure-white;
+  }
+}

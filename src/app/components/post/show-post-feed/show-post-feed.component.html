@@ -1,0 +1,31 @@
+<div *ngIf="post?.picturesURLs" class="media-container">
+    <div class="media-img-container">
+        <img src="/api/{{post?.picturesURLs![idxMedia]}}">
+    </div>
+
+
+    <div class="arrows-container">
+        <button *ngIf="idxMedia > 0" (click)="onBackArrowClick()" mat-button class="arrow-back">
+            <mat-icon>arrow_back_ios</mat-icon>
+        </button>
+
+        <button *ngIf="idxMedia < post?.picturesURLs!.length! - 1" (click)="onForwardArrowClick()" mat-button
+            class="arrow-forward">
+            <mat-icon>arrow_forward_ios</mat-icon>
+        </button>
+    </div>
+</div>
+
+<div *ngIf="!post?.picturesURLs!" class="media-container">
+    Media failed to download!
+</div>
+
+<div *ngIf="post" class="metadata-container">
+    <a href="posts/{{post.id}}">See full post</a>
+    <p>on {{formattedDate}}</p>
+    <p>{{author?.username}} {{post.description}}</p>
+</div>
+
+<div *ngIf="!post" class="metadata-container">
+    Metadata failed to download!
+</div>

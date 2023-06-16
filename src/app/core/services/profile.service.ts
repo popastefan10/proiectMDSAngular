@@ -31,6 +31,7 @@ export class ProfileService {
       formData.append('media', data.media);
     }
 
+    console.log("salut");
     return this.httpClient.post<GenericResponse<Partial<Profile>>>('/api/profiles', formData, { withCredentials: true });
   }
 
@@ -73,7 +74,6 @@ export class ProfileService {
     if (data.metadata.bio){
       formData.append('bio', data.metadata.bio);
     }
-    formData.append('bio', "test");
 
     if (data.media){
       formData.append('media', data.media);

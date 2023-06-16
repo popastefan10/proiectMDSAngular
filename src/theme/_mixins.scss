@@ -1,0 +1,26 @@
+@use "colors" as *;
+
+@mixin content-container($width: fit-content, $padding: 32px) {
+  display: flex;
+  flex-direction: column;
+  background-color: $pure-white;
+  width: $width;
+  border-radius: 8px;
+  box-shadow: 0px 0px 16px $gray-300;
+  padding: $padding;
+}
+
+@mixin icon-button($size) {
+  display: flex;
+  height: $size;
+  width: $size;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin mat-icon($size, $font-size: calc($size * 0.75)) {
+  font-size: $font-size;
+  line-height: $size;
+  height: $size;
+  width: $size;
+}

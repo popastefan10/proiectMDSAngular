@@ -1,0 +1,69 @@
+<div *ngIf="picturesURLs">
+  <div class="image-carousel" *ngIf="picturesURLs">
+    <div class="image-container" *ngFor="let url of picturesURLs; let i = index">
+      <img
+        [src]="url"
+        class="carousel-image"
+        [class.active]="i === currentIndex"
+        [class.next]="i === nextIndex"
+        [class.prev]="i === prevIndex"
+      />
+    </div>
+    <button
+      *ngIf="currentIndex !== null && currentIndex > 0"
+      mat-icon-button
+      class="carousel-button prev-button"
+      (click)="showPreviousImage()"
+    >
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+    <button
+      *ngIf="currentIndex !== null && currentIndex < numberOfPictures! - 1"
+      mat-icon-button
+      class="carousel-button next-button"
+      (click)="showNextImage()"
+    >
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+  </div>
+</div>
+
+<!-- <div *ngIf="post?.picturesURLs" class="media-container">
+    <div class="media-img-container">
+        <img src="/api/{{post?.picturesURLs![idxMedia]}}">
+    </div>
+
+
+    <div class="arrows-container">
+        <button *ngIf="idxMedia > 0" (click)="onBackArrowClick()" mat-button class="arrow-back">
+            <mat-icon>arrow_back_ios</mat-icon>
+        </button>
+
+        <button *ngIf="idxMedia < post?.picturesURLs!.length! - 1" (click)="onForwardArrowClick()" mat-button
+            class="arrow-forward">
+            <mat-icon>arrow_forward_ios</mat-icon>
+        </button>
+    </div>
+</div>
+
+<div *ngIf="!post?.picturesURLs!" class="media-container">
+    Media failed to download!
+</div>
+
+<div *ngIf="post && author" class="metadata-container">
+    <p>on {{formattedDate}}</p>
+    <p>{{author.username}} {{post.description}}</p>
+</div>
+
+<div *ngIf="!post" class="metadata-container">
+    Metadata failed to download!
+</div>
+
+<button (click)="onToggleShowComments()" mat-button>
+    <mat-icon>expand_more</mat-icon>
+    View comments
+</button>
+
+<div *ngIf="post && showComments">
+    <mds-comment-section [postId]="post.id"></mds-comment-section>
+</div> -->

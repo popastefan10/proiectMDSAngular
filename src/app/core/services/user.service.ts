@@ -32,10 +32,9 @@ export class UserService {
   }
 
   public login(data: LoginType): Observable<GenericResponse<SessionUser>> {
-    return this.httpClient.post<GenericResponse<SessionUser>>('/api/login', data, { withCredentials: true }).pipe(
-      tap((y) => console.log('y', y)),
-      tap((res) => this.currentUserSubject.next(res.content))
-    );
+    return this.httpClient
+      .post<GenericResponse<SessionUser>>('/api/login', data, { withCredentials: true })
+      .pipe(tap((res) => this.currentUserSubject.next(res.content)));
   }
 
   public logout(): Observable<GenericResponse<void>> {

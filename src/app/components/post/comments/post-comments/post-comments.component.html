@@ -1,0 +1,7 @@
+<div class="comments">
+  <mds-post-comment *ngFor="let comment of comments" [comment]="comment"></mds-post-comment>
+</div>
+
+<div class="add-comment">
+  <mds-input-send [placeholder]="'Add a comment...'" [(content)]="newComment" (send)="addComment()"></mds-input-send>
+</div>

@@ -1,0 +1,17 @@
+@use "variables" as *;
+@use "mixins" as mixins;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.comments {
+  flex-grow: 1;
+  overflow: auto;
+}
+
+.add-comment {
+  border-top: $separator-300;
+}

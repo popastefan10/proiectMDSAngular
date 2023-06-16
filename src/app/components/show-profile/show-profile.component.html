@@ -7,14 +7,24 @@
         </div>
 
         <div class="profile-info">
-          <h2 class="username">{{profile.username}}</h2>
-          <button mat-stroked-button class="edit-profile-button">Edit profile</button>
+          <div class="username-container">
+            <h2 class="username">{{ profile.username }}</h2>
+            <button mat-raised-button *ngIf="!(isCurrentUserProfile$ | async)" mat-stroked-button class="follow-button">Follow</button>
+            <button mat-raised-button *ngIf="(isCurrentUserProfile$ | async)" mat-stroked-button class="edit-profile-button">Edit profile</button>
+          </div>
 
           <div class="follow-info">
             <mds-followers [userId]="profile.userId"></mds-followers>
           </div>
         </div>
 
+      </div>
+      <div class="bio">
+        <p>Bio: {{ profile.bio }}</p>
+      </div>
+
+      <div *ngIf="posts" class="posts">
+        <mds-show-post-feed *ngFor="let post of posts" [post]="post"></mds-show-post-feed>
       </div>
     </mat-card-content>
   </mat-card>

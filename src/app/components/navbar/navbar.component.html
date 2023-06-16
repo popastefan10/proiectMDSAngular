@@ -1,14 +1,18 @@
-<div class="left container">
-  <div class="btn home">
-    <a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page">Home</a>
+<div class="navbar">
+  <div class="left container">
+    <div class="btn home">
+      <a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page">Home</a>
+    </div>
+    <div class="btn">
+      <a routerLink="/api-tests" routerLinkActive="active" ariaCurrentWhenActive="page">Tests</a>
+    </div>
+    <div class="btn">
+      <a routerLink="/posts/create" routerLinkActive="active" ariaCurrentWhenActive="page">Create post</a>
+    </div>
+    <div class="btn">
+      <a routerLink="/feed" routerLinkActive="active" ariaCurrentWhenActive="page">Feed</a>
+    </div>
   </div>
-  <div class="btn">
-    <a routerLink="/api-tests" routerLinkActive="active" ariaCurrentWhenActive="page">Tests</a>
-  </div>
-  <div class="btn">
-    <a routerLink="/posts/3defc1e9-5a66-41c8-89c1-1dc1bc704698" routerLinkActive="active" ariaCurrentWhenActive="page">Dummy post</a>
-  </div>
-</div>
 
 <div class="right container" *ngIf="{ isLoggedIn: isLoggedIn$ | async } as data">
   <div class="btn" *ngIf="!data.isLoggedIn">
@@ -24,8 +28,9 @@
   </div>
   <div class="btn" *ngIf="data.isLoggedIn">
       <a routerLink="/edit-profile" routerLinkActive="active" ariaCurrentWhenActive="page">Edit profile</a>
-  </div>
-  <div class="btn rounded" *ngIf="data.isLoggedIn">
-    <button mat-flat-button color="warn" (click)="logout()"><a>Logout</a></button>
+    </div>
+    <div class="btn rounded" *ngIf="data.isLoggedIn">
+      <button mat-flat-button color="warn" (click)="logout()"><a>Logout</a></button>
+    </div>
   </div>
 </div>

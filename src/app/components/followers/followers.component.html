@@ -9,7 +9,7 @@
           <img src="api/{{profilePictures[follower.id]}}" alt="Profile Picture">
         </div>
         <div class="follower-info">
-          <span class="follower-username">{{ follower.username }}</span>
+          <a href="/profile/{{ follower.userId }}" class="username">{{ follower.username }}</a>
         </div>
       </div>
     </div>
@@ -26,7 +26,7 @@
           <img src="api/{{profilePictures[following.id]}}" alt="Profile Picture">
         </div>
         <div class="following-info">
-          <span class="following-username">{{ following.username }}</span>
+          <a href="/profile/{{ following.userId }}" class="username">{{ following.username }}</a>
         </div>
       </div>
     </div>

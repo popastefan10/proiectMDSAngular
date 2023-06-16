@@ -1,0 +1,73 @@
+<div class="create-post-container">
+  <mds-error-box @openClosed *ngIf="!!createPostError" [errorMsg]="createPostError.errorMsg"></mds-error-box>
+
+  <form id="create-post-form" class="form" [formGroup]="createPostForm">
+    <div>
+      <mat-form-field class="description">
+        <mat-label>Description</mat-label>
+        <textarea
+          matInput
+          type="text"
+          formControlName="description"
+          placeholder="Enter description here..."
+          rows="6"
+        ></textarea>
+        <mat-error *ngIf="description.invalid">
+          {{ description | formControlErrorMessage : description.errors }}
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </form>
+
+  <div *ngIf="{ images: images$ | async } as data">
+    <div class="images-preview" *ngIf="data.images && data.images.length > 0">
+      <div *ngFor="let image of data.images; index as idx" class="image-preview">
+        <div class="overlay"></div>
+        <button mat-icon-button class="remove-btn" (click)="onImageRemove(idx)">
+          <mat-icon>close</mat-icon>
+        </button>
+        <img [src]="image.src" />
+      </div>
+      <div *ngIf="(canUpload$ | async)" class="inline-upload">
+        <mds-file-upload
+          [message]="''"
+          (file)="onImageUpload($event)"></mds-file-upload>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-buttons">
+    <mds-file-upload
+      *ngIf="!(uploaded$ | async)"
+      [message]="(uploadMessage$ | async) || 'Upload an image'"
+      [disabled]="!(canUpload$ | async)"
+      (file)="onImageUpload($event)"
+    ></mds-file-upload>
+
+    <div class="post-btn-container">
+      Post this to your feed
+      <button mat-mini-fab type="submit" form="create-post-form" class="post-btn" color="primary" (click)="onSubmit()">
+        <mat-icon>arrow_forward</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <!-- <form [formGroup]="createPostForm">
+    <div>
+      <label for="description">Description</label>
+      <input id="description" type="text" formControlName="description" />
+    </div>
+    <div *ngFor="let i of idxList" class="media-upload-container">
+      <div class="media-file">
+        <input id="{{ 'media' + i }}" type="file" (change)="onFileUpload($event, i)" />
+        <img id="{{ 'preview' + i }}" />
+        <button (click)="onFileRemove(i)" mat-button>
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+    </div>
+    <button (click)="onSubmit()" type="submit" mat-button>
+      <mat-icon>done_outline</mat-icon>
+    </button>
+  </form> -->
+</div>
