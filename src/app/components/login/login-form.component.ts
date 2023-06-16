@@ -7,6 +7,8 @@ import { catchError, map, of, tap } from 'rxjs';
 import { CustomError, ErrorResponse } from 'app/shared/utils/error';
 import { openClosedAnimation } from 'app/animations';
 
+
+
 @Component({
   selector: 'mds-login-form',
   templateUrl: './login-form.component.html',
@@ -14,6 +16,20 @@ import { openClosedAnimation } from 'app/animations';
   animations: [openClosedAnimation]
 })
 export class LoginFormComponent implements OnInit {
+
+  public passwordVisible: boolean = false;
+
+  public toggleShow() {
+    this.passwordVisible = !this.passwordVisible;
+    let x = document.getElementById('password');
+    if (x!.getAttribute('type') === 'password') {
+      x!.setAttribute('type', 'text');
+    }
+    else {
+      x!.setAttribute('type', 'password');
+    }
+  }
+
   constructor(private readonly fb: FormBuilder, private readonly userService: UserService, public router: Router) {}
 
   public readonly loginForm: FormGroup<LoginFormType> = this.fb.nonNullable.group({

@@ -1,6 +1,9 @@
 @use "colors" as *;
 @use "mixins" as mixins;
 
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
 :host {
   display: flex;
   flex-direction: column;
@@ -30,6 +33,20 @@
   .login-form-field {
     width: 100%;
     margin-bottom: 8px;
+
+    transition: transform 0.25s;
+
+    div {
+      display: flex;
+
+
+      i {
+        transform: translateY(-2px);
+        align-content: center;
+        margin-left: 10px;
+      }
+    }
+
   }
 
   .login-button {
@@ -37,6 +54,11 @@
     width: 100%;
     color: $very-light-text-color;
     text-transform: uppercase;
+  }
+
+  #password {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    letter-spacing: 0.125em;
   }
 }
 
@@ -49,6 +71,7 @@
     color: $primary;
   }
 }
+
 
 mds-error-box {
   margin: 32px 32px 0 32px;

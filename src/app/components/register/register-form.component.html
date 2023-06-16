@@ -16,14 +16,17 @@
     <div>
       <mat-form-field class="register-form-field">
         <mat-label>Password</mat-label>
-        <input matInput id="password" type="text" formControlName="password" />
+        <div>
+          <input matInput id="password" type="password" formControlName="password" />
+          <i [ngClass]=" { 'fa-eye': !passwordVisible, 'fa-eye-slash': passwordVisible }" class="fa"  (click)="toggleShow()"></i>
+        </div>
         <mat-error *ngIf="password.invalid">{{ password | formControlErrorMessage : password.errors }}</mat-error>
       </mat-form-field>
     </div>
     <div>
       <mat-form-field class="register-form-field">
         <mat-label>Confirm Password</mat-label>
-        <input matInput id="confirmPassword" type="text" formControlName="confirmPassword" />
+        <input matInput id="confirmPassword" type="password" formControlName="confirmPassword" />
         <mat-error *ngIf="confirmPassword.invalid">{{ confirmPassword | formControlErrorMessage : confirmPassword.errors }}</mat-error>
       </mat-form-field>
     </div>

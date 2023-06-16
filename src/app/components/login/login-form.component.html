@@ -16,7 +16,10 @@
     <div>
       <mat-form-field class="login-form-field">
         <mat-label>Password</mat-label>
-        <input matInput id="password" type="text" formControlName="password" />
+        <div>
+          <input matInput id="password" type="password" formControlName="password" />
+          <i [ngClass]=" { 'fa-eye': !passwordVisible, 'fa-eye-slash': passwordVisible }" class="fa"  (click)="toggleShow()"></i>
+        </div>
         <mat-error *ngIf="password.invalid">{{ password | formControlErrorMessage : password.errors }}</mat-error>
       </mat-form-field>
     </div>

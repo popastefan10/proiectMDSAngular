@@ -16,6 +16,20 @@ import { openClosedAnimation } from 'app/animations';
 export class RegisterFormComponent implements OnInit {
   constructor(private readonly fb: FormBuilder, private readonly userService: UserService, public router: Router) {}
 
+  public passwordVisible: boolean = false;
+
+  public toggleShow() {
+    this.passwordVisible = !this.passwordVisible;
+    let x = document.getElementById('password');
+    if (x!.getAttribute('type') === 'password') {
+      x!.setAttribute('type', 'text');
+    }
+    else {
+      x!.setAttribute('type', 'password');
+    }
+  }
+
+
   public readonly registerForm: FormGroup<RegisterFormType> = this.fb.nonNullable.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', Validators.required],
