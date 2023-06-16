@@ -21,13 +21,6 @@ export class LoginFormComponent implements OnInit {
 
   public toggleShow() {
     this.passwordVisible = !this.passwordVisible;
-    let x = document.getElementById('password');
-    if (x!.getAttribute('type') === 'password') {
-      x!.setAttribute('type', 'text');
-    }
-    else {
-      x!.setAttribute('type', 'password');
-    }
   }
 
   constructor(private readonly fb: FormBuilder, private readonly userService: UserService, public router: Router) {}

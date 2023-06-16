@@ -26,7 +26,7 @@
     <div>
       <mat-form-field class="register-form-field">
         <mat-label>Confirm Password</mat-label>
-        <input matInput id="confirmPassword" type="password" formControlName="confirmPassword" />
+        <input matInput id="confirmPassword" [type]="passwordVisible ? 'text' : 'password'" formControlName="confirmPassword" />
         <mat-error *ngIf="confirmPassword.invalid">{{ confirmPassword | formControlErrorMessage : confirmPassword.errors }}</mat-error>
       </mat-form-field>
     </div>
