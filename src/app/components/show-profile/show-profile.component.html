@@ -10,7 +10,7 @@
           <div class="username-container">
             <h2 class="username">{{ profile.username }}</h2>
             <button mat-raised-button *ngIf="!(isCurrentUserProfile$ | async)" mat-stroked-button class="follow-button">Follow</button>
-            <button mat-raised-button *ngIf="(isCurrentUserProfile$ | async)" mat-stroked-button class="edit-profile-button">Edit profile</button>
+            <button routerLink="/edit-profile" routerLinkActive="active" mat-raised-button *ngIf="(isCurrentUserProfile$ | async)" mat-stroked-button class="edit-profile-button">Edit profile</button>
           </div>
 
           <div class="follow-info">
