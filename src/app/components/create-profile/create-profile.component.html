@@ -6,18 +6,18 @@
   <mds-error-box @openClosed *ngIf="createProfileError" [errorMsg]="createProfileError.errorMsg"></mds-error-box>
 
   <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-    <mat-stepper #stepper>
-      <mat-step label="Fill out your username">
+    <mat-stepper [linear]='true' #stepper>
+      <mat-step label="Fill out your username" [stepControl]="username">
           <mat-form-field class="create-profile-form-field">
             <mat-label>Username</mat-label>
             <input matInput formControlName="username" type="text">
             <mat-error *ngIf="username.invalid">{{ username | formControlErrorMessage : username.errors }}</mat-error>
           </mat-form-field>
           <div>
-            <button mat-raised-button matStepperNext type="button">Next</button>
+             <button mat-raised-button matStepperNext type="button">Next</button>
           </div>
       </mat-step>
-      <mat-step label="Fill out your name">
+      <mat-step label="Fill out your name"[stepControl]="name">
           <mat-form-field field class="create-profile-form-field">
             <mat-label>Name</mat-label>
             <input matInput formControlName="name" type="text">
@@ -28,7 +28,7 @@
             <button mat-raised-button matStepperNext type="button">Next</button>
           </div>
       </mat-step>
-      <mat-step label="Fill out your bio">
+      <mat-step label="Fill out your bio" [stepControl]="bio">
           <mat-form-field field class="create-profile-form-field">
             <mat-label>Bio</mat-label>
             <textarea matInput formControlName="bio"></textarea>
@@ -41,7 +41,7 @@
       </mat-step>
       <mat-step label="Choose a profile picture">
         <div class="create-profile-form-field">
-          <button mat-raised-button class="choose-photo-btn" (click)="fileInput.click()">Choose a profile photo</button>
+          <button mat-raised-button class="choose-photo-btn" type="button" (click)="fileInput.click()">Choose a profile photo</button>
           <div class="photo-preview" *ngIf="selectedPhotoUrl">
             <img [src]="selectedPhotoUrl" alt="Profile photo preview">
             <p *ngIf="selectedPhotoName" class="photo-name">{{selectedPhotoName}}</p>

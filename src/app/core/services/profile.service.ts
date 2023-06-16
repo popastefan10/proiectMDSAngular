@@ -31,6 +31,7 @@ export class ProfileService {
       formData.append('media', data.media);
     }
 
+    console.log("salut");
     return this.httpClient.post<GenericResponse<Partial<Profile>>>('/api/profiles', formData, { withCredentials: true });
   }
 

@@ -43,6 +43,7 @@ export class CreateProfileComponent implements OnInit {
         media: this.profilePicture
       }
 
+
       this.profileService.create(data)
         .subscribe((res: GenericResponse<Partial<Profile>>) => {
           if (res.error) {
