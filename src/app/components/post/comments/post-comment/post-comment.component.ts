@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { openClosedAnimation } from 'app/animations';
 import { CommentService } from 'app/core/services/comment.service';
 import { ProfileService } from 'app/core/services/profile.service';
@@ -15,11 +15,13 @@ import { catchError } from 'rxjs';
   animations: [openClosedAnimation]
 })
 export class PostCommentComponent implements OnInit, OnChanges {
+  @Input() public level: 'level-1' | 'level-2' = 'level-1';
   @Input() public comment!: Comment;
   public isDescription: boolean = false;
   public userProfile?: Profile | undefined;
   public dateFormatted: string = '';
 
+  @Output() public reply: EventEmitter<Comment> = new EventEmitter<Comment>();
   public replyContent: string = '';
   public isReplying: boolean = false;
 
@@ -41,9 +43,17 @@ export class PostCommentComponent implements OnInit, OnChanges {
       this.dateFormatted = formatInstagramTimestamp(comment.createdAt);
 
       // fetch user profile
-      this.profileService.getProfile(comment.userId).subscribe((res) => {
-        this.userProfile = res.content;
-      });
+      this.profileService
+        .getProfile(comment.userId)
+        .pipe(
+          catchError((err) => {
+            console.error(err);
+            return [];
+          })
+        )
+        .subscribe((res) => {
+          this.userProfile = res.content;
+        });
 
       // fetch replies
       this.commentService.getCommentReplies(comment.id).subscribe((res) => {
@@ -66,15 +76,27 @@ export class PostCommentComponent implements OnInit, OnChanges {
       .create(reply)
       .pipe(
         catchError((err) => {
-          console.log(err);
+          console.error(err);
           return [];
         })
       )
       .subscribe((res) => {
         this.isReplying = false;
         this.replyContent = '';
-        this.replies.push(res.content);
+        this.showReplies = true;
+
+        const reply = res.content;
+        // if the comment is level-1 then add it to the replies
+        // otherwise add it to the replies of the parent comment
+        if (this.level === 'level-1') {
+          this.replies.push(reply);
+        }
+        this.reply.emit(reply);
       });
+  }
+
+  public addReplyFromChild(reply: Comment) {
+    this.replies.push(reply);
   }
 
   public cancelReply() {
