@@ -20,12 +20,13 @@ export class RegisterFormComponent implements OnInit {
 
   public toggleShow() {
     this.passwordVisible = !this.passwordVisible;
-    let x = document.getElementById('password');
-    if (x!.getAttribute('type') === 'password') {
-      x!.setAttribute('type', 'text');
+    if (this.passwordVisible) {
+      document.getElementById('password')!.style.fontFamily = 'inherit';
+      document.getElementById('password')!.style.letterSpacing = 'inherit';
     }
     else {
-      x!.setAttribute('type', 'password');
+      document.getElementById('password')!.style.fontFamily = 'Verdana, Geneva, Tahoma, sans-serif';
+      document.getElementById('password')!.style.letterSpacing = '0.125em';
     }
   }
 
