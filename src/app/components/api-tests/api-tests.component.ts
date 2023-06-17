@@ -12,6 +12,7 @@ import { Comment } from '../../models/comment.model';
 import { PostMetadata } from 'app/models/post-metadata.model';
 import { CommentCreate } from 'app/models/comment-create.model';
 import { PostLikeService } from 'app/core/services/post-like.service';
+import { CommentLikeService } from 'app/core/services/comment-like.service';
 
 @Component({
   selector: 'mds-api-tests',
@@ -46,20 +47,16 @@ export class ApiTestsComponent {
   });
 
   constructor(
-    private http: HttpClient,
-    private formBuilder: FormBuilder,
-    private userService: UserService,
-    private postService: PostService,
-    private commentService: CommentService,
-    private postLikeService: PostLikeService
+    private readonly http: HttpClient,
+    private readonly formBuilder: FormBuilder,
+    private readonly userService: UserService,
+    private readonly postService: PostService,
+    private readonly commentService: CommentService,
+    private readonly postLikeService: PostLikeService,
+    private readonly commentLikeService: CommentLikeService
   ) {}
 
-  ngOnInit() {
-    // this.http.get<UserInfo>('/api/whoami', { withCredentials: true }).subscribe((x) => {
-    //   this.userInfo = x;
-    //   this.loginForm.reset();
-    // });
-  }
+  ngOnInit() {}
 
   onSubmit(): void {
     this.http
@@ -216,6 +213,35 @@ export class ApiTestsComponent {
   public deletePostLike(): void {
     this.postLikeService
       .delete('7ef4e97c-d3d2-49c1-b136-79dae0d39d30')
+      .pipe(tap((x) => console.log(x)))
+      .subscribe();
+  }
+
+  // Comment likes
+  public createCommentLike(): void {
+    this.commentLikeService
+      .create('12b22345-6255-4ab8-b4ea-fb4911c95970')
+      .pipe(tap((x) => console.log(x)))
+      .subscribe();
+  }
+
+  public getCommentLikes(): void {
+    this.commentLikeService
+      .getCommentLikes('12b22345-6255-4ab8-b4ea-fb4911c95970')
+      .pipe(tap((x) => console.log(x)))
+      .subscribe();
+  }
+
+  public getCommentLikesCount(): void {
+    this.commentLikeService
+      .getCommentLikesCount('12b22345-6255-4ab8-b4ea-fb4911c95970')
+      .pipe(tap((x) => console.log(x)))
+      .subscribe();
+  }
+
+  public deleteCommentLike(): void {
+    this.commentLikeService
+      .delete('12b22345-6255-4ab8-b4ea-fb4911c95970')
       .pipe(tap((x) => console.log(x)))
       .subscribe();
   }

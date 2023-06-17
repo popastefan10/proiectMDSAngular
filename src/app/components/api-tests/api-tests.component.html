@@ -44,20 +44,16 @@
     <input id="description" type="text" formControlName="description" />
   </div>
 
-
-  <input type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload>
+  <input type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload />
 
   <div class="file-upload">
     <ul *ngIf="postMedia">
-
       <li *ngFor="let file of postMedia">
-        {{file.name}}
+        {{ file.name }}
       </li>
     </ul>
 
-    <p *ngIf="!postMedia">
-      "No file uploaded yet."
-    </p>
+    <p *ngIf="!postMedia">"No file uploaded yet."</p>
 
     <button mat-mini-fab color="primary" class="upload-btn" (click)="fileUpload.click()">
       <mat-icon>attach_file</mat-icon>
@@ -104,10 +100,9 @@
 
 <ul *ngIf="picturesURLs">
   <li *ngFor="let path of picturesURLs">
-    <img src="/api/{{ path }}">
+    <img src="/api/{{ path }}" />
   </li>
 </ul>
-
 
 <div>
   <button (click)="createComment()">Create comment</button>
@@ -117,16 +112,13 @@
   <button (click)="getComment()">Get comment</button>
 </div>
 
-
 <div>
   <button (click)="patchComment()">Edit comment</button>
 </div>
 
-
 <div>
   <button (click)="getCommentReplies()">Get comment replies</button>
 </div>
-
 
 <div>
   <button (click)="getPostReplies()">Get post replies</button>
@@ -147,4 +139,21 @@
 
 <div>
   <button (click)="deletePostLike()">Delete post like</button>
+</div>
+
+<!-- Create tests for comment likes -->
+<div>
+  <button (click)="createCommentLike()">Create comment like</button>
+</div>
+
+<div>
+  <button (click)="getCommentLikes()">Get comment likes</button>
+</div>
+
+<div>
+  <button (click)="getCommentLikesCount()">Count comment likes</button>
+</div>
+
+<div>
+  <button (click)="deleteCommentLike()">Delete comment like</button>
 </div>
