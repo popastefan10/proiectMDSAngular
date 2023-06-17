@@ -2,6 +2,9 @@
   <div class="header">
     <mds-profile-pic [pictureSrc]="userProfile?.profilePictureURL" [imgSize]="'40px'" [userId]="userProfile?.id" />
     <mds-username class="username" [username]="userProfile?.username" [userId]="userProfile?.id" />
+    <button mat-icon-button class="open-post" title="Go to post" (click)="openPost()">
+      <mat-icon>open_in_browser</mat-icon>
+    </button>
   </div>
   <div class="media">
     <mds-post-media [picturesURLs]="post.picturesURLs" />

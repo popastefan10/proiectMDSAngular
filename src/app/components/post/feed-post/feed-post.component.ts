@@ -1,4 +1,5 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
 import { CommentService } from 'app/core/services/comment.service';
 import { ProfileService } from 'app/core/services/profile.service';
 import { Comment } from 'app/models/comment.model';
@@ -15,7 +16,11 @@ export class FeedPostComponent implements OnInit, OnChanges {
   public userProfile?: Profile | undefined;
   public comments: Comment[] = [];
 
-  constructor(private readonly profileService: ProfileService, private readonly commentService: CommentService) {}
+  constructor(
+    private readonly profileService: ProfileService,
+    private readonly commentService: CommentService,
+    private readonly router: Router
+  ) {}
 
   public ngOnInit(): void {}
 
@@ -31,5 +36,9 @@ export class FeedPostComponent implements OnInit, OnChanges {
         this.comments = res.content;
       });
     }
+  }
+
+  public openPost(): void {
+    this.router.navigate(['/', 'posts', this.post.id]);
   }
 }
