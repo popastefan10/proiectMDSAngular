@@ -11,6 +11,7 @@ import { CommentService } from 'app/core/services/comment.service';
 import { Comment } from '../../models/comment.model';
 import { PostMetadata } from 'app/models/post-metadata.model';
 import { CommentCreate } from 'app/models/comment-create.model';
+import { PostLikeService } from 'app/core/services/post-like.service';
 
 @Component({
   selector: 'mds-api-tests',
@@ -49,7 +50,8 @@ export class ApiTestsComponent {
     private formBuilder: FormBuilder,
     private userService: UserService,
     private postService: PostService,
-    private commentService: CommentService
+    private commentService: CommentService,
+    private postLikeService: PostLikeService
   ) {}
 
   ngOnInit() {
@@ -185,6 +187,35 @@ export class ApiTestsComponent {
   public getPostReplies(): void {
     this.commentService
       .getPostComments('57b24347-6c9f-4fa7-ac7c-556b4c649579')
+      .pipe(tap((x) => console.log(x)))
+      .subscribe();
+  }
+
+  // Post likes
+  public createPostLike(): void {
+    this.postLikeService
+      .create('7ef4e97c-d3d2-49c1-b136-79dae0d39d30')
+      .pipe(tap((x) => console.log(x)))
+      .subscribe();
+  }
+
+  public getPostLikes(): void {
+    this.postLikeService
+      .getPostLikes('7ef4e97c-d3d2-49c1-b136-79dae0d39d30')
+      .pipe(tap((x) => console.log(x)))
+      .subscribe();
+  }
+
+  public getPostLikesCount(): void {
+    this.postLikeService
+      .getPostLikesCount('7ef4e97c-d3d2-49c1-b136-79dae0d39d30')
+      .pipe(tap((x) => console.log(x)))
+      .subscribe();
+  }
+
+  public deletePostLike(): void {
+    this.postLikeService
+      .delete('7ef4e97c-d3d2-49c1-b136-79dae0d39d30')
       .pipe(tap((x) => console.log(x)))
       .subscribe();
   }
