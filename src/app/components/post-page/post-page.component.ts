@@ -33,7 +33,6 @@ export class PostPageComponent extends SubscriptionCleanup {
     filter((postId) => postId !== ''),
     switchMap((postId) => this.postService.getSinglePost(postId)),
     map((res) => res.content),
-    tap((post) => (post.picturesURLs = post.picturesURLs.map((url) => '/api/' + url))),
     catchError((err) => {
       console.error(err);
       return [];

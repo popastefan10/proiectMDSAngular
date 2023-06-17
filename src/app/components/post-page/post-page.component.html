@@ -9,7 +9,7 @@
     <div class="profile">
       <mds-profile-pic
         class="profile-pic"
-        [pictureSrc]="'api/' + data.userProfile?.profilePictureURL"
+        [pictureSrc]="data.userProfile?.profilePictureURL | apiPrefix"
         [imgSize]="'40px'"
         [userId]="data.userProfile?.userId"
       />
