@@ -9,14 +9,14 @@
     <div class="profile">
       <mds-profile-pic
         class="profile-pic"
-        [pictureSrc]="'api/' + data.userProfile?.profilePictureURL"
+        [pictureSrc]="data.userProfile?.profilePictureURL"
         [imgSize]="'40px'"
         [userId]="data.userProfile?.userId"
       />
       <mds-username [username]="data.userProfile?.username" [userId]="data.userProfile?.userId" />
     </div>
     <div class="post-comments">
-      <mds-post-comments [comments]="data.postComments || []" [postId]="data.post?.id || ''"></mds-post-comments>
+      <mds-post-comments [post]="data.post!"></mds-post-comments>
     </div>
     <div class="post-actions">
       <mds-post-actions [post]="data.post!" />
