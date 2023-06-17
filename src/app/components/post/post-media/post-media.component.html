@@ -1,29 +1,27 @@
-<div *ngIf="picturesURLs">
-  <div class="image-carousel" *ngIf="picturesURLs">
-    <div class="image-container" *ngFor="let url of picturesURLs; let i = index">
-      <img
-        [src]="url"
-        class="carousel-image"
-        [class.active]="i === currentIndex"
-        [class.next]="i === nextIndex"
-        [class.prev]="i === prevIndex"
-      />
-    </div>
-    <button
-      *ngIf="currentIndex !== null && currentIndex > 0"
-      mat-icon-button
-      class="carousel-button prev-button"
-      (click)="showPreviousImage()"
-    >
-      <mat-icon>chevron_left</mat-icon>
-    </button>
-    <button
-      *ngIf="currentIndex !== null && currentIndex < numberOfPictures! - 1"
-      mat-icon-button
-      class="carousel-button next-button"
-      (click)="showNextImage()"
-    >
-      <mat-icon>chevron_right</mat-icon>
-    </button>
+<div class="image-carousel" *ngIf="picturesURLs">
+  <div class="image-container" *ngFor="let url of picturesURLs; let i = index">
+    <img
+      [src]="url"
+      class="carousel-image"
+      [class.active]="i === currentIndex"
+      [class.next]="i === nextIndex"
+      [class.prev]="i === prevIndex"
+    />
   </div>
+  <button
+    *ngIf="currentIndex !== null && currentIndex > 0"
+    mat-icon-button
+    class="carousel-button prev-button"
+    (click)="showPreviousImage()"
+  >
+    <mat-icon>chevron_left</mat-icon>
+  </button>
+  <button
+    *ngIf="currentIndex !== null && currentIndex < numberOfPictures! - 1"
+    mat-icon-button
+    class="carousel-button next-button"
+    (click)="showNextImage()"
+  >
+    <mat-icon>chevron_right</mat-icon>
+  </button>
 </div>
