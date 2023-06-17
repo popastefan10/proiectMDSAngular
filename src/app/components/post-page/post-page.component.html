@@ -18,5 +18,12 @@
     <div class="post-comments">
       <mds-post-comments [comments]="data.postComments || []" [postId]="data.post?.id || ''"></mds-post-comments>
     </div>
+    <div class="post-actions">
+      <button mat-icon-button class="like-btn" [class.liked]="false">
+        <mat-icon fontIcon="favorite"></mat-icon>
+      </button>
+      <span class="likes-count action-text">{{ 5 }} likes</span>
+      <span class="date action-text">35m ago</span>
+    </div>
   </div>
 </div>

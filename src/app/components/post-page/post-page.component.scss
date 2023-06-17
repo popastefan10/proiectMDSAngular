@@ -1,6 +1,7 @@
 @use "colors" as *;
 @use "variables" as *;
 @use "mixins" as mixins;
+@use "typography-levels" as typography-levels;
 
 $comments-width: 400px;
 
@@ -48,4 +49,40 @@ $comments-width: 400px;
   flex-grow: 1;
   width: $comments-width;
   overflow: hidden;
+}
+
+.post-actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 4px 8px;
+  border-top: $separator-300;
+
+  .like-btn {
+    $like-btn-size: 32px;
+    @include mixins.icon-button($like-btn-size);
+    color: $gray-300;
+
+    &.liked {
+      color: $accent;
+    }
+
+    mat-icon {
+      @include mixins.mat-icon($like-btn-size);
+    }
+  }
+
+  .action-text {
+    @include typography-levels.small();
+    color: $gray-600;
+  }
+
+  .likes-count {
+    margin-left: 4px;
+  }
+
+  .date {
+    margin-left: auto;
+    margin-right: 8px;
+  }
 }
