@@ -23,7 +23,6 @@ export class CommentLikeComponent implements OnInit, OnChanges {
   public ngOnChanges(changes: SimpleChanges): void {
     if (changes['comment'].currentValue) {
       const comment = changes['comment'].currentValue as Comment;
-      console.log('change', comment);
       this.dateFormatted = formatInstagramTimestamp(comment.createdAt);
 
       this.commentLikeService

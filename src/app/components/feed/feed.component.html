@@ -1,3 +1,9 @@
-<div *ngIf="posts" class="feed">
-   <mds-show-post-feed *ngFor="let post of posts" [post]="post"></mds-show-post-feed>
+<div *ngIf="feed$ | async as feed; else feedNotLoadedTpl">
+  <mds-feed-post *ngFor="let post of feed" class="feed-post" [post]="post" />
 </div>
+
+<ng-template #feedNotLoadedTpl>
+  <div class="loading">
+    <mat-spinner color="primary" [diameter]="48"></mat-spinner>
+  </div>
+</ng-template>
