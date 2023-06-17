@@ -1,0 +1,57 @@
+@use "colors" as *;
+@use "variables" as *;
+@use "mixins" as mixins;
+
+:host {
+  display: block;
+}
+
+$post-width: calc($post-image-height * $post-image-aspect-ratio);
+
+.post-container {
+  @include mixins.content-container($post-width, 0);
+  display: flex;
+  flex-direction: column;
+  max-width: calc(100vw - 2 * 16px);
+  width: $post-width;
+  border: $separator-300;
+  border-radius: 4px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px;
+  border-bottom: $separator-300;
+
+  .username {
+    margin-left: 8px;
+  }
+
+  .open-post {
+    $btn-size: 32px;
+    @include mixins.icon-button($btn-size);
+    margin-left: auto;
+    cursor: pointer;
+
+    mat-icon {
+      @include mixins.mat-icon($btn-size);
+    }
+  }
+}
+
+.media {
+  max-height: calc(100vh - $navbar-height - 16px);
+  height: $post-image-height;
+  aspect-ratio: $post-image-aspect-ratio;
+}
+
+.actions {
+  padding: 4px 12px 4px 8px;
+  border-top: $separator-300;
+}
+
+.comments {
+  border-top: $separator-300;
+}

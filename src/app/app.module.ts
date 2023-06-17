@@ -28,6 +28,7 @@ import { InputSendComponent } from './components/shared/input-send/input-send.co
 import { UsernameComponent } from './components/shared/username/username.component';
 import { PostActionsComponent } from './components/post/post-actions/post-actions.component';
 import { CommentLikeComponent } from './components/post/comments/comment-like/comment-like.component';
+import { FeedPostComponent } from './components/post/feed-post/feed-post.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { CommentLikeComponent } from './components/post/comments/comment-like/co
     InputSendComponent,
     UsernameComponent,
     PostActionsComponent,
-    CommentLikeComponent
+    CommentLikeComponent,
+    FeedPostComponent
   ],
   imports: [BrowserModule, AppRoutingModule, SharedModule, MaterialModule, MatButtonModule, MatCardModule],
   providers: [],
