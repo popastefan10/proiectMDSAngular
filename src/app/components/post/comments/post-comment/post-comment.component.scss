@@ -18,12 +18,20 @@
   margin-right: 8px;
 }
 
-.content {
+.content-container {
   flex-grow: 1;
 
-  .profile-link {
-    cursor: pointer;
-    font-weight: 500;
+  .content {
+    display: flex;
+    flex-direction: row;
+
+    .comment-and-actions {
+      flex-grow: 1;
+    }
+  }
+
+  .replies-container {
+    padding-top: 8px;
   }
 }
 
@@ -56,6 +64,7 @@
   }
 }
 
-.replies-container {
-  padding-top: 8px;
+.like {
+  flex-shrink: 0;
+  margin-left: 8px;
 }

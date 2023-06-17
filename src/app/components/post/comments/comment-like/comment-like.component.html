@@ -1,4 +1,4 @@
-<button mat-icon-button class="like-btn" [class.liked]="true">
+<button mat-icon-button class="like-btn" [class.liked]="likesComment" (click)="toggleLike()">
   <mat-icon>favorite</mat-icon>
 </button>
-<span class="likes-count">{{ 5 }} likes</span>
+<span *ngIf="likesCount > 0" class="likes-count">{{ likesCount }}</span>
