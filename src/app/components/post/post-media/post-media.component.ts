@@ -1,5 +1,4 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { Profile } from 'app/models/profile.model';
 
 @Component({
   selector: 'mds-post-media',
@@ -13,11 +12,6 @@ export class PostMediaComponent implements OnChanges {
   public currentIndex: number = 0;
   public prevIndex: number = -1;
   public nextIndex: number = 1;
-
-  // formattedDate: string | undefined;
-  // author: Partial<Profile> | undefined;
-  // idxMedia: number = 0;
-  // showComments: boolean = false;
 
   constructor() {}
 
@@ -36,24 +30,7 @@ export class PostMediaComponent implements OnChanges {
     }
   }
 
-  public ngOnInit() {
-    // format date
-    // const dateOptions: Intl.DateTimeFormatOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    // this.formattedDate = new Date(this.post?.createdAt!).toLocaleDateString(undefined, dateOptions);
-    // // need this to display author's user name
-    // this.profileService
-    //   .getProfile(this.post?.userId!)
-    //   .pipe(
-    //     tap((y: GenericResponse<Partial<Profile>>) => {
-    //       if (y.error) {
-    //         console.log(y.error);
-    //       } else {
-    //         this.author = y.content;
-    //       }
-    //     })
-    //   )
-    //   .subscribe();
-  }
+  public ngOnInit() {}
 
   showPreviousImage() {
     this.currentIndex = this.getIndex(this.currentIndex, 'prev', this.numberOfPictures);

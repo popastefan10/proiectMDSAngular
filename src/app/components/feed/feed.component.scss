@@ -1,4 +1,35 @@
-.feed {
-   border: 1px solid #ccc;
-   padding: 10px;
+@use "colors" as *;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: fit-content;
+}
+
+.feed-post {
+  margin-top: 16px;
+  margin-bottom: 32px;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  margin-top: 32px;
+}
+
+.empty-feed {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 32px 0;
+
+  .create-btn {
+    margin-left: 16px;
+    color: $pure-white;
+  }
 }

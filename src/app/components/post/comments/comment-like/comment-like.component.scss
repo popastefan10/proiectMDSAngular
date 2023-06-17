@@ -1,0 +1,28 @@
+@use "colors" as *;
+@use "mixins" as mixins;
+@use "typography-levels" as typography-levels;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.like-btn {
+  $like-btn-size: 20px;
+  @include mixins.icon-button($like-btn-size);
+  color: $gray-300;
+
+  &.liked {
+    color: $accent;
+  }
+
+  mat-icon {
+    @include mixins.mat-icon($like-btn-size);
+  }
+}
+
+.likes-count {
+  @include typography-levels.small();
+  color: $gray-600;
+}

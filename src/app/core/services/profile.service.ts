@@ -9,30 +9,30 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 export class ProfileService {
-
-  constructor(private readonly httpClient: HttpClient) { }
+  constructor(private readonly httpClient: HttpClient) {}
 
   public create(data: ProfileCreate): Observable<GenericResponse<Partial<Profile>>> {
     const formData = new FormData();
 
-    if (data.metadata.username){
-    formData.append('username', data.metadata.username);
+    if (data.metadata.username) {
+      formData.append('username', data.metadata.username);
     }
 
-    if (data.metadata.name){
+    if (data.metadata.name) {
       formData.append('name', data.metadata.name);
     }
 
-    if (data.metadata.bio){
+    if (data.metadata.bio) {
       formData.append('bio', data.metadata.bio);
     }
 
-    if (data.media){
+    if (data.media) {
       formData.append('media', data.media);
     }
 
-    console.log("salut");
-    return this.httpClient.post<GenericResponse<Partial<Profile>>>('/api/profiles', formData, { withCredentials: true });
+    return this.httpClient.post<GenericResponse<Partial<Profile>>>('/api/profiles', formData, {
+      withCredentials: true
+    });
   }
 
   public getProfile(id: string): Observable<GenericResponse<Profile>> {
@@ -63,19 +63,19 @@ export class ProfileService {
   public patch(data: ProfileCreate): Observable<GenericResponse<Partial<Profile>>> {
     const formData = new FormData();
 
-    if (data.metadata.username){
-    formData.append('username', data.metadata.username);
+    if (data.metadata.username) {
+      formData.append('username', data.metadata.username);
     }
 
-    if (data.metadata.name){
+    if (data.metadata.name) {
       formData.append('name', data.metadata.name);
     }
 
-    if (data.metadata.bio){
+    if (data.metadata.bio) {
       formData.append('bio', data.metadata.bio);
     }
 
-    if (data.media){
+    if (data.media) {
       formData.append('media', data.media);
     }
 

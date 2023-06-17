@@ -28,10 +28,8 @@
         </button>
         <img [src]="image.src" />
       </div>
-      <div *ngIf="(canUpload$ | async)" class="inline-upload">
-        <mds-file-upload
-          [message]="''"
-          (file)="onImageUpload($event)"></mds-file-upload>
+      <div *ngIf="canUpload$ | async" class="inline-upload">
+        <mds-file-upload [message]="''" (file)="onImageUpload($event)"></mds-file-upload>
       </div>
     </div>
   </div>
@@ -51,23 +49,4 @@
       </button>
     </div>
   </div>
-
-  <!-- <form [formGroup]="createPostForm">
-    <div>
-      <label for="description">Description</label>
-      <input id="description" type="text" formControlName="description" />
-    </div>
-    <div *ngFor="let i of idxList" class="media-upload-container">
-      <div class="media-file">
-        <input id="{{ 'media' + i }}" type="file" (change)="onFileUpload($event, i)" />
-        <img id="{{ 'preview' + i }}" />
-        <button (click)="onFileRemove(i)" mat-button>
-          <mat-icon>close</mat-icon>
-        </button>
-      </div>
-    </div>
-    <button (click)="onSubmit()" type="submit" mat-button>
-      <mat-icon>done_outline</mat-icon>
-    </button>
-  </form> -->
 </div>

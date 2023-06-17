@@ -2,32 +2,37 @@
   <div class="profile-pic">
     <mds-profile-pic
       [imgSize]="'40px'"
-      [pictureSrc]="'api/' + userProfile?.profilePictureURL"
+      [pictureSrc]="userProfile?.profilePictureURL"
       [userId]="userProfile?.id"
     ></mds-profile-pic>
   </div>
-  <div class="content">
-    <div class="comment">
-      <mds-username [username]="userProfile?.username" [userId]="userProfile?.id" />
-      <span>&nbsp;{{ comment.content }}</span>
-    </div>
+  <div class="content-container">
+    <div class="content">
+      <div class="comment-and-actions">
+        <div class="comment">
+          <mds-username [username]="userProfile?.username" [userId]="userProfile?.id" />
+          <span>&nbsp;{{ comment.content }}</span>
+        </div>
 
-    <div class="actions">
-      <span class="date">{{ dateFormatted }}</span>
-      <button *ngIf="!isDescription" class="action-btn reply" (click)="onReplyClick()"><span>Reply</span></button>
-      <button
-        *ngIf="!isDescription && replies.length > 0"
-        class="action-btn show-replies-btn"
-        (click)="toggleReplies()"
-      >
-        <span>{{ showReplies ? "Hide replies" : "Show replies (" + replies.length + ")" }}</span>
-      </button>
+        <div class="actions">
+          <span class="date">{{ dateFormatted }}</span>
+          <button *ngIf="!isDescription" class="action-btn reply" (click)="onReplyClick()"><span>Reply</span></button>
+          <button
+            *ngIf="!isDescription && replies.length > 0"
+            class="action-btn show-replies-btn"
+            (click)="toggleReplies()"
+          >
+            <span>{{ showReplies ? "Hide replies" : "Show replies (" + replies.length + ")" }}</span>
+          </button>
+        </div>
+      </div>
+      <div *ngIf="!isDescription" class="like"><mds-comment-like [comment]="comment" /></div>
     </div>
 
     <div @openClosed *ngIf="isReplying" class="add-comment">
       <mds-input-send
-        [horizontalPadding]="false"
         [placeholder]="'Add a reply...'"
+        [btnSize]="'20px'"
         [(content)]="replyContent"
         (send)="addReply()"
       >

@@ -5,6 +5,6 @@
 <ng-template #profilePicTpl>
   <div class="picture-container" [style.--img-size]="imgSize">
     <mat-icon *ngIf="!displayProfilePicure">person</mat-icon>
-    <img *ngIf="displayProfilePicure" [src]="pictureSrc" (error)="onImgError($event)" />
+    <img *ngIf="displayProfilePicure" [src]="pictureSrc | apiPrefix" (error)="onImgError($event)" />
   </div>
 </ng-template>

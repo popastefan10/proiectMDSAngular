@@ -16,10 +16,14 @@ import { MatStepper } from '@angular/material/stepper';
 })
 export class CreateProfileComponent implements OnInit {
   @ViewChild('stepper') stepper!: MatStepper;
-  selectedPhotoUrl =  "";
-  selectedPhotoName =  "";
+  selectedPhotoUrl = '';
+  selectedPhotoName = '';
 
-  constructor(private readonly fb: FormBuilder, private readonly profileService: ProfileService, public router: Router) {}
+  constructor(
+    private readonly fb: FormBuilder,
+    private readonly profileService: ProfileService,
+    public router: Router
+  ) {}
 
   public createProfileError: CustomError | undefined;
 
@@ -31,7 +35,6 @@ export class CreateProfileComponent implements OnInit {
     bio: ['', Validators.maxLength(50)]
   }) as FormGroup<Partial<CreateProfileFormType>>;
 
-
   onSubmit(): void {
     if (this.profileForm.valid) {
       const data: ProfileCreate = {
@@ -41,18 +44,16 @@ export class CreateProfileComponent implements OnInit {
           bio: this.bio.value
         },
         media: this.profilePicture
-      }
+      };
 
-
-      this.profileService.create(data)
-        .subscribe((res: GenericResponse<Partial<Profile>>) => {
-          if (res.error) {
-            console.log(res.error);
-          } else {
-            console.log(res.content);
-            this.router.navigateByUrl('/');
-          }
-        });
+      this.profileService.create(data).subscribe((res: GenericResponse<Partial<Profile>>) => {
+        if (res.error) {
+          console.log(res.error);
+        } else {
+          console.log(res.content);
+          this.router.navigateByUrl('/');
+        }
+      });
     }
   }
 
@@ -71,13 +72,13 @@ export class CreateProfileComponent implements OnInit {
   }
 
   resetForm() {
-    this.selectedPhotoUrl = "";
-    this.selectedPhotoName = "";
+    this.selectedPhotoUrl = '';
+    this.selectedPhotoName = '';
     this.stepper.reset();
   }
 
   get username(): FormControl {
-    return this .profileForm.get('username') as FormControl;
+    return this.profileForm.get('username') as FormControl;
   }
 
   get name(): FormControl {
