@@ -26,6 +26,7 @@ import { PostCommentComponent } from './components/post/comments/post-comment/po
 import { PostCommentsComponent } from './components/post/comments/post-comments/post-comments.component';
 import { InputSendComponent } from './components/shared/input-send/input-send.component';
 import { UsernameComponent } from './components/shared/username/username.component';
+import { PostActionsComponent } from './components/post/post-actions/post-actions.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { UsernameComponent } from './components/shared/username/username.compone
     PostCommentComponent,
     PostCommentsComponent,
     InputSendComponent,
-    UsernameComponent
+    UsernameComponent,
+    PostActionsComponent
   ],
   imports: [BrowserModule, AppRoutingModule, SharedModule, MaterialModule, MatButtonModule, MatCardModule],
   providers: [],

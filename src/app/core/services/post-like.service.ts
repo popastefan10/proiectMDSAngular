@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { CountResponse } from 'app/models/count-respone.model';
 import { GenericResponse } from 'app/models/generic-response.model';
 import { PostLike } from 'app/models/post-like.model';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +22,7 @@ export class PostLikeService {
   public getPostLikesCount(postId: string): Observable<GenericResponse<CountResponse>> {
     return this.httpClient.get<GenericResponse<CountResponse>>(`/api/posts/${postId}/likes/count`, {
       withCredentials: true
-    });
+    }).pipe(tap((res) => res.content.count = Number(res.content.count)));
   }
 
   public delete(postId: string): Observable<GenericResponse<undefined>> {

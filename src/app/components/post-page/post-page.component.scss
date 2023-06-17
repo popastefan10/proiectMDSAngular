@@ -52,37 +52,6 @@ $comments-width: 400px;
 }
 
 .post-actions {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
   padding: 4px 8px;
   border-top: $separator-300;
-
-  .like-btn {
-    $like-btn-size: 32px;
-    @include mixins.icon-button($like-btn-size);
-    color: $gray-300;
-
-    &.liked {
-      color: $accent;
-    }
-
-    mat-icon {
-      @include mixins.mat-icon($like-btn-size);
-    }
-  }
-
-  .action-text {
-    @include typography-levels.small();
-    color: $gray-600;
-  }
-
-  .likes-count {
-    margin-left: 4px;
-  }
-
-  .date {
-    margin-left: auto;
-    margin-right: 8px;
-  }
 }
