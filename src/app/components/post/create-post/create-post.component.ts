@@ -100,10 +100,10 @@ export class CreatePostComponent implements OnInit {
     this.postService
       .create(data)
       .pipe(
-        tap((_res: GenericResponse<Partial<Post>>) => {
+        tap((res: GenericResponse<Post>) => {
           this.createPostForm.reset();
           this.imagesSubject.next([]);
-          this.router.navigateByUrl('/feed');
+          this.router.navigateByUrl('/posts/' + res.content.id);
         }),
         catchError((err: ErrorResponse) => {
           this.createPostError = err.error.error;
