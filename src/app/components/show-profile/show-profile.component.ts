@@ -20,6 +20,7 @@ export class ShowProfileComponent implements OnInit, OnDestroy {
   public profile: Profile | undefined;
   public profilePictureUrl: string | undefined;
   public posts: Post[] = [];
+  public likes: number[] = [];
 
   constructor(
     private profileService: ProfileService,
@@ -81,6 +82,8 @@ export class ShowProfileComponent implements OnInit, OnDestroy {
               })
             );
           });
+
+          // Get likes for each post
         }
       })
     );

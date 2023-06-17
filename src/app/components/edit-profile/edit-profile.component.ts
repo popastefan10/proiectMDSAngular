@@ -64,7 +64,7 @@ export class EditProfileComponent implements OnInit {
       const reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = () => {
-        this.selectedPhotoUrl = reader.result as string; 
+        this.selectedPhotoUrl = reader.result as string;
       };
     }
   }
