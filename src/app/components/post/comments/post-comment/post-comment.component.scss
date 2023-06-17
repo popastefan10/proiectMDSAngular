@@ -35,6 +35,10 @@
   }
 }
 
+.comment {
+  line-height: 20px; // It should match the height of the like button. Otherwise there is a small gap between the comment and the like button.
+}
+
 .actions {
   @include typography-levels.small();
   color: $gray-600;
@@ -54,12 +58,15 @@
 }
 
 .add-comment {
+  margin: 4px 0;
+  $btn-size: 20px;
+
   .cancel-reply-btn {
-    @include mixins.icon-button(32px);
-    margin-left: 8px;
+    @include mixins.icon-button($btn-size);
+    margin-left: 4px;
 
     mat-icon {
-      @include mixins.mat-icon(32px, 20px);
+      @include mixins.mat-icon($btn-size);
     }
   }
 }

@@ -31,8 +31,8 @@
 
     <div @openClosed *ngIf="isReplying" class="add-comment">
       <mds-input-send
-        [horizontalPadding]="false"
         [placeholder]="'Add a reply...'"
+        [btnSize]="'20px'"
         [(content)]="replyContent"
         (send)="addReply()"
       >

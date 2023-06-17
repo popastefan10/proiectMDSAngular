@@ -4,12 +4,6 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 4px 8px;
-
-  &.no-horizontal-padding {
-    padding-left: 0;
-    padding-right: 0;
-  }
 
   .input {
     flex-grow: 1;
@@ -23,11 +17,11 @@
   }
 
   .send-btn, .cancel-reply-btn {
-    @include mixins.icon-button(32px);
+    @include mixins.icon-button(var(--btn-size));
     margin-left: 8px;
 
     mat-icon {
-      @include mixins.mat-icon(32px, 20px);
+      @include mixins.mat-icon(var(--btn-size));
     }
   }
 }
