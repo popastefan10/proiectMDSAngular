@@ -1,9 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CommentService } from 'app/core/services/comment.service';
+import { PostLikeService } from 'app/core/services/post-like.service';
 import { PostService } from 'app/core/services/post.service';
 import { ProfileService } from 'app/core/services/profile.service';
 import { UserService } from 'app/core/services/user.service';
-import { Post } from 'app/models/post.model';
+import { ProfilePost } from 'app/models/profile-post.model';
 import { Profile } from 'app/models/profile.model';
 import { SessionUser } from 'app/models/session-user.model';
 import { Observable, Subscription, map, of } from 'rxjs';
@@ -19,13 +21,14 @@ export class ShowProfileComponent implements OnInit, OnDestroy {
   public isCurrentUserProfile$!: Observable<boolean>;
   public profile: Profile | undefined;
   public profilePictureUrl: string | undefined;
-  public posts: Post[] = [];
-  public likes: number[] = [];
+  public posts: ProfilePost[] = [];
 
   constructor(
-    private profileService: ProfileService,
-    private postService: PostService,
+    private readonly profileService: ProfileService,
+    private readonly postService: PostService,
     private readonly userService: UserService,
+    private readonly postLikeService: PostLikeService,
+    private readonly commentService: CommentService,
     private activatedRoute: ActivatedRoute
   ) {}
 
@@ -83,7 +86,28 @@ export class ShowProfileComponent implements OnInit, OnDestroy {
             );
           });
 
-          // Get likes for each post
+          // Get the number of likes and comments for each post
+          this.posts.forEach((post) => {
+            this.sub.add(
+              this.postLikeService.getPostLikesCount(post.id).subscribe((response) => {
+                if (response.error) {
+                  console.log(response.error);
+                } else {
+                  post.likesCount = response.content?.count;
+                }
+              })
+            );
+            this.sub.add(
+              this.commentService.getPostCommentsCount(post.id).subscribe((response) => {
+                if (response.error) {
+                  console.log(response.error);
+                } else {
+                  post.commentsCount = response.content?.count;
+                }
+              })
+            );
+          }
+          );
         }
       })
     );
