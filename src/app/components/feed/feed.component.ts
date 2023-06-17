@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { openClosedAnimation } from 'app/animations';
 import { FeedService } from 'app/core/services/feed.service';
 import { GenericResponse } from 'app/models/generic-response.model';
@@ -14,6 +15,7 @@ import { Observable, catchError, filter, map, tap } from 'rxjs';
 export class FeedComponent {
   public readonly feed$: Observable<Post[]> = this.feedService.getFeed().pipe(
     map((res: GenericResponse<Post[]>) => res.content),
+    map((x) => []),
     catchError((err: any) => {
       console.error(err);
       return [];
@@ -21,7 +23,11 @@ export class FeedComponent {
   );
   posts: Post[] | undefined;
 
-  constructor(private feedService: FeedService) {}
+  constructor(private feedService: FeedService, private readonly router: Router) {}
 
   ngOnInit() {}
+
+  public createPost() {
+    this.router.navigate(['posts', 'create']);
+  }
 }
