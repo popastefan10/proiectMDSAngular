@@ -15,7 +15,6 @@ import { Observable, catchError, filter, map, tap } from 'rxjs';
 export class FeedComponent {
   public readonly feed$: Observable<Post[]> = this.feedService.getFeed().pipe(
     map((res: GenericResponse<Post[]>) => res.content),
-    map((x) => []),
     catchError((err: any) => {
       console.error(err);
       return [];
