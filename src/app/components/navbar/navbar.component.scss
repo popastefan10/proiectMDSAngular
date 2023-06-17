@@ -1,8 +1,8 @@
 @use "colors" as *;
+@use "variables" as *;
 @use "typography-levels" as *;
 @use "sass:math" as math;
 
-$navbar-height: 80px;
 $btn-height: 32px;
 
 .navbar {

@@ -18,10 +18,7 @@ export class InputSendComponent {
   @Output() send: EventEmitter<void> = new EventEmitter<void>();
   @Input() placeholder: string = 'Type something here...';
 
-  @Input() set horizontalPadding(value: boolean) {
-    this.removeHorizontalPadding = !value;
-  }
-  @HostBinding('class.no-horizontal-padding') removeHorizontalPadding: boolean = false;
+  @Input() btnSize: string = '32px';
 
   constructor() {}
 

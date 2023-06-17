@@ -1,0 +1,7 @@
+<button mat-icon-button class="like-btn" [class.liked]="likesPost" (click)="toggleLike()">
+  <mat-icon fontIcon="favorite"></mat-icon>
+</button>
+<span class="likes-count action-text" *ngIf="likesCount !== -1">
+  {{ likesCount }} like{{ likesCount === 1 ? '' : 's' }}
+</span>
+<span class="date action-text">{{ dateFormatted }}</span>
