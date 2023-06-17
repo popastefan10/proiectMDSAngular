@@ -15,11 +15,11 @@ export class FormControlErrorMessagePipe implements PipeTransform {
     }
 
     if (value.hasError('minlength')) {
-      return 'Too short'
+      return 'Too short';
     }
 
     if (value.hasError('maxlength')) {
-      return 'Too long'
+      return 'Too long';
     }
 
     return value.hasError('email') ? 'Not a valid email' : '';
