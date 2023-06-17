@@ -1,9 +1,20 @@
 <div *ngIf="feed$ | async as feed; else feedNotLoadedTpl">
-  <mds-feed-post *ngFor="let post of feed" class="feed-post" [post]="post" />
+  <ng-container *ngIf="feed.length > 0; else emptyFeedTpl">
+    <mds-feed-post *ngFor="let post of feed" class="feed-post" [post]="post" />
+  </ng-container>
 </div>
 
 <ng-template #feedNotLoadedTpl>
   <div class="loading">
     <mat-spinner color="primary" [diameter]="48"></mat-spinner>
+  </div>
+</ng-template>
+
+<ng-template #emptyFeedTpl>
+  <div class="empty-feed">
+    <span>You don't have any posts in your feed. Try to create a new one!</span>
+    <button mat-mini-fab color="accent" class="create-btn" (click)="createPost()">
+      <mat-icon>add</mat-icon>
+    </button>
   </div>
 </ng-template>

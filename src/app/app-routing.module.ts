@@ -18,7 +18,8 @@ const routes: Routes = [
   { path: 'posts/:id', component: PostPageComponent },
   { path: 'create-profile', component: CreateProfileComponent },
   { path: 'edit-profile', component: EditProfileComponent },
-  { path: 'feed', component: FeedComponent }
+  { path: 'feed', component: FeedComponent },
+  { path: '', redirectTo: '/feed', pathMatch: 'full' }
 ];
 
 @NgModule({
