@@ -1,0 +1,69 @@
+@use "colors" as *;
+@use "variables" as *;
+
+.followers-container {
+  display: flex;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.followers-section, .follows-section {
+  width: 200px;
+}
+
+.follows-section {
+  margin-left: 16px;
+}
+
+.followers-link, .follows-link {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.followers-count, .follows-count {
+  margin-right: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.followers-list, .following-list {
+  margin-top: 10px;
+  padding: 10px;
+  border: $separator-300;
+  border-radius: 5px;
+  background-color: $gray-100;
+}
+
+.follower-item, .following-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.username {
+  text-decoration: none;
+  color: $gray-900;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.username:hover {
+  color: $primary-600;
+}
+
+.follower-avatar, .following-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.follower-avatar img, .following-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

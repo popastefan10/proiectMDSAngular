@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { openClosedAnimation } from 'app/animations';
+import { openClosedAnimation } from 'app/shared/utils/animations';
 import { FeedService } from 'app/core/services/feed.service';
 import { GenericResponse } from 'app/models/generic-response.model';
 import { Post } from 'app/models/post.model';
-import { Observable, catchError, filter, map, tap } from 'rxjs';
+import { Observable, map } from 'rxjs';
+import { handleError } from 'app/shared/utils/error';
 
 @Component({
   selector: 'mds-feed',
@@ -15,10 +16,7 @@ import { Observable, catchError, filter, map, tap } from 'rxjs';
 export class FeedComponent {
   public readonly feed$: Observable<Post[]> = this.feedService.getFeed().pipe(
     map((res: GenericResponse<Post[]>) => res.content),
-    catchError((err: any) => {
-      console.error(err);
-      return [];
-    })
+    handleError()
   );
   posts: Post[] | undefined;
 

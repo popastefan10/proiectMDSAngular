@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'profileLink'
 })
 export class ProfileLinkPipe implements PipeTransform {
-  transform(value: string, ...args: unknown[]): string {
-    return '/api/profiles/' + value;
+  transform(value: string | undefined, ...args: unknown[]): string {
+    return !!value ? '/profile/' + value : '/';
   }
 }

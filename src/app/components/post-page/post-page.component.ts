@@ -6,17 +6,15 @@ import { ProfileService } from 'app/core/services/profile.service';
 import { Comment } from 'app/models/comment.model';
 import { Post } from 'app/models/post.model';
 import { Profile } from 'app/models/profile.model';
+import { handleError } from 'app/shared/utils/error';
 import { SubscriptionCleanup } from 'app/shared/utils/subscription-cleanup';
 import {
   BehaviorSubject,
   Observable,
-  catchError,
   filter,
   map,
-  of,
   switchMap,
   takeUntil,
-  tap,
   withLatestFrom
 } from 'rxjs';
 
@@ -33,10 +31,7 @@ export class PostPageComponent extends SubscriptionCleanup {
     filter((postId) => postId !== ''),
     switchMap((postId) => this.postService.getSinglePost(postId)),
     map((res) => res.content),
-    catchError((err) => {
-      console.error(err);
-      return [];
-    })
+    handleError()
   );
 
   public readonly postComments$: Observable<Comment[]> = this.post$.pipe(
