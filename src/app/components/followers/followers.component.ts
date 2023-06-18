@@ -2,13 +2,15 @@ import { Component, Input } from '@angular/core';
 import { FollowerService } from 'app/core/services/follower.service';
 import { ProfileService } from 'app/core/services/profile.service';
 import { Profile } from 'app/models/profile.model';
+import { openClosedAnimation } from 'app/shared/utils/animations';
 import { handleError } from 'app/shared/utils/error';
 import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'mds-followers',
   templateUrl: './followers.component.html',
-  styleUrls: ['./followers.component.scss']
+  styleUrls: ['./followers.component.scss'],
+  animations: [openClosedAnimation]
 })
 export class FollowersComponent {
   @Input() userId!: string;
@@ -81,7 +83,7 @@ export class FollowersComponent {
         .getProfilePicture(profileId)
         .pipe(take(1), handleError())
         .subscribe((response) => {
-          if (!response.error && response.content && response.content.profilePictureURL) {
+          if (response.content && response.content.profilePictureURL) {
             this.profilePictures[profileId] = response.content.profilePictureURL;
           }
         });

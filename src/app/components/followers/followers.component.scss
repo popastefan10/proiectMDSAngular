@@ -1,4 +1,5 @@
 @use "colors" as *;
+@use "variables" as *;
 
 .followers-container {
   display: flex;
@@ -8,6 +9,10 @@
 
 .followers-section, .follows-section {
   width: 200px;
+}
+
+.follows-section {
+  margin-left: 16px;
 }
 
 .followers-link, .follows-link {
@@ -26,9 +31,9 @@
 .followers-list, .following-list {
   margin-top: 10px;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: $separator-300;
   border-radius: 5px;
-  background-color: #f9f9f9;
+  background-color: $gray-100;
 }
 
 .follower-item, .following-item {
