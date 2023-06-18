@@ -38,13 +38,9 @@ export class FollowersComponent {
         const filteredFollowers = response.content.filter((follower) => follower.accepted);
         const followerIds = filteredFollowers.map((follower) => follower.followedBy);
         this.profileService.getProfileRange(followerIds).subscribe((response) => {
-          if (response.error) {
-            console.log(response.error);
-          } else {
-            this.followersList = response.content;
-            this.numFollowers = this.followersList.length;
-            this.loadProfilePictures();
-          }
+          this.followersList = response.content;
+          this.numFollowers = this.followersList.length;
+          this.loadProfilePictures();
         });
       });
   }

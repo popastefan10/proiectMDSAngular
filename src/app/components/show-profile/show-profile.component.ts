@@ -8,8 +8,8 @@ import { UserService } from 'app/core/services/user.service';
 import { ProfilePost } from 'app/models/profile-post.model';
 import { Profile } from 'app/models/profile.model';
 import { SessionUser } from 'app/models/session-user.model';
-import { handleError } from 'app/shared/utils/error';
-import { Observable, Subscription, map, of } from 'rxjs';
+import { ErrorResponse, handleError } from 'app/shared/utils/error';
+import { Observable, Subscription, catchError, map, of } from 'rxjs';
 
 @Component({
   selector: 'app-show-profile',
@@ -77,35 +77,26 @@ export class ShowProfileComponent implements OnInit, OnDestroy {
           // Add urls to pictures
           this.posts.forEach((post) => {
             this.sub.add(
-              this.postService.getPostMedia(post.id).subscribe((response) => {
-                if (response.error) {
-                  console.log(response.error);
-                } else {
-                  post.picturesURLs = response.content?.picturesURLs;
-                }
-              })
+              this.postService
+                .getPostMedia(post.id)
+                .pipe(handleError())
+                .subscribe((response) => (post.picturesURLs = response.content?.picturesURLs))
             );
           });
 
           // Get the number of likes and comments for each post
           this.posts.forEach((post) => {
             this.sub.add(
-              this.postLikeService.getPostLikesCount(post.id).subscribe((response) => {
-                if (response.error) {
-                  console.log(response.error);
-                } else {
-                  post.likesCount = response.content?.count;
-                }
-              })
+              this.postLikeService
+                .getPostLikesCount(post.id)
+                .pipe(handleError())
+                .subscribe((response) => (post.likesCount = response.content?.count))
             );
             this.sub.add(
-              this.commentService.getPostCommentsCount(post.id).subscribe((response) => {
-                if (response.error) {
-                  console.log(response.error);
-                } else {
-                  post.commentsCount = response.content?.count;
-                }
-              })
+              this.commentService
+                .getPostCommentsCount(post.id)
+                .pipe(handleError())
+                .subscribe((response) => (post.commentsCount = response.content?.count))
             );
           });
         })
@@ -118,25 +109,19 @@ export class ShowProfileComponent implements OnInit, OnDestroy {
     }
     const profileId = this.profile.id;
     this.sub.add(
-      this.profileService.getProfilePicture(profileId).subscribe((response) => {
-        if (response.error) {
-          console.log(response.error);
-        } else {
-          this.profilePictureUrl = response.content?.profilePictureURL;
-        }
-      })
+      this.profileService
+        .getProfilePicture(profileId)
+        .pipe(handleError())
+        .subscribe((response) => (this.profilePictureUrl = response.content?.profilePictureURL))
     );
   }
 
   private isCurrentUser(userId: string): Observable<boolean> {
     return this.userService.whoAmI().pipe(
-      map((response) => {
-        if (response.error) {
-          console.log(response.error);
-          return false;
-        } else {
-          return response.content?.id === userId;
-        }
+      map((response) => response.content?.id === userId),
+      catchError((err: ErrorResponse) => {
+        console.error(err);
+        return of(false);
       })
     );
   }

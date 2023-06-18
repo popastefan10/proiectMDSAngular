@@ -46,14 +46,9 @@ export class CreateProfileComponent implements OnInit {
         media: this.profilePicture
       };
 
-      this.profileService.create(data).subscribe((res: GenericResponse<Partial<Profile>>) => {
-        if (res.error) {
-          console.log(res.error);
-        } else {
-          console.log(res.content);
-          this.router.navigateByUrl('/');
-        }
-      });
+      this.profileService
+        .create(data)
+        .subscribe((_res: GenericResponse<Partial<Profile>>) => this.router.navigateByUrl('/'));
     }
   }
 
