@@ -3,14 +3,14 @@
     <mds-profile-pic
       [imgSize]="'40px'"
       [pictureSrc]="userProfile?.profilePictureURL"
-      [userId]="userProfile?.id"
+      [userId]="userProfile?.userId"
     ></mds-profile-pic>
   </div>
   <div class="content-container">
     <div class="content">
       <div class="comment-and-actions">
         <div class="comment">
-          <mds-username [username]="userProfile?.username" [userId]="userProfile?.id" />
+          <mds-username [username]="userProfile?.username" [userId]="userProfile?.userId" />
           <span>&nbsp;{{ comment.content }}</span>
         </div>
 

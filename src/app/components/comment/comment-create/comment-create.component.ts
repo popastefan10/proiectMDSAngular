@@ -17,28 +17,21 @@ export class CommentCreateComponent {
   @Input() postId: string | undefined;
 
   createCommentForm: FormGroup<CreateCommentFormType> = this.formBuilder.nonNullable.group({
-    content: '',
+    content: ''
   });
 
-  constructor(private commentService: CommentService, private formBuilder: FormBuilder) {
-  }
+  constructor(private commentService: CommentService, private formBuilder: FormBuilder) {}
 
   onSubmit() {
     const reply: CommentCreate = {
       parentId: this.parentId,
       postId: this.postId || '',
-      content: this.createCommentForm.value.content || '',
+      content: this.createCommentForm.value.content || ''
     };
 
-    this.commentService.create(reply)
-      .pipe(tap((res: GenericResponse<Partial<Comment>>) => {
-        if (res.error) {
-          console.log(res.error);
-        } else {
-          console.log(res.content);
-          this.createCommentForm.reset();
-        }
-      }))
+    this.commentService
+      .create(reply)
+      .pipe(tap((res: GenericResponse<Partial<Comment>>) => this.createCommentForm.reset()))
       .subscribe();
   }
 }

@@ -4,6 +4,7 @@
 // Hues from palettes
 
 $primary: mat.get-color-from-palette(palettes.$project-primary-palette);
+$primary-600: mat.get-color-from-palette(palettes.$project-primary-palette, 600);
 $primary-800: mat.get-color-from-palette(palettes.$project-primary-palette, 800);
 
 $accent: mat.get-color-from-palette(palettes.$project-accent-palette);

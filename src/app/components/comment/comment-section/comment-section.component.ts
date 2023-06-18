@@ -12,90 +12,64 @@ import { tap, filter } from 'rxjs';
   styleUrls: ['./comment-section.component.scss']
 })
 export class CommentSectionComponent {
-
   // used to remember which comment we reply to
   // to know where to display reply component
   repliedParent: string | undefined;
   @Input() postId: string | undefined;
   rootComments: Partial<CommentShow>[] | undefined;
   childComments: {
-    [key: string]: Partial<CommentShow>[]
+    [key: string]: Partial<CommentShow>[];
   } = {};
   showReplies: {
-    [key: string]: boolean
+    [key: string]: boolean;
   } = {};
 
-  constructor(private commentService: CommentService, private profileService: ProfileService) {
-
-  }
+  constructor(private commentService: CommentService, private profileService: ProfileService) {}
 
   ngOnInit() {
     // loading metadata
-    this.commentService.getPostComments(this.postId!)
+    this.commentService
+      .getPostComments(this.postId!)
       .pipe(
         tap((res: GenericResponse<Partial<Comment>[]>) => {
-          if (res.error)
-            console.log(res.error);
-        }),
-        filter((res: GenericResponse<Partial<Comment>[]>) => !res.error),
-        tap((res: GenericResponse<Partial<Comment>[]>) => {
           this.rootComments = [];
-          res.content.forEach(x => {
+          res.content.forEach((x) => {
             this.rootComments?.push({
-              metadata: x,
+              metadata: x
             });
             this.showReplies[x.id!] = false;
           });
 
-          this.rootComments.forEach(comm => {
+          this.rootComments.forEach((comm) => {
             // need this to display author's user name
-            this.profileService.getProfile(comm.metadata!.userId!)
-              .pipe(tap((y: GenericResponse<Partial<Profile>>) => {
-                if (y.error) {
-                  console.log(y.error);
-                } else {
-                  comm.author = y.content;
-                }
-              }))
+            this.profileService
+              .getProfile(comm.metadata!.userId!)
+              .pipe(tap((y: GenericResponse<Partial<Profile>>) => (comm.author = y.content)))
               .subscribe();
           });
         })
       )
       .subscribe();
-
   }
 
   onShowRepliesClick(id: string) {
-
     if (!this.showReplies[id]) {
-
-      this.commentService.getCommentReplies(id)
+      this.commentService
+        .getCommentReplies(id)
         .pipe(
           tap((res: GenericResponse<Partial<Comment>[]>) => {
-            if (res.error)
-              console.log(res.error);
-          }),
-          filter((res: GenericResponse<Partial<Comment>[]>) => !res.error),
-          tap((res: GenericResponse<Partial<Comment>[]>) => {
             this.childComments[id] = [];
-            res.content.forEach(x => {
+            res.content.forEach((x) => {
               this.childComments[id]?.push({
-                metadata: x,
+                metadata: x
               });
             });
 
-            this.childComments[id].forEach(comm => {
+            this.childComments[id].forEach((comm) => {
               // need this to display author's user name
-              this.profileService.getProfile(comm.metadata!.userId!)
-                .pipe(
-                  tap((y: GenericResponse<Partial<Profile>>) => {
-                    if (y.error) {
-                      console.log(y.error);
-                    } else {
-                      comm.author = y.content;
-                    }
-                  })
-                )
+              this.profileService
+                .getProfile(comm.metadata!.userId!)
+                .pipe(tap((y: GenericResponse<Partial<Profile>>) => (comm.author = y.content)))
                 .subscribe();
             });
           })
@@ -109,5 +83,4 @@ export class CommentSectionComponent {
   onToggleReplyComponent(id: string) {
     this.repliedParent = this.repliedParent === id ? undefined : id;
   }
-
 }

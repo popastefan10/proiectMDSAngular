@@ -1,0 +1,38 @@
+<div class="followers-container">
+  <div class="followers-section">
+    <a (click)="toggleFollowers()" class="followers-link">
+      <span class="followers-count">{{ numFollowers }}</span>
+      followers
+    </a>
+    <div @openClosed *ngIf="showFollowers" class="followers-list">
+      <div *ngFor="let follower of followersList" class="follower-item">
+        <div class="follower-avatar">
+          <img [src]="profilePictures[follower.id] | apiPrefix" alt="Profile Picture" />
+        </div>
+        <div class="follower-info">
+          <a [routerLink]="follower.userId | profileLink" class="username">{{ follower.username }}</a>
+        </div>
+      </div>
+      <span *ngIf="followersList.length === 0">Nobody is following you yet!</span>
+    </div>
+  </div>
+
+  <div class="follows-section">
+    <a (click)="toggleFollows()" class="follows-link">
+      <span class="follows-count">{{ numFollows }}</span>
+      following
+    </a>
+
+    <div @openClosed *ngIf="showFollows" class="following-list">
+      <div *ngFor="let following of followsList" class="following-item">
+        <div class="following-avatar">
+          <img [src]="profilePictures[following.id] | apiPrefix" alt="Profile Picture" />
+        </div>
+        <div class="following-info">
+          <a [routerLink]="following.userId | profileLink" class="username">{{ following.username }}</a>
+        </div>
+      </div>
+      <span *ngIf="followsList.length === 0">You are not following anyone yet!</span>
+    </div>
+  </div>
+</div>

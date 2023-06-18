@@ -9,6 +9,7 @@ import { CreateProfileComponent } from './components/create-profile/create-profi
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { FeedComponent } from './components/feed/feed.component';
 import { PostPageComponent } from './components/post-page/post-page.component';
+import { ShowProfileComponent } from './components/show-profile/show-profile.component';
 
 const routes: Routes = [
   { path: 'api-tests', component: ApiTestsComponent },
@@ -19,7 +20,9 @@ const routes: Routes = [
   { path: 'create-profile', component: CreateProfileComponent },
   { path: 'edit-profile', component: EditProfileComponent },
   { path: 'feed', component: FeedComponent },
-  { path: '', redirectTo: '/feed', pathMatch: 'full' }
+  { path: 'posts/:id', component: PostPageComponent },
+  { path: 'profile/:userId', component: ShowProfileComponent },
+  { path: '', redirectTo: '/feed', pathMatch: 'full' },
 ];
 
 @NgModule({

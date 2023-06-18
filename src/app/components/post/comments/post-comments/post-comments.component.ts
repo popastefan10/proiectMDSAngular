@@ -3,7 +3,8 @@ import { CommentService } from 'app/core/services/comment.service';
 import { CommentCreate } from 'app/models/comment-create.model';
 import { Comment } from 'app/models/comment.model';
 import { Post } from 'app/models/post.model';
-import { catchError, map, of, tap } from 'rxjs';
+import { handleError } from 'app/shared/utils/error';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'mds-post-comments',
@@ -39,10 +40,7 @@ export class PostCommentsComponent implements OnChanges {
               this.comments.unshift(description);
             }
           }),
-          catchError((err) => {
-            console.error(err);
-            return of([]);
-          })
+          handleError()
         )
         .subscribe();
     }
@@ -57,12 +55,7 @@ export class PostCommentsComponent implements OnChanges {
 
     this.commentService
       .create(newComment)
-      .pipe(
-        catchError((err) => {
-          console.error(err);
-          return [];
-        })
-      )
+      .pipe(handleError())
       .subscribe((res) => {
         this.comments.push(res.content);
         this.newComment = '';

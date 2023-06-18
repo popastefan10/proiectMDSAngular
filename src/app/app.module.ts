@@ -29,6 +29,8 @@ import { UsernameComponent } from './components/shared/username/username.compone
 import { PostActionsComponent } from './components/post/post-actions/post-actions.component';
 import { CommentLikeComponent } from './components/post/comments/comment-like/comment-like.component';
 import { FeedPostComponent } from './components/post/feed-post/feed-post.component';
+import { ShowProfileComponent } from './components/show-profile/show-profile.component';
+import { FollowersComponent } from './components/followers/followers.component';
 
 @NgModule({
   declarations: [
@@ -55,9 +57,11 @@ import { FeedPostComponent } from './components/post/feed-post/feed-post.compone
     UsernameComponent,
     PostActionsComponent,
     CommentLikeComponent,
-    FeedPostComponent
+    FeedPostComponent,
+    ShowProfileComponent,
+    FollowersComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, SharedModule, MaterialModule, MatButtonModule, MatCardModule],
+  imports: [BrowserModule, AppRoutingModule, SharedModule, MaterialModule, MatButtonModule],
   providers: [],
   bootstrap: [AppComponent]
 })
