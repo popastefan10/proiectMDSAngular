@@ -8,6 +8,7 @@ import { UserService } from 'app/core/services/user.service';
 import { ProfilePost } from 'app/models/profile-post.model';
 import { Profile } from 'app/models/profile.model';
 import { SessionUser } from 'app/models/session-user.model';
+import { handleError } from 'app/shared/utils/error';
 import { Observable, Subscription, map, of } from 'rxjs';
 
 @Component({
@@ -35,6 +36,7 @@ export class ShowProfileComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.sub.add(
       this.activatedRoute.params.subscribe((params) => {
+        console.log(params);
         this.getProfile(params['userId']);
       })
     );
@@ -51,26 +53,25 @@ export class ShowProfileComponent implements OnInit, OnDestroy {
 
   private getProfile(userId: string): void {
     this.sub.add(
-      this.profileService.getProfile(userId).subscribe((response) => {
-        if (response.error) {
-          console.log(response.error);
-        } else {
+      this.profileService
+        .getProfile(userId)
+        .pipe(handleError())
+        .subscribe((response) => {
           this.profile = response.content;
           this.getProfilePicture();
 
           // Verificăm dacă profilul este profilul utilizatorului curent
           this.isCurrentUserProfile$ = this.isCurrentUser(userId);
-        }
-      })
+        })
     );
   }
 
   private getPosts(userId: string): void {
     this.sub.add(
-      this.postService.getPostsByUser(userId).subscribe((response) => {
-        if (response.error) {
-          console.log(response.error);
-        } else {
+      this.postService
+        .getPostsByUser(userId)
+        .pipe(handleError())
+        .subscribe((response) => {
           this.posts = response.content;
 
           // Add urls to pictures
@@ -106,10 +107,8 @@ export class ShowProfileComponent implements OnInit, OnDestroy {
                 }
               })
             );
-          }
-          );
-        }
-      })
+          });
+        })
     );
   }
 
@@ -131,7 +130,7 @@ export class ShowProfileComponent implements OnInit, OnDestroy {
 
   private isCurrentUser(userId: string): Observable<boolean> {
     return this.userService.whoAmI().pipe(
-      map(response => {
+      map((response) => {
         if (response.error) {
           console.log(response.error);
           return false;

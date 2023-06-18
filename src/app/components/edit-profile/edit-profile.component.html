@@ -9,14 +9,16 @@
     <div>
       <mat-form-field class="edit-profile-form-field">
         <mat-label>Username</mat-label>
-        <input matInput type="text" formControlName="username"/>
-        <mat-error *ngIf="username && username.invalid">{{ username | formControlErrorMessage : username.errors }}</mat-error>
+        <input matInput type="text" formControlName="username" />
+        <mat-error *ngIf="username && username.invalid">
+          {{ username | formControlErrorMessage : username.errors }}
+        </mat-error>
       </mat-form-field>
     </div>
     <div>
       <mat-form-field class="edit-profile-form-field">
         <mat-label>Name</mat-label>
-        <input matInput type="text" formControlName="name">
+        <input matInput type="text" formControlName="name" />
         <mat-error *ngIf="name && name.invalid">{{ name | formControlErrorMessage : name.errors }}</mat-error>
       </mat-form-field>
     </div>
@@ -28,15 +30,17 @@
       </mat-form-field>
     </div>
     <div class="edit-profile-form-field">
-      <button mat-raised-button class="choose-photo-btn" type="button" (click)="fileInput.click()">Choose a profile photo</button>
+      <button mat-raised-button class="choose-photo-btn" type="button" (click)="fileInput.click()">
+        Choose a profile photo
+      </button>
       <div class="photo-preview" *ngIf="selectedPhotoUrl">
-        <img [src]="selectedPhotoUrl" alt="Profile photo preview">
-        <p *ngIf="selectedPhotoName" class="photo-name">{{selectedPhotoName}}</p>
+        <img [src]="selectedPhotoUrl" alt="Profile photo preview" />
+        <p *ngIf="selectedPhotoName" class="photo-name">{{ selectedPhotoName }}</p>
       </div>
-      <input #fileInput type="file" accept=".jpg,.jpeg,.png" (change)="onFileSelected($event)">
+      <input #fileInput type="file" accept=".jpg,.jpeg,.png" (change)="onFileSelected($event)" />
     </div>
-    <button mat-raised-button color="primary" type="submit" class="confirm-button">Save Changes</button>
+    <button mat-raised-button color="primary" type="submit" class="confirm-button" [disabled]="profileForm.invalid">
+      Save Changes
+    </button>
   </form>
-
 </div>
-
