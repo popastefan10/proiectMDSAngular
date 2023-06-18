@@ -1,3 +1,5 @@
+@use "colors" as *;
+
 .followers-container {
   display: flex;
   margin-left: 20px;
@@ -37,13 +39,13 @@
 
 .username {
   text-decoration: none;
-  color: black;
+  color: $gray-900;
   cursor: pointer;
   transition: color 0.3s ease;
 }
 
 .username:hover {
-  color: #007bff;
+  color: $primary-600;
 }
 
 .follower-avatar, .following-avatar {
@@ -60,4 +62,3 @@
   height: 100%;
   object-fit: cover;
 }
- 
