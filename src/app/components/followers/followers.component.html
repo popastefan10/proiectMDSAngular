@@ -1,15 +1,16 @@
 <div class="followers-container">
   <div class="followers-section">
     <a (click)="toggleFollowers()" class="followers-link">
-      <span class="followers-count">{{ numFollowers }}</span> followers
+      <span class="followers-count">{{ numFollowers }}</span>
+      followers
     </a>
     <div *ngIf="showFollowers" class="followers-list">
       <div *ngFor="let follower of followersList" class="follower-item">
         <div class="follower-avatar">
-          <img src="api/{{profilePictures[follower.id]}}" alt="Profile Picture">
+          <img [src]="profilePictures[follower.id] | apiPrefix" alt="Profile Picture" />
         </div>
         <div class="follower-info">
-          <a href="/profile/{{ follower.userId }}" class="username">{{ follower.username }}</a>
+          <a [routerLink]="follower.userId | profileLink" class="username">{{ follower.username }}</a>
         </div>
       </div>
     </div>
@@ -17,16 +18,17 @@
 
   <div class="follows-section">
     <a (click)="toggleFollows()" class="follows-link">
-      <span class="follows-count">{{ numFollows }}</span> following
+      <span class="follows-count">{{ numFollows }}</span>
+      following
     </a>
 
     <div *ngIf="showFollows" class="following-list">
       <div *ngFor="let following of followsList" class="following-item">
         <div class="following-avatar">
-          <img src="api/{{profilePictures[following.id]}}" alt="Profile Picture">
+          <img [src]="profilePictures[following.id] | apiPrefix" alt="Profile Picture" />
         </div>
         <div class="following-info">
-          <a href="/profile/{{ following.userId }}" class="username">{{ following.username }}</a>
+          <a [routerLink]="following.userId | profileLink" class="username">{{ following.username }}</a>
         </div>
       </div>
     </div>

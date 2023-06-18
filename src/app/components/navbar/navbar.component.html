@@ -14,19 +14,21 @@
     </div>
   </div>
 
-<div class="right container" *ngIf="{ isLoggedIn: isLoggedIn$ | async } as data">
-  <div class="btn" *ngIf="!data.isLoggedIn">
-    <a routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Login</a>
-  </div>
-  <div class="btn rounded" *ngIf="!data.isLoggedIn">
-    <button mat-flat-button color="primary">
-      <a routerLink="/register" routerLinkActive="active" ariaCurrentWhenActive="page">Register</a>
-    </button>
-  </div>
-  <div class="btn" *ngIf="data.isLoggedIn">
-    <a [routerLink]="'/profile/' + (currentUser$ | async)?.id" routerLinkActive="active" ariaCurrentWhenActive="page">My profile</a>
-  </div>
-  <div class="btn" *ngIf="data.isLoggedIn">
+  <div class="right container" *ngIf="{ isLoggedIn: isLoggedIn$ | async } as data">
+    <div class="btn" *ngIf="!data.isLoggedIn">
+      <a routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Login</a>
+    </div>
+    <div class="btn rounded" *ngIf="!data.isLoggedIn">
+      <button mat-flat-button color="primary">
+        <a routerLink="/register" routerLinkActive="active" ariaCurrentWhenActive="page">Register</a>
+      </button>
+    </div>
+    <div class="btn" *ngIf="data.isLoggedIn">
+      <a [routerLink]="(currentUser$ | async)?.id | profileLink" routerLinkActive="active" ariaCurrentWhenActive="page">
+        My profile
+      </a>
+    </div>
+    <div class="btn" *ngIf="data.isLoggedIn">
       <a routerLink="/edit-profile" routerLinkActive="active" ariaCurrentWhenActive="page">Edit profile</a>
     </div>
     <div class="btn rounded" *ngIf="data.isLoggedIn">
