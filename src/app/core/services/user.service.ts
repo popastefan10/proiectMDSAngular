@@ -4,8 +4,8 @@ import { LoginType } from 'app/components/login/login.type';
 import { RegisterType } from 'app/components/register/register.type';
 import { GenericResponse } from 'app/models/generic-response.model';
 import { SessionUser } from 'app/models/session-user.model';
-import { ErrorResponse } from 'app/shared/utils/error';
-import { BehaviorSubject, Observable, catchError, map, of, tap } from 'rxjs';
+import { handleError } from 'app/shared/utils/error';
+import { BehaviorSubject, Observable, map, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -21,8 +21,8 @@ export class UserService {
   constructor(private readonly httpClient: HttpClient) {
     this.whoAmI()
       .pipe(
-        catchError((err: ErrorResponse) => of(null)),
-        tap((res) => this.currentUserSubject.next(res?.content))
+        tap((res) => this.currentUserSubject.next(res?.content)),
+        handleError()
       )
       .subscribe();
   }

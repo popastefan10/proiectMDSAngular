@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { GenericResponse } from 'app/models/generic-response.model';
 import { ProfileCreate } from 'app/models/profile-create.model';
 import { Profile } from 'app/models/profile.model';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -40,6 +40,16 @@ export class ProfileService {
     return this.httpClient.get<GenericResponse<Profile>>(url);
   }
 
+  public getProfileRange(usersIds: string[]): Observable<GenericResponse<Profile[]>> {
+    const url = 'api/profiles/users';
+    return this.httpClient.post<GenericResponse<Profile[]>>(url, { usersIds });
+  }
+
+  public getProfilePicture(id: string): Observable<GenericResponse<Partial<Profile>>> {
+    const url: string = `/api/profiles/${id}/profilePicture`;
+    return this.httpClient.get<GenericResponse<Partial<Profile>>>(url);
+  }
+
   public deleteProfile(): Observable<GenericResponse<Partial<Profile>>> {
     const url: string = '/api/profiles';
     return this.httpClient.delete<GenericResponse<Partial<Profile>>>(url, { withCredentials: true });
@@ -69,8 +79,14 @@ export class ProfileService {
       formData.append('media', data.media);
     }
 
-    return this.httpClient.patch<GenericResponse<Partial<Profile>>>('/api/profiles', formData, {
-      withCredentials: true
-    });
+    if (formData.has('username') || formData.has('name') || formData.has('bio') || formData.has('media')) {
+      return this.httpClient.patch<GenericResponse<Partial<Profile>>>('/api/profiles', formData, { withCredentials: true });
+    } else {
+      return of({
+        error: undefined,
+        content: {}
+      });
+    }
+
   }
 }

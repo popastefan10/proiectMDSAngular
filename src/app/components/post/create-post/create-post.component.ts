@@ -7,7 +7,7 @@ import { GenericResponse } from 'app/models/generic-response.model';
 import { PostService } from 'app/core/services/post.service';
 import { BehaviorSubject, Observable, catchError, map, of, tap } from 'rxjs';
 import { CustomError, ErrorResponse } from 'app/shared/utils/error';
-import { openClosedAnimation } from 'app/animations';
+import { openClosedAnimation } from 'app/shared/utils/animations';
 import { Router } from '@angular/router';
 
 interface Image {

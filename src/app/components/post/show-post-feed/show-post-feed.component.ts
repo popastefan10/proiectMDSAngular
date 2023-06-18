@@ -15,29 +15,18 @@ export class ShowPostFeedComponent {
   formattedDate: string | undefined;
   author: Partial<Profile> | undefined;
   idxMedia: number = 0;
-  constructor(private profileService: ProfileService) {
-
-  }
+  constructor(private profileService: ProfileService) {}
 
   ngOnInit() {
-
     // format date
     const dateOptions: Intl.DateTimeFormatOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     this.formattedDate = new Date(this.post?.createdAt!).toLocaleDateString(undefined, dateOptions);
 
     // need this to display author's user name
-    this.profileService.getProfile(this.post?.userId!)
-      .pipe(
-        tap((y: GenericResponse<Partial<Profile>>) => {
-          if (y.error) {
-            console.log(y.error);
-          } else {
-            this.author = y.content;
-          }
-        })
-      )
+    this.profileService
+      .getProfile(this.post?.userId!)
+      .pipe(tap((y: GenericResponse<Partial<Profile>>) => (this.author = y.content)))
       .subscribe();
-
   }
 
   onBackArrowClick() {

@@ -5,7 +5,7 @@ import { RegisterFormType, RegisterType } from './register.type';
 import { Router } from '@angular/router';
 import { catchError, map, of } from 'rxjs';
 import { CustomError, ErrorResponse } from 'app/shared/utils/error';
-import { openClosedAnimation } from 'app/animations';
+import { openClosedAnimation } from 'app/shared/utils/animations';
 
 @Component({
   selector: 'mds-register-form',

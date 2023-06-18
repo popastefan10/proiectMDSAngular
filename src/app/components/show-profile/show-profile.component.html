@@ -1,0 +1,44 @@
+<div *ngIf="profile" class="main-div">
+  <mat-card class="card">
+    <mat-card-content>
+      <div class="profile-section">
+        <div class="profile-image">
+          <img *ngIf="profilePictureUrl" [src]="profilePictureUrl | apiPrefix" class="rounded-image">
+        </div>
+
+        <div class="profile-info">
+          <div class="username-container">
+            <h2 class="username">{{ profile.username }}</h2>
+            <button mat-raised-button *ngIf="!(isCurrentUserProfile$ | async)" mat-stroked-button class="follow-button">Follow</button>
+            <button routerLink="/edit-profile" routerLinkActive="active" mat-raised-button *ngIf="(isCurrentUserProfile$ | async)" mat-stroked-button class="edit-profile-button">Edit profile</button>
+          </div>
+
+          <div class="follow-info">
+            <mds-followers [userId]="profile.userId"></mds-followers>
+          </div>
+        </div>
+
+      </div>
+      <div class="bio">
+        <p>Bio: {{ profile.bio }}</p>
+      </div>
+
+      <div class="post-grid">
+        <div *ngFor="let post of posts" class="post-card">
+          <img [src]="post.picturesURLs[0] | apiPrefix" class="post-image">
+          <div class="post-overlay">
+            <div class="likes">
+              <mat-icon>favorite</mat-icon>
+              <span>{{ post.likesCount }}</span>
+            </div>
+            <div class="comments">
+              <mat-icon>comment</mat-icon>
+              <span>{{ post.commentsCount }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </mat-card-content>
+  </mat-card>
+</div>
