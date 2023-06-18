@@ -25,7 +25,7 @@
 
       <div class="post-grid">
         <div *ngFor="let post of posts" class="post-card">
-          <img src="/api/{{post.picturesURLs[0]}}" class="post-image">
+          <img [src]="post.picturesURLs[0] | apiPrefix" class="post-image">
           <div class="post-overlay">
             <div class="likes">
               <mat-icon>favorite</mat-icon>
