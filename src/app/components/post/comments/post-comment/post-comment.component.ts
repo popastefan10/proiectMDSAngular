@@ -1,12 +1,12 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
-import { openClosedAnimation } from 'app/animations';
+import { openClosedAnimation } from 'app/shared/utils/animations';
 import { CommentService } from 'app/core/services/comment.service';
 import { ProfileService } from 'app/core/services/profile.service';
 import { CommentCreate } from 'app/models/comment-create.model';
 import { Comment } from 'app/models/comment.model';
 import { Profile } from 'app/models/profile.model';
 import { formatInstagramTimestamp } from 'app/shared/utils/date';
-import { catchError } from 'rxjs';
+import { handleError } from 'app/shared/utils/error';
 
 @Component({
   selector: 'mds-post-comment',
@@ -45,12 +45,7 @@ export class PostCommentComponent implements OnInit, OnChanges {
       // fetch user profile
       this.profileService
         .getProfile(comment.userId)
-        .pipe(
-          catchError((err) => {
-            console.error(err);
-            return [];
-          })
-        )
+        .pipe(handleError())
         .subscribe((res) => {
           this.userProfile = res.content;
         });
@@ -74,12 +69,7 @@ export class PostCommentComponent implements OnInit, OnChanges {
     };
     this.commentService
       .create(reply)
-      .pipe(
-        catchError((err) => {
-          console.error(err);
-          return [];
-        })
-      )
+      .pipe(handleError())
       .subscribe((res) => {
         this.isReplying = false;
         this.replyContent = '';
