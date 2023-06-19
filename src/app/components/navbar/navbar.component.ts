@@ -24,6 +24,6 @@ export class NavbarComponent {
     this.userService
       .logout()
       .pipe(catchError(handleError()))
-      .subscribe(() => this.router.navigate(['/login']));
+      .subscribe(() => this.router.navigate(['/']));
   }
 }
