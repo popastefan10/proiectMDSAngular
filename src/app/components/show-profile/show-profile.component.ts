@@ -161,8 +161,7 @@ export class ShowProfileComponent implements OnInit, OnDestroy {
     }
     this.followerService.follow(this.profile.userId).subscribe((response) => {
       this.isFollowing$ = of(true);
-    }
-    );
+    });
   }
 
   public unfollow() {
@@ -171,8 +170,7 @@ export class ShowProfileComponent implements OnInit, OnDestroy {
     }
     this.followerService.unfollow(this.profile.userId).subscribe((response) => {
       this.isFollowing$ = of(false);
-    }
-    );
+    });
   }
 
   public openPost(postId: String): void {
