@@ -10,16 +10,17 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
 import { FeedComponent } from './components/feed/feed.component';
 import { PostPageComponent } from './components/post-page/post-page.component';
 import { ShowProfileComponent } from './components/show-profile/show-profile.component';
+import { IsLoggedInGuard } from './shared/guards/is-logged-in.guard';
 
 const routes: Routes = [
   { path: 'api-tests', component: ApiTestsComponent },
   { path: 'login', component: LoginFormComponent },
   { path: 'register', component: RegisterFormComponent },
-  { path: 'posts/create', component: CreatePostComponent },
+  { path: 'posts/create', component: CreatePostComponent, canActivate: [IsLoggedInGuard] },
   { path: 'posts/:id', component: PostPageComponent },
-  { path: 'create-profile', component: CreateProfileComponent },
-  { path: 'edit-profile', component: EditProfileComponent },
-  { path: 'feed', component: FeedComponent },
+  { path: 'create-profile', component: CreateProfileComponent, canActivate: [IsLoggedInGuard] },
+  { path: 'edit-profile', component: EditProfileComponent, canActivate: [IsLoggedInGuard] },
+  { path: 'feed', component: FeedComponent, canActivate: [IsLoggedInGuard] },
   { path: 'posts/:id', component: PostPageComponent },
   { path: 'profile/:userId', component: ShowProfileComponent },
   { path: '', redirectTo: '/feed', pathMatch: 'full' },
