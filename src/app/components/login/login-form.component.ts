@@ -3,11 +3,9 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { UserService } from 'app/core/services/user.service';
 import { LoginFormType, LoginType } from './login.type';
 import { Router } from '@angular/router';
-import { catchError, map, of, tap } from 'rxjs';
+import { catchError, map, of } from 'rxjs';
 import { CustomError, ErrorResponse } from 'app/shared/utils/error';
 import { openClosedAnimation } from 'app/animations';
-
-
 
 @Component({
   selector: 'mds-login-form',
@@ -16,7 +14,6 @@ import { openClosedAnimation } from 'app/animations';
   animations: [openClosedAnimation]
 })
 export class LoginFormComponent implements OnInit {
-
   public passwordVisible: boolean = false;
 
   public toggleShow() {
@@ -24,8 +21,7 @@ export class LoginFormComponent implements OnInit {
     if (this.passwordVisible) {
       document.getElementById('password')!.style.fontFamily = 'inherit';
       document.getElementById('password')!.style.letterSpacing = 'inherit';
-    }
-    else {
+    } else {
       document.getElementById('password')!.style.fontFamily = 'Verdana, Geneva, Tahoma, sans-serif';
       document.getElementById('password')!.style.letterSpacing = '0.125em';
     }

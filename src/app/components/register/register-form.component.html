@@ -16,10 +16,10 @@
     <div>
       <mat-form-field class="register-form-field">
         <mat-label>Password</mat-label>
-        <div>
+        <div class="password-container">
           <input matInput id="password" [type]="passwordVisible ? 'text' : 'password'" formControlName="password" />
-          <button mat-icon-button >
-            <mat-icon *ngIf = !passwordVisible class="fa" (click)="toggleShow()" [fontIcon] = "passwordVisible ? 'visibility_off' : 'visibility'"/>
+          <button mat-icon-button class="visibility-btn" type="button" (click)="toggleShow()">
+            <mat-icon class="fa" [fontIcon]="passwordVisible ? 'visibility_off' : 'visibility'" />
           </button>
         </div>
         <mat-error *ngIf="password.invalid">{{ password | formControlErrorMessage : password.errors }}</mat-error>
@@ -29,7 +29,9 @@
       <mat-form-field class="register-form-field">
         <mat-label>Confirm Password</mat-label>
         <input matInput id="confirmPassword" type="password" formControlName="confirmPassword" />
-        <mat-error *ngIf="confirmPassword.invalid">{{ confirmPassword | formControlErrorMessage : confirmPassword.errors }}</mat-error>
+        <mat-error *ngIf="confirmPassword.invalid">
+          {{ confirmPassword | formControlErrorMessage : confirmPassword.errors }}
+        </mat-error>
       </mat-form-field>
     </div>
 
