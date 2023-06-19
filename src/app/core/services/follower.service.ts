@@ -20,4 +20,16 @@ export class FollowerService {
     const url = 'api/follow?followedBy=' + id;
     return this.httpClient.get<GenericResponse<Follower[]>>(url);
   }
+
+  public follow(id: string) {
+    const url = 'api/follow';
+    return this.httpClient.post<GenericResponse<Follower>>(url, { follows: id });
+  }
+
+  public unfollow(userId: string) {
+    //followerRouter.delete('/follow/:userId', authenticationController.isAuthenticated, followerController.delete);
+
+    const url = 'api/follow/' + userId;
+    return this.httpClient.delete<GenericResponse<Follower>>(url);
+  }
 }
