@@ -9,8 +9,9 @@
         <div class="profile-info">
           <div class="username-container">
             <h2 class="username">{{ profile.username }}</h2>
-            <button mat-raised-button *ngIf="!(isCurrentUserProfile$ | async)" mat-stroked-button class="follow-button">Follow</button>
             <button routerLink="/edit-profile" routerLinkActive="active" mat-raised-button *ngIf="(isCurrentUserProfile$ | async)" mat-stroked-button class="edit-profile-button">Edit profile</button>
+            <button mat-raised-button *ngIf="!(isCurrentUserProfile$ | async) && !(isFollowing$ | async)" mat-stroked-button class="follow-button" (click)="follow()"> Follow </button>
+            <button mat-raised-button *ngIf="!(isCurrentUserProfile$ | async) && (isFollowing$ | async)" mat-stroked-button class="follow-button" (click)="unfollow()"> Unfollow </button>
           </div>
 
           <div class="follow-info">
@@ -26,7 +27,7 @@
       <div class="post-grid">
         <div *ngFor="let post of posts" class="post-card">
           <img [src]="post.picturesURLs[0] | apiPrefix" class="post-image">
-          <div class="post-overlay">
+          <div class="post-overlay" (click)="openPost(post.id)">
             <div class="likes">
               <mat-icon>favorite</mat-icon>
               <span>{{ post.likesCount }}</span>
