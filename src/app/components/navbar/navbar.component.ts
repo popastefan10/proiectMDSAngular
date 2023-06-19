@@ -10,9 +10,12 @@ import { Observable } from 'rxjs';
 export class NavbarComponent {
   public readonly isLoggedIn$: Observable<boolean> = this.userService.isLoggedIn$;
 
+
   constructor(private readonly userService: UserService) {}
 
   public logout() {
     this.userService.logout().subscribe();
+    //redirect to login page
+
   }
 }

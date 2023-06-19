@@ -3,15 +3,15 @@
     <div class="btn home">
       <a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page">Home</a>
     </div>
-    <div class="btn">
-      <a routerLink="/api-tests" routerLinkActive="active" ariaCurrentWhenActive="page">Tests</a>
-    </div>
+<!--    <div class="btn">-->
+<!--      <a routerLink="/api-tests" routerLinkActive="active" ariaCurrentWhenActive="page">Tests</a>-->
+<!--    </div>-->
     <div class="btn">
       <a routerLink="/posts/create" routerLinkActive="active" ariaCurrentWhenActive="page">Create post</a>
     </div>
-    <div class="btn">
-      <a routerLink="/feed" routerLinkActive="active" ariaCurrentWhenActive="page">Feed</a>
-    </div>
+<!--    <div class="btn">-->
+<!--      <a routerLink="/feed" routerLinkActive="active" ariaCurrentWhenActive="page">Feed</a>-->
+<!--    </div>-->
   </div>
 
   <div class="right container" *ngIf="{ isLoggedIn: isLoggedIn$ | async } as data">
@@ -28,7 +28,7 @@
       <a routerLink="/edit-profile" routerLinkActive="active" ariaCurrentWhenActive="page">Edit profile</a>
     </div>
     <div class="btn rounded" *ngIf="data.isLoggedIn">
-      <button mat-flat-button color="warn" (click)="logout()"><a>Logout</a></button>
+      <button routerLink="/login" routerLinkActive="active" mat-flat-button color="warn" (click)="logout()"><a>Logout</a></button>
     </div>
   </div>
 </div>
