@@ -3,7 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { UserService } from 'app/core/services/user.service';
 import { LoginFormType, LoginType } from './login.type';
 import { Router } from '@angular/router';
-import { catchError, map, of, tap } from 'rxjs';
+import { catchError, map, of } from 'rxjs';
 import { CustomError, ErrorResponse } from 'app/shared/utils/error';
 import { openClosedAnimation } from 'app/shared/utils/animations';
 
@@ -14,6 +14,19 @@ import { openClosedAnimation } from 'app/shared/utils/animations';
   animations: [openClosedAnimation]
 })
 export class LoginFormComponent implements OnInit {
+  public passwordVisible: boolean = false;
+
+  public toggleShow() {
+    this.passwordVisible = !this.passwordVisible;
+    if (this.passwordVisible) {
+      document.getElementById('password')!.style.fontFamily = 'inherit';
+      document.getElementById('password')!.style.letterSpacing = 'inherit';
+    } else {
+      document.getElementById('password')!.style.fontFamily = 'Verdana, Geneva, Tahoma, sans-serif';
+      document.getElementById('password')!.style.letterSpacing = '0.125em';
+    }
+  }
+
   constructor(private readonly fb: FormBuilder, private readonly userService: UserService, public router: Router) {}
 
   public readonly loginForm: FormGroup<LoginFormType> = this.fb.nonNullable.group({
