@@ -44,6 +44,6 @@ We will be managing our project backlog using [Jira](https://proiectmds.atlassia
 
 ## Demo
 
-You can check out a demo of our app [here](insert link to demo here). Please note that the demo may be subject to changes and updates as the project progresses.
+You can open our app [here](https://promeret.social), or check out a quick demo [here](https://drive.google.com/file/d/1TMPhDm8Ju7Byn2bnFCwVS71WQp4xtngI/view).  Please note that the demo may be subject to changes and updates as the project progresses.
 
 Thank you for your interest in our project! For more information and updates, please refer to the project documentation and feel free to reach out to our team.
