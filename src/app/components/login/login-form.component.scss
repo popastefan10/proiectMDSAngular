@@ -1,6 +1,13 @@
 @use "colors" as *;
 @use "mixins" as mixins;
 
+@mixin mat-icon($size, $font-size: calc($size * 0.75)) {
+  font-size: $font-size;
+  line-height: $size;
+  height: $size;
+  width: $size;
+}
+
 :host {
   display: flex;
   flex-direction: column;
@@ -30,6 +37,7 @@
   .login-form-field {
     width: 100%;
     margin-bottom: 8px;
+    transition: transform 0.25s;
   }
 
   .login-button {
@@ -37,6 +45,17 @@
     width: 100%;
     color: $very-light-text-color;
     text-transform: uppercase;
+  }
+
+  #password {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    letter-spacing: 0.125em;
+  }
+
+  $btn-size: 32px;
+  mat-icon {
+    @include mixins.mat-icon($btn-size);
+    cursor: pointer;
   }
 }
 
@@ -49,6 +68,7 @@
     color: $primary;
   }
 }
+
 
 mds-error-box {
   margin: 32px 32px 0 32px;
