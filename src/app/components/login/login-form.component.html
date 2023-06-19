@@ -16,17 +16,12 @@
     <div>
       <mat-form-field class="login-form-field">
         <mat-label>Password</mat-label>
-        <div class="password-container">
-          <input
-            matInput
-            id="password"
-            [type]="passwordVisible ? 'text' : 'password'"
-            formControlName="password"
-          />
-          <button mat-icon-button class="visibility-btn" type="button" (click)="toggleShow()">
-            <mat-icon class="fa" [fontIcon]="passwordVisible ? 'visibility_off' : 'visibility'" />
-          </button>
-        </div>
+        <input matInput id="password" [type]="passwordVisible ? 'text' : 'password'" formControlName="password" />
+        <mat-icon
+          matSuffix
+          [fontIcon]="passwordVisible ? 'visibility_off' : 'visibility'"
+          (click)="toggleShow()"
+        />
         <mat-error *ngIf="password.invalid">{{ password | formControlErrorMessage : password.errors }}</mat-error>
       </mat-form-field>
     </div>

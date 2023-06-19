@@ -47,24 +47,15 @@
     text-transform: uppercase;
   }
 
-  .password-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  #password {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    letter-spacing: 0.125em;
+  }
 
-    #password {
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-      letter-spacing: 0.125em;
-    }
-
-    $btn-size: 32px;
-    .visibility-btn {
-      @include mixins.icon-button($btn-size);
-
-      mat-icon {
-        @include mixins.mat-icon($btn-size);
-      }
-    }
+  $btn-size: 32px;
+  mat-icon {
+    @include mixins.mat-icon($btn-size);
+    cursor: pointer;
   }
 }
 
