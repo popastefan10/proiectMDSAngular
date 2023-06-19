@@ -1,13 +1,13 @@
-import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
-import { openClosedAnimation } from "app/animations";
-import { CustomError } from "app/shared/utils/error";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { openClosedAnimation } from 'app/shared/utils/animations';
+import { CustomError, handleError } from 'app/shared/utils/error';
 import { Router } from '@angular/router';
-import { ProfileService } from "app/core/services/profile.service";
-import { ProfileCreate } from "app/models/profile-create.model";
-import { EditProfileFormType } from "./edit-profile.type";
-import { Profile } from "app/models/profile.model";
-import { GenericResponse } from "app/models/generic-response.model";
+import { ProfileService } from 'app/core/services/profile.service';
+import { ProfileCreate } from 'app/models/profile-create.model';
+import { EditProfileFormType } from './edit-profile.type';
+import { Profile } from 'app/models/profile.model';
+import { GenericResponse } from 'app/models/generic-response.model';
 
 @Component({
   selector: 'mds-edit-profile',
@@ -16,10 +16,14 @@ import { GenericResponse } from "app/models/generic-response.model";
   animations: [openClosedAnimation]
 })
 export class EditProfileComponent implements OnInit {
-  selectedPhotoUrl = "";
-  selectedPhotoName = "";
+  selectedPhotoUrl = '';
+  selectedPhotoName = '';
 
-  constructor(private readonly fb: FormBuilder, private readonly profileService: ProfileService, public router: Router) {}
+  constructor(
+    private readonly fb: FormBuilder,
+    private readonly profileService: ProfileService,
+    public router: Router
+  ) {}
 
   public editProfileError: CustomError | undefined;
 
@@ -40,16 +44,15 @@ export class EditProfileComponent implements OnInit {
           bio: this.bio.value
         },
         media: this.profilePicture
-      }
+      };
 
-      this.profileService.patch(data)
+      this.profileService
+        .patch(data)
+        .pipe(handleError())
         .subscribe((res: GenericResponse<Partial<Profile>>) => {
-          if (res.error) {
-            console.log(res.error);
-          } else {
-            console.log(res.content);
-            this.profileForm.reset();
-          }
+          this.profileForm.reset();
+          if (!res.content?.userId) console.error('No user id');
+          else this.router.navigate(['/profile/', res.content?.userId]);
         });
     }
   }
@@ -63,13 +66,13 @@ export class EditProfileComponent implements OnInit {
       const reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = () => {
-        this.selectedPhotoUrl = reader.result as string; 
+        this.selectedPhotoUrl = reader.result as string;
       };
     }
   }
 
   get username(): FormControl {
-    return this .profileForm.get('username') as FormControl;
+    return this.profileForm.get('username') as FormControl;
   }
 
   get name(): FormControl {

@@ -1,0 +1,28 @@
+@use "mixins" as mixins;
+
+:host {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .input {
+    flex-grow: 1;
+    resize: none;
+    border: none;
+    font-family: inherit;
+    background-color: inherit;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .send-btn, .cancel-reply-btn {
+    @include mixins.icon-button(var(--btn-size));
+    margin-left: 8px;
+
+    mat-icon {
+      @include mixins.mat-icon(var(--btn-size));
+    }
+  }
+}

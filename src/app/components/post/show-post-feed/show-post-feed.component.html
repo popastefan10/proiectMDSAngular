@@ -1,6 +1,6 @@
 <div *ngIf="post?.picturesURLs" class="media-container">
     <div class="media-img-container">
-        <img src="/api/{{post?.picturesURLs![idxMedia]}}">
+        <img [src]="post?.picturesURLs![idxMedia] | apiPrefix">
     </div>
 
 

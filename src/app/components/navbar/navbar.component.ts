@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { UserService } from 'app/core/services/user.service';
-import {Observable, throwError} from 'rxjs';
-import {reportUnhandledError} from "rxjs/internal/util/reportUnhandledError";
-import {Router} from "@angular/router";
-import {catchError} from "rxjs/operators";
+import { Observable, throwError } from 'rxjs';
+import { Router } from '@angular/router';
+import { catchError } from 'rxjs/operators';
+import { SessionUser } from 'app/models/session-user.model';
+import { handleError } from 'app/shared/utils/error';
 
 @Component({
   selector: 'mds-navbar',
@@ -12,6 +13,7 @@ import {catchError} from "rxjs/operators";
 })
 export class NavbarComponent {
   public readonly isLoggedIn$: Observable<boolean> = this.userService.isLoggedIn$;
+  public readonly currentUser$: Observable<SessionUser | undefined> = this.userService.currentUser$;
 
   private readonly router: Router = new Router();
   constructor(private readonly userService: UserService) {}
@@ -19,17 +21,9 @@ export class NavbarComponent {
   public logout() {
     this.userService.logout().subscribe();
 
-    function handleError(error: any) {
-      // Handle the error here
-      console.error('An error occurred:', error);
-      // Optionally, rethrow the error to propagate it further
-      return throwError(error);
-    }
-
-    this.userService.logout().
-      pipe(
-        catchError(handleError)
-      )
+    this.userService
+      .logout()
+      .pipe(catchError(handleError()))
       .subscribe(() => this.router.navigate(['/login']));
   }
 }

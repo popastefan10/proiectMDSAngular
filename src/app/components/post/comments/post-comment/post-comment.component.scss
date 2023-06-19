@@ -7,19 +7,36 @@
   display: flex;
   flex-direction: row;
   padding: 8px;
+
+  &.level-2 {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 .profile-pic {
   margin-right: 8px;
 }
 
-.content {
+.content-container {
   flex-grow: 1;
 
-  .profile-link {
-    cursor: pointer;
-    font-weight: 500;
+  .content {
+    display: flex;
+    flex-direction: row;
+
+    .comment-and-actions {
+      flex-grow: 1;
+    }
   }
+
+  .replies-container {
+    padding-top: 8px;
+  }
+}
+
+.comment {
+  line-height: 20px; // It should match the height of the like button. Otherwise there is a small gap between the comment and the like button.
 }
 
 .actions {
@@ -41,28 +58,20 @@
 }
 
 .add-comment {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 4px 8px;
+  margin: 4px 0;
+  $btn-size: 20px;
 
-  .add-comment-input {
-    flex-grow: 1;
-    resize: none;
-    border: none;
-    font-family: inherit;
-
-    &:focus {
-      outline: none;
-    }
-  }
-
-  .add-comment-btn, .cancel-reply-btn {
-    @include mixins.icon-button(32px);
-    margin-left: 8px;
+  .cancel-reply-btn {
+    @include mixins.icon-button($btn-size);
+    margin-left: 4px;
 
     mat-icon {
-      @include mixins.mat-icon(32px, 20px);
+      @include mixins.mat-icon($btn-size);
     }
   }
+}
+
+.like {
+  flex-shrink: 0;
+  margin-left: 8px;
 }

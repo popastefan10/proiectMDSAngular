@@ -3,40 +3,51 @@ import { Injectable } from '@angular/core';
 import { GenericResponse } from 'app/models/generic-response.model';
 import { ProfileCreate } from 'app/models/profile-create.model';
 import { Profile } from 'app/models/profile.model';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfileService {
-
-  constructor(private readonly httpClient: HttpClient) { }
+  constructor(private readonly httpClient: HttpClient) {}
 
   public create(data: ProfileCreate): Observable<GenericResponse<Partial<Profile>>> {
     const formData = new FormData();
 
-    if (data.metadata.username){
-    formData.append('username', data.metadata.username);
+    if (data.metadata.username) {
+      formData.append('username', data.metadata.username);
     }
 
-    if (data.metadata.name){
+    if (data.metadata.name) {
       formData.append('name', data.metadata.name);
     }
 
-    if (data.metadata.bio){
+    if (data.metadata.bio) {
       formData.append('bio', data.metadata.bio);
     }
 
-    if (data.media){
+    if (data.media) {
       formData.append('media', data.media);
     }
 
-    return this.httpClient.post<GenericResponse<Partial<Profile>>>('/api/profiles', formData, { withCredentials: true });
+    return this.httpClient.post<GenericResponse<Partial<Profile>>>('/api/profiles', formData, {
+      withCredentials: true
+    });
   }
 
   public getProfile(id: string): Observable<GenericResponse<Profile>> {
     const url: string = '/api/profiles' + '/' + id;
     return this.httpClient.get<GenericResponse<Profile>>(url);
+  }
+
+  public getProfileRange(usersIds: string[]): Observable<GenericResponse<Profile[]>> {
+    const url = 'api/profiles/users';
+    return this.httpClient.post<GenericResponse<Profile[]>>(url, { usersIds });
+  }
+
+  public getProfilePicture(id: string): Observable<GenericResponse<Partial<Profile>>> {
+    const url: string = `/api/profiles/${id}/profilePicture`;
+    return this.httpClient.get<GenericResponse<Partial<Profile>>>(url);
   }
 
   public deleteProfile(): Observable<GenericResponse<Partial<Profile>>> {
@@ -52,23 +63,32 @@ export class ProfileService {
   public patch(data: ProfileCreate): Observable<GenericResponse<Partial<Profile>>> {
     const formData = new FormData();
 
-    if (data.metadata.username){
-    formData.append('username', data.metadata.username);
+    if (data.metadata.username) {
+      formData.append('username', data.metadata.username);
     }
 
-    if (data.metadata.name){
+    if (data.metadata.name) {
       formData.append('name', data.metadata.name);
     }
 
-    if (data.metadata.bio){
+    if (data.metadata.bio) {
       formData.append('bio', data.metadata.bio);
     }
 
-    if (data.media){
+    if (data.media) {
       formData.append('media', data.media);
     }
 
-    return this.httpClient.patch<GenericResponse<Partial<Profile>>>('/api/profiles', formData, { withCredentials: true });
-  }
+    if (formData.has('username') || formData.has('name') || formData.has('bio') || formData.has('media')) {
+      return this.httpClient.patch<GenericResponse<Partial<Profile>>>('/api/profiles', formData, { withCredentials: true });
+    } else {
+      return of({
+        error: undefined,
+        content: {}
+      });
+    }
 
+    
+
+  }
 }

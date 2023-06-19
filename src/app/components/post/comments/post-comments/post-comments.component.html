@@ -2,15 +2,6 @@
   <mds-post-comment *ngFor="let comment of comments" [comment]="comment"></mds-post-comment>
 </div>
 
-<div class="add-comment">
-  <textarea
-    class="add-comment-input"
-    type="text"
-    placeholder="Add a comment..."
-    rows="1"
-    [(ngModel)]="newComment"
-  ></textarea>
-  <button class="add-comment-btn" mat-icon-button (click)="addComment()">
-    <mat-icon>send</mat-icon>
-  </button>
+<div class="add-comment" [class.no-comments]="comments.length === 0">
+  <mds-input-send [placeholder]="'Add a comment...'" [(content)]="newComment" (send)="addComment()"></mds-input-send>
 </div>

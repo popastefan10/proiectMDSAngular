@@ -1,0 +1,18 @@
+<div *ngIf="post" class="post-container">
+  <div class="header">
+    <mds-profile-pic [pictureSrc]="userProfile?.profilePictureURL" [imgSize]="'40px'" [userId]="userProfile?.userId" />
+    <mds-username class="username" [username]="userProfile?.username" [userId]="userProfile?.userId" />
+    <button mat-icon-button class="open-post" title="Go to post" (click)="openPost()">
+      <mat-icon>open_in_browser</mat-icon>
+    </button>
+  </div>
+  <div class="media">
+    <mds-post-media [picturesURLs]="post.picturesURLs" />
+  </div>
+  <div class="actions">
+    <mds-post-actions [post]="post" />
+  </div>
+  <div class="comments">
+    <mds-post-comments [post]="post" />
+  </div>
+</div>

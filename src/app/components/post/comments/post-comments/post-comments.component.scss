@@ -13,29 +13,6 @@
 }
 
 .add-comment {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
   padding: 4px 8px;
   border-top: $separator-300;
-
-  .add-comment-input {
-    flex-grow: 1;
-    resize: none;
-    border: none;
-    font-family: inherit;
-
-    &:focus {
-      outline: none;
-    }
-  }
-
-  .add-comment-btn {
-    @include mixins.icon-button(32px);
-    margin-left: 8px;
-
-    mat-icon {
-      @include mixins.mat-icon(32px, 20px);
-    }
-  }
 }

@@ -24,6 +24,13 @@ import { PostPageComponent } from './components/post-page/post-page.component';
 import { FileUploadComponent } from './components/shared/file-upload/file-upload.component';
 import { PostCommentComponent } from './components/post/comments/post-comment/post-comment.component';
 import { PostCommentsComponent } from './components/post/comments/post-comments/post-comments.component';
+import { InputSendComponent } from './components/shared/input-send/input-send.component';
+import { UsernameComponent } from './components/shared/username/username.component';
+import { PostActionsComponent } from './components/post/post-actions/post-actions.component';
+import { CommentLikeComponent } from './components/post/comments/comment-like/comment-like.component';
+import { FeedPostComponent } from './components/post/feed-post/feed-post.component';
+import { ShowProfileComponent } from './components/show-profile/show-profile.component';
+import { FollowersComponent } from './components/followers/followers.component';
 
 @NgModule({
   declarations: [
@@ -45,9 +52,16 @@ import { PostCommentsComponent } from './components/post/comments/post-comments/
     PostPageComponent,
     FileUploadComponent,
     PostCommentComponent,
-    PostCommentsComponent
+    PostCommentsComponent,
+    InputSendComponent,
+    UsernameComponent,
+    PostActionsComponent,
+    CommentLikeComponent,
+    FeedPostComponent,
+    ShowProfileComponent,
+    FollowersComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, SharedModule, MaterialModule, MatButtonModule, MatCardModule],
+  imports: [BrowserModule, AppRoutingModule, SharedModule, MaterialModule, MatButtonModule],
   providers: [],
   bootstrap: [AppComponent]
 })

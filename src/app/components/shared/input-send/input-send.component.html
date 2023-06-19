@@ -1,0 +1,5 @@
+<textarea class="input" type="text" [placeholder]="placeholder" rows="1" [(ngModel)]="content"></textarea>
+<button class="send-btn" mat-icon-button title="Send" [style.--btn-size]="btnSize" (click)="onSendClick()">
+  <mat-icon>send</mat-icon>
+</button>
+<ng-content select=".extra-buttons"></ng-content>
