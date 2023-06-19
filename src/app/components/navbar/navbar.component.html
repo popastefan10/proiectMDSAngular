@@ -28,7 +28,7 @@
       <a routerLink="/edit-profile" routerLinkActive="active" ariaCurrentWhenActive="page">Edit profile</a>
     </div>
     <div class="btn rounded" *ngIf="data.isLoggedIn">
-      <button routerLink="/login" routerLinkActive="active" mat-flat-button color="warn" (click)="logout()"><a>Logout</a></button>
+      <button mat-flat-button color="warn" (click)="logout()"><a>Logout</a></button>
     </div>
   </div>
 </div>
