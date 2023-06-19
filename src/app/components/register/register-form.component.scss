@@ -1,8 +1,12 @@
 @use "colors" as *;
 @use "mixins" as mixins;
 
-@import "~bootstrap/dist/css/bootstrap.css";
-@import "~@fortawesome/fontawesome-free/css/all.css";
+@mixin mat-icon($size, $font-size: calc($size * 0.75)) {
+  font-size: $font-size;
+  line-height: $size;
+  height: $size;
+  width: $size;
+}
 
 :host {
   display: flex;
@@ -37,11 +41,8 @@
     div {
       display: flex;
 
-
-      i {
-        transform: translateY(-2px);
-        align-content: center;
-        margin-left: 10px;
+      .fa {
+        transform: translateY(-7px);
       }
     }
 
