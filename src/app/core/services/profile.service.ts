@@ -80,15 +80,14 @@ export class ProfileService {
     }
 
     if (formData.has('username') || formData.has('name') || formData.has('bio') || formData.has('media')) {
-      return this.httpClient.patch<GenericResponse<Partial<Profile>>>('/api/profiles', formData, { withCredentials: true });
+      return this.httpClient.patch<GenericResponse<Partial<Profile>>>('/api/profiles', formData, {
+        withCredentials: true
+      });
     } else {
       return of({
         error: undefined,
         content: {}
       });
     }
-
-    
-
   }
 }

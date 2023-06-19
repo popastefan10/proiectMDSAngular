@@ -30,7 +30,7 @@
       </mat-form-field>
     </div>
     <div class="edit-profile-form-field">
-      <button mat-raised-button class="choose-photo-btn" type="button" (click)="fileInput.click()">
+      <button mat-raised-button class="choose-photo-btn btn" color="accent" type="button" (click)="fileInput.click()">
         Choose a profile photo
       </button>
       <div class="photo-preview" *ngIf="selectedPhotoUrl">
@@ -39,8 +39,11 @@
       </div>
       <input #fileInput type="file" accept=".jpg,.jpeg,.png" (change)="onFileSelected($event)" />
     </div>
-    <button mat-raised-button color="primary" type="submit" class="confirm-button" [disabled]="profileForm.invalid">
+    <button mat-raised-button color="primary" type="submit" class="confirm-button btn" [disabled]="profileForm.invalid">
       Save Changes
+    </button>
+    <button mat-raised-button color="warn" type="button" class="delete-account-btn btn" (click)="deleteAccount()">
+      Delete Account
     </button>
   </form>
 </div>

@@ -48,4 +48,8 @@ export class UserService {
       .post<GenericResponse<SessionUser>>('api/signup', data, { withCredentials: true })
       .pipe(tap((res) => this.currentUserSubject.next(res.content)));
   }
+
+  public delete(): Observable<GenericResponse<undefined>> {
+    return this.httpClient.delete<GenericResponse<undefined>>('api/users/delete');
+  }
 }

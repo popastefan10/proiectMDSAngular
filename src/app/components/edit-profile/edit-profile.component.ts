@@ -8,6 +8,8 @@ import { ProfileCreate } from 'app/models/profile-create.model';
 import { EditProfileFormType } from './edit-profile.type';
 import { Profile } from 'app/models/profile.model';
 import { GenericResponse } from 'app/models/generic-response.model';
+import { UserService } from 'app/core/services/user.service';
+import { switchMap } from 'rxjs';
 
 @Component({
   selector: 'mds-edit-profile',
@@ -22,6 +24,7 @@ export class EditProfileComponent implements OnInit {
   constructor(
     private readonly fb: FormBuilder,
     private readonly profileService: ProfileService,
+    private readonly userService: UserService,
     public router: Router
   ) {}
 
@@ -84,4 +87,14 @@ export class EditProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  public deleteAccount(): void {
+    this.userService
+      .delete()
+      .pipe(
+        switchMap(() => this.userService.logout()),
+        handleError()
+      )
+      .subscribe(() => this.router.navigate(['/']));
+  }
 }
