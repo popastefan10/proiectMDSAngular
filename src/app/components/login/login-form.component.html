@@ -18,8 +18,9 @@
         <mat-label>Password</mat-label>
         <div>
           <input matInput id="password" [type]="passwordVisible ? 'text' : 'password'" formControlName="password" />
-          <mat-icon *ngIf = !passwordVisible class="fa" (click)="toggleShow()">visibility_off</mat-icon>
-          <mat-icon *ngIf = passwordVisible class="fa" (click)="toggleShow()">visibility</mat-icon>
+          <button mat-icon-button >
+            <mat-icon *ngIf = !passwordVisible class="fa" (click)="toggleShow()" [fontIcon] = "passwordVisible ? 'visibility_off' : 'visibility'"/>
+          </button>
         </div>
         <mat-error *ngIf="password.invalid">{{ password | formControlErrorMessage : password.errors }}</mat-error>
       </mat-form-field>
